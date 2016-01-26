@@ -1,5 +1,5 @@
 # Interaktiva
 Created by:
 
-	* Christian Abdelmassih
-	* Adelina Tahiri
+* Christian Abdelmassih
+* Adelina Tahiri
