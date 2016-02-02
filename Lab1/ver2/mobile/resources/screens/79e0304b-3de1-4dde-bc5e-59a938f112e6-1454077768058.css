@@ -1,0 +1,167 @@
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 > #backgroundBox {
+  background-color: transparent;
+  background-image: none;
+  position: absolute;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 > #alignmentBox {
+  position: relative;
+  margin: 0 auto;
+  width: 750px;
+  min-width: 750px;
+  min-height: 1334px;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Image_1 {
+  position: absolute;
+  top: 295px;
+  left: -291px;
+  width: 1330px;
+  height: 750px;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+  box-shadow: none;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Input_1 {
+  position: absolute;
+  top: 811px;
+  left: 239px;
+  padding-top: 28px;
+  padding-right: 28px;
+  padding-bottom: 28px;
+  padding-left: 28px;
+  width: 240px;
+  height: 49px;
+  background-color: #FFFFFF;
+  background-image: none;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #C8C8C8;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: #C8C8C8;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #C8C8C8;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #C8C8C8;
+  border-radius: 54px 54px 54px 54px;
+  box-shadow: none;
+  text-shadow: none;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Input_1 .valign {
+  vertical-align: middle;
+  line-height: 48.0pt;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Input_1 input {
+  color: #000000;
+  text-align: left;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 48.0pt;
+  font-style: normal;
+  font-weight: 400;
+  text-shadow: none;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Button_1 {
+  position: absolute;
+  top: 975px;
+  left: 239px;
+  width: 251px;
+  height: 63px;
+  background-color: #00D67B;
+  background-image: none;
+  border-top-width: 0px;
+  border-top-style: solid;
+  border-top-color: #CDCDCD;
+  border-right-width: 0px;
+  border-right-style: solid;
+  border-right-color: #CDCDCD;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  border-bottom-color: #CDCDCD;
+  border-left-width: 0px;
+  border-left-style: solid;
+  border-left-color: #CDCDCD;
+  border-radius: 65px 65px 65px 65px;
+  padding-top: 33px;
+  padding-right: 33px;
+  padding-bottom: 33px;
+  padding-left: 33px;
+  opacity: 0.86;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 48.0pt;
+  font-family: Josefin Sans,Arial;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Button_1 .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Button_1 span {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 48.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Button_1 span#rtr-s-Button_1_0 {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 48.0pt;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0px;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Paragraph_1 {
+  position: absolute;
+  top: 352px;
+  left: 112px;
+  width: 551px;
+  height: auto;
+  background-color: transparent;
+  background-image: none;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  line-height: 137px;
+  font-size: 72.0pt;
+  font-family: Josefin Sans,Arial;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Paragraph_1 .valign {
+  vertical-align: top;
+  text-align: center;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Paragraph_1 span {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 72.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 #s-Paragraph_1 span#rtr-s-Paragraph_1_0 {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 72.0pt;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0px;
+}
+#s-79e0304b-3de1-4dde-bc5e-59a938f112e6 > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}

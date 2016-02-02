@@ -1,0 +1,103 @@
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e > #backgroundBox {
+  background-color: transparent;
+  background-image: none;
+  position: absolute;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e > #alignmentBox {
+  position: relative;
+  margin: 0 auto;
+  width: 1024px;
+  min-width: 1024px;
+  min-height: 768px;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Image_1 {
+  position: absolute;
+  top: 0px;
+  left: -25px;
+  width: 1137px;
+  height: 769px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Text_1 {
+  position: absolute;
+  top: 270px;
+  left: 249px;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  background-image: none;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 40.0pt;
+  font-family: Josefin Sans,Arial;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Text_1 .valign {
+  vertical-align: middle;
+  text-align: left;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Text_1 span {
+  color: #F3F3F3;
+  text-align: left;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 40.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Text_1 span#rtr-s-Text_1_0 {
+  color: #F3F3F3;
+  text-align: left;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 40.0pt;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0px;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Image_5 {
+  position: absolute;
+  top: 413px;
+  left: 734px;
+  width: 147px;
+  height: 150px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  cursor: pointer;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Image_6 {
+  position: absolute;
+  top: 414px;
+  left: 503px;
+  width: 154px;
+  height: 151px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  cursor: pointer;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e #s-Image_7 {
+  position: absolute;
+  top: 413px;
+  left: 287px;
+  width: 152px;
+  height: 150px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  cursor: pointer;
+}
+#s-26f12980-90c6-4a30-9679-9b49cfc7421e > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}
