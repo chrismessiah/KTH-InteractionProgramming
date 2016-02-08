@@ -11,6 +11,17 @@ var ExampleView = function (container, model) {
 	this.plusButton = container.find("#plusGuest");
 	this.minusButton = container.find("#minusGuest");
 
+
+	console.log(model.chosenMeal);
+
+
+
+
+
+
+
+
+	// ********* Move to controller later!! ***********
 	var updateGuests = function () {
 		var num = model.getNumberOfGuests();
 		container.find("#numberOfGuests").html(num);
@@ -26,11 +37,13 @@ var ExampleView = function (container, model) {
 
 	this.minusButton.click(function(){
 		var num = model.getNumberOfGuests();
-		model.setNumberOfGuests(num - 1);
-		updateGuests();
+		if (num > 1) {
+			model.setNumberOfGuests(num - 1);
+			updateGuests();
+		};
 	});
 
-	
+	//  ******** Move to controller later!! *******
 
 	
 }
