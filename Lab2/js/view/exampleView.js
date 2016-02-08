@@ -13,6 +13,7 @@ var ExampleView = function (container, model) {
 
 
 	console.log(model.chosenMeal);
+	console.log(model.getAllIngredients());
 
 
 

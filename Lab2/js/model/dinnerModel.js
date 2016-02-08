@@ -1,14 +1,19 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
  
-	//TODO Lab 2 implement the data structure that will hold number of guest
-	// and selected dinner options for dinner menu
 	this.guestNum = 1;
 	this.chosenMeal = {
 		"starter" : "",
 		"mainDish" : "",
 		"dessert" : ""
 	};
+	this.dinnerOptions = {
+		"veggie" : false,
+		"vegan" : false,
+		"gluten" : false,
+		"laktos" : false,
+		"nuts" : false
+	}
 
 
 	this.setNumberOfGuests = function(num) {
@@ -28,19 +33,33 @@ var DinnerModel = function() {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		var starters = this.getAllDishes(type);
-		var mainDishes = this.getAllDishes(type);
-		var dessert = this.getAllDishes(type);
+		var starters = this.getAllDishes("starter");
+		var mainDishes = this.getAllDishes("main dish");
+		var desserts = this.getAllDishes("dessert");
 		var jsonMenu = {
 			"starters" : starters,
 			"mainDishes" : mainDishes,
-			"desserts" : dessert
+			"desserts" : desserts
 		};
 		return jsonMenu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
+		var allIngredients = [];
+		var menu = this.getFullMenu();
+		for (key in menu) {
+			var courseType = menu[key];
+			var courseType = [courseType[0], courseType[1], courseType[2]]
+			for (course in courseType) {
+				var meal = courseType[course];
+				for (i in meal.ingredients) {
+					var ingredient = meal.ingredients[i];
+					allIngredients.push(ingredient.name);
+				};
+			};
+		};
+		return allIngredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -50,10 +69,15 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
+		var dish = this.getDish(id);
+		this.chosenMeal[dish.type] = dish;
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
+		for(var key in this.chosenMeal) {
+    		if (this.chosenMeal[key].id === id) {this.chosenMeal[key] = ""};
+		}
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
