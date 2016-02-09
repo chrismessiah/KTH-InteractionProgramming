@@ -20,18 +20,15 @@ var DinnerModel = function() {
 		this.guestNum = num;
 	}
 
-	// should return 
 	this.getNumberOfGuests = function() {
 		return this.guestNum;
 	}
 
-	//Returns the dish that is on the menu for selected type 
 	this.getSelectedDish = function(type) {
 		var dishes = this.getAllDishes(type);
 		return dishes;
 	}
 
-	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		var starters = this.getAllDishes("starter");
 		var mainDishes = this.getAllDishes("main dish");
@@ -44,7 +41,6 @@ var DinnerModel = function() {
 		return jsonMenu;
 	}
 
-	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		var allIngredients = [];
 		var menu = this.getFullMenu();

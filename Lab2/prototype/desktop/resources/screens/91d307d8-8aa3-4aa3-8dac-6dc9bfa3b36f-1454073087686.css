@@ -1,0 +1,161 @@
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f > #backgroundBox {
+  background-color: transparent;
+  background-image: none;
+  position: absolute;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f > #alignmentBox {
+  position: relative;
+  margin: 0 auto;
+  width: 1024px;
+  min-width: 1024px;
+  min-height: 768px;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Image_1 {
+  position: absolute;
+  top: 0px;
+  left: -25px;
+  width: 1137px;
+  height: 769px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Text_1 {
+  position: absolute;
+  top: 270px;
+  left: 249px;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  background-image: none;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  font-size: 40.0pt;
+  font-family: Josefin Sans,Arial;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Text_1 .valign {
+  vertical-align: middle;
+  text-align: left;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Text_1 span {
+  color: #F3F3F3;
+  text-align: left;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 40.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Text_1 span#rtr-s-Text_1_0 {
+  color: #F3F3F3;
+  text-align: left;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 40.0pt;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0px;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Image_2 {
+  position: absolute;
+  top: 402px;
+  left: 246px;
+  width: 160px;
+  height: 160px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  cursor: pointer;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Image_3 {
+  position: absolute;
+  top: 406px;
+  left: 464px;
+  width: 176px;
+  height: 161px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  cursor: pointer;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Image_4 {
+  position: absolute;
+  top: 404px;
+  left: 682px;
+  width: 164px;
+  height: 165px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  cursor: pointer;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Button_1 {
+  position: absolute;
+  top: 677px;
+  left: 859px;
+  padding-top: 18px;
+  padding-right: 18px;
+  padding-bottom: 18px;
+  padding-left: 18px;
+  width: 76px;
+  height: 23px;
+  background-color: #00D67B;
+  background-image: none;
+  border-top-width: 0px;
+  border-top-style: solid;
+  border-top-color: #CDCDCD;
+  border-right-width: 0px;
+  border-right-style: solid;
+  border-right-color: #CDCDCD;
+  border-bottom-width: 0px;
+  border-bottom-style: solid;
+  border-bottom-color: #CDCDCD;
+  border-left-width: 0px;
+  border-left-style: solid;
+  border-left-color: #CDCDCD;
+  border-radius: 30px 30px 30px 30px;
+  opacity: 0.86;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  transform: rotate(0deg);
+  box-shadow: none;
+  text-shadow: none;
+  cursor: pointer;
+  font-size: 16.0pt;
+  font-family: Josefin Sans,Arial;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Button_1 .valign {
+  vertical-align: middle;
+  text-align: center;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Button_1 span {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 16.0pt;
+  font-style: normal;
+  font-weight: 400;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f #s-Button_1 span#rtr-s-Button_1_0 {
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
+  font-family: Josefin Sans,Arial;
+  font-size: 16.0pt;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 0px;
+}
+#s-91d307d8-8aa3-4aa3-8dac-6dc9bfa3b36f > #loadMark {
+  width: 1px;
+  visibility: hidden;
+  display: none;
+}
