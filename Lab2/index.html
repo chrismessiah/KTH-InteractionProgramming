@@ -11,21 +11,18 @@
   <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
 </head>
 <body>
-	<div class="container-fluid bg">
-    <div class="row header">
-      <h2>HOMELETTE</h2>
-      <h4>From the best chefs in the world directly into your kitchen!</h4>
-    </div>
-    <div class="row">
-      <div class="col-sm-5 info-box">
-        <h3>A dinner home service</h3>
-        <p>Lorem ipsum dolor sit amet, no quo pericula argumentum, suscipit prodesset vix ex, quodsi scripta maiorum pro eu. Has disputando interpretaris an, vitae similique his ea. Molestie maiestatis qui ne. Sed at antiopam vituperata, id sed nullam latine, pri ridens mollis sadipscing ex.</p>
-        <p>start quickly</p>
-        <button id="minusGuest" class="btn">Create new dinner</button>
+  <div id="root">
+  	<div class="container-fluid bg">
+      <div id="page-head"></div>
+      <div class="row">
+        <div class="col-sm-5 info-box">
+          <h3>A dinner home service</h3>
+          <p>Lorem ipsum dolor sit amet, no quo pericula argumentum, suscipit prodesset vix ex, quodsi scripta maiorum pro eu. Has disputando interpretaris an, vitae similique his ea. Molestie maiestatis qui ne. Sed at antiopam vituperata, id sed nullam latine, pri ridens mollis sadipscing ex.</p>
+          <p>start quickly</p>
+          <button id="minusGuest" class="btn">Create new dinner</button>
+        </div>
       </div>
-    </div>
-    <div class="row footer">
-      <h4>Made by Christian and Adelina</h2>
+      <div id="page-foot"></div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -34,7 +31,8 @@
   <script src="js/model/dinnerModel.js"></script>
   <script src="js/view/exampleView.js"></script>
   <!-- <script src="js/view/exampleViewController.js"></script> -->
-  
+
+
   <style type="text/css">
     body {
       margin: 0px;
@@ -42,27 +40,10 @@
     .bg {
       background-image: url("./images/bg.jpg");
       background-size: cover;
-      
-    }
-    .header, .footer {
-      background-color: #191919;
 
-    }
-    .header > h2, .header > h4, .footer > h4 {
-      position: relative;
-      display: inline-block;
-      left: 20px;
-      font-family: 'Gill Sans';
-      color: white;
-    }
-    .header > h2 {
-      margin-top: 10px;
     }
     .info-box > p, .info-box > h3 {
       color: white;
-    }
-    .header > h4 {
-      left: 40px;
     }
     .info-box {
       background-color: rgba(82,89,95,0.7);
