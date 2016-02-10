@@ -27,6 +27,12 @@
           <p>People: </p><p id="guestCount">0</p>
           <button id="plusGuest" class="btn btnGuest">+</button>
           <button id="minusGuest" class="btn btnGuest">-</button>
+          <div class="meal top-meal"><p class="dishes">Dish Name</p><p class="prices">Cost</p></div>
+
+
+
+          <div id="meals"></div>
+          <div class="meal"><p class="dishes">Total Cost</p><p class="prices total-cost">99999</p></div>
         </div>
       </div>
       <div id="page-foot"></div>
@@ -45,9 +51,18 @@
       background-color: rgba(46, 46, 46, 0.9);
       padding-bottom: 40em;
     }
-    .side-column > p {
+    .side-column > p, .meal > p {
       display: inline-block;
       margin-right: 5px;
+    }
+    .meal {
+      margin-top: 10px;
+    }
+    .top-meal {
+      margin-top: 25px;
+    }
+    .meal > p[class="dishes"] {
+      margin-right: 40px;
     }
     button {
       background-color: rgba(29,208,126,1);
