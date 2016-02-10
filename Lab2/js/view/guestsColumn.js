@@ -2,6 +2,9 @@ var guestsColumn = function (container, model) {
   this.container = container;
   this.model = model;
 
+	this.plusButton = container.find("#plusGuest");
+	this.minusButton = container.find("#minusGuest");
+
 
   // ********* Move to controller later!! ***********
 	var updateGuests = function () {
