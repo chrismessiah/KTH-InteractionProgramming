@@ -4,6 +4,11 @@ $(function() {
 
 	//And create the needed controllers and views
 
-	var view = new indexView($("#root"), model);
+	// /index
+	//var view = new indexView($("#root"), model);
+
+	// /browse
+	var view = new selectDishView($("#root"), model);
+  var view2 = new guestsColumn($("#root"), model);
 
 });
