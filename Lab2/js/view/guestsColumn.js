@@ -15,7 +15,11 @@ var guestsColumn = function (container, model) {
 		for (var i in dishes) {
 				dish_cost = model.guestNum * model.getTotalDishPrice(dishes[i].id);
 				total_cost = total_cost + dish_cost;
-				toAppend = toAppend + '<div class="meal"><p class="dishes">'+dishes[i].name+'</p><p class="prices">'+dish_cost+'</p></div>';
+				toAppend = toAppend + '<div class="row"><div class="col-md-6">';
+				toAppend = toAppend + '<p class="dishes">'+dishes[i].name+'</p>';
+				toAppend = toAppend + '</div><div class="col-md-6">';
+				toAppend = toAppend + '<p class="prices">'+dish_cost+'</p>';
+				toAppend = toAppend + '</div></div>';
 		}
 		container.find(".total-cost").html(total_cost);
 		this.meals.html(toAppend);
@@ -24,7 +28,7 @@ var guestsColumn = function (container, model) {
 	var updateGuests = function () {
 		var num = model.getNumberOfGuests();
 		container.find("#guestCount").html(num);
-		updateMeals()
+		updateMeals();
 	};
 
 	updateGuests();
