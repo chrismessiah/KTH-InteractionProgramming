@@ -21,7 +21,7 @@ var selectDishView = function (container, model) {
     toAppend = toAppend + '<div class="meal-name-box"><div class="center">';
     toAppend = toAppend + '<p class="text-center black">' + dish.name + '</p>';
     toAppend = toAppend + '</div></div>';
-    toAppend = toAppend + '<p class="black">'+ dish.description.substring(0,40) +'</p></div>';
+    toAppend = toAppend + '<p class="black">'+ dish.description.substring(0,40) +'...</p></div>';
 
     toAppend = toAppend + '<style>';
     toAppend = toAppend + '.' + extraclass + '{background-image: url("./images/'+ dish.image +'");}';
