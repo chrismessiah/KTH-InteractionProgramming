@@ -44,8 +44,11 @@
             <div class="col-md-6"><p class="prices total-cost">99999</p></div>
           </div>
         </div>
-        <div class="col-md-10 navi">
-          <div class="row">
+        <div class="col-md-10">
+
+
+        <div class="row">
+          <div class="navi">
             <div class="col-md-6">
               <div class="center searchbox">
                 <input type="search" name="name" class="center form-control" placeholder="Search..."/>
@@ -62,6 +65,39 @@
             </div>
           </div>
 
+          <div class="row">
+          <div id="meal-container">
+
+              <!-- <div class="col-md-2 one-meal">
+                  <div class="meal-pic"></div>
+                  <div class="meal-name-box">
+                    <div class="center">
+                      <p class="text-center black">Lasanga</p>
+                    </div>
+                  </div>
+                  <p class="black">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                  </p>
+              </div>
+
+              <div class="col-md-2 one-meal">
+                  <div class="meal-pic"></div>
+                  <div class="meal-name-box">
+                    <div class="center">
+                      <p style="color: black" class="text-center">Lasanga</p>
+                    </div>
+                  </div>
+                  <p style="color: black">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
+                  </p>
+              </div> -->
+
+
+
+            </div>
+          </div>
+
+        </div>
         </div>
       </div>
 
@@ -132,6 +168,29 @@
     .searchbox, .optionbox {
       position: relative;
       top: 80px;
+    }
+    .meal-pic{
+      background-size: cover;
+      height: 150px;
+    }
+    .meal-name-box {
+      height: 40px;
+      background-color: red;
+    }
+    .meal-name-box > div {
+      position: relative;
+      top: 10px;
+    }
+    .text-center {
+      text-align: center;
+    }
+    #meal-container {
+      position: relative;
+      top: 100px;
+      margin: 0px 30px;
+    }
+    .black {
+      color: black;
     }
   </style>
 </body>

@@ -46,44 +46,44 @@ var DinnerModel = function() {
 		var menu = this.getFullMenu();
 		for (var key in menu) {
 			var courseType = menu[key];
-			var courseType = [courseType[0], courseType[1], courseType[2]]
+			var courseType = [courseType[0], courseType[1], courseType[2]];
 			for (var course in courseType) {
 				var meal = courseType[course];
 				for (var i in meal.ingredients) {
 					var ingredient = meal.ingredients[i];
 					allIngredients.push(ingredient.name);
-				};
-			};
-		};
+				}
+			}
+		}
 		return allIngredients;
-	}
+	};
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-	}
+	};
 
 	this.getTotalDishPrice = function(id) {
-		var total_price = 0
+		var total_price = 0;
 		var dish = this.getDish(id);
 		for (var i in dish.ingredients) {
 		 	total_price += dish.ingredients[i].price;
 		}
 		return total_price;
-	}
+	};
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
 		this.chosenMeal[dish.type] = dish;
-	}
+	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		for(var key in this.chosenMeal) {
-    		if (this.chosenMeal[key].id === id) {this.chosenMeal[key] = ""};
+    		if (this.chosenMeal[key].id === id) {this.chosenMeal[key] = "";};
 		}
-	}
+	};
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
@@ -379,5 +379,6 @@ var DinnerModel = function() {
 			}]
 		}
 	];
+	this.dishes = dishes;
 
-}
+};
