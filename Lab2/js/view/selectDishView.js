@@ -13,6 +13,7 @@ var selectDishView = function (container, model) {
 
     if (i === 0) {
       toAppend = toAppend + '<div class="row">';
+      
     }
 
 
