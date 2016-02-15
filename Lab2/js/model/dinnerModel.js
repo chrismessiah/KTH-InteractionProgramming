@@ -5,9 +5,9 @@ var DinnerModel = function() {
 	this.mealsSet = false;
 	this.selectedMeal = 100; // id
 	this.chosenMeal = {
-		"starter" : null,
-		"mainDish" : null,
-		"dessert" : null
+		"starter" : 1,
+		"mainDish" : 100,
+		"dessert" : 200
 	};
 
 	this.menuIsNull = function() {
@@ -17,6 +17,14 @@ var DinnerModel = function() {
 		else {
 			return false;
 		}
+	}
+
+	this.getSelectedMenu = function() {
+		var starter = this.getDish(this.chosenMeal['starter']);
+		var mainDish = this.getDish(this.chosenMeal['mainDish']);
+		var dessert = this.getDish(this.chosenMeal['dessert']);
+		var list = [starter, mainDish, dessert];
+		return list;
 	}
 
 	this.getSelectedDishView = function() {
