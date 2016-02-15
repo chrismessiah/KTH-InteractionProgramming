@@ -15,6 +15,10 @@ $(function() {
 		var viewB = new selectDishView($("#root"), model);
 		var viewB2 = new guestsColumn($("#root"), model);
 	}
+	if (file == "meal.html") {
+		var viewM = new mealView($("#root"), model);
+		var viewM2 = new guestsColumn($("#root"), model);
+	}
 
 
 
