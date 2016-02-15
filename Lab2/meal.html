@@ -62,7 +62,9 @@
           </div>
 
 
-          <div id="meal-container"></div>
+          <div id="selected-meal-container">
+            
+          </div>
 
 
         </div>
@@ -118,7 +120,7 @@
       color: black;
       font-size: 16px;
     }
-    input[type="submit"] {
+    .guestClassButton, .selected-meal-button, .selected-meal-button2 {
       text-align: center;
       color: #FFFFFF;
       background-color: #1dd07e;
@@ -128,13 +130,24 @@
       padding: 12px;
       padding-left: 15px;
       padding-right: 15px;
+
+    }
+    .guestClassButton {
       position: relative;
       top: 40px;
     }
+    .selected-meal-button {
+      margin: 20px;
+    }
+    .selected-meal-button2 {
+      margin-left: 40px;
+      margin-bottom: 10px;
+      position: relative;
 
+    }
     .center {
       margin: auto;
-      width: 60%;
+      width: 90%;
     }
     .searchbox, .optionbox {
       position: relative;
@@ -167,6 +180,53 @@
     }
     .one-meal {
       margin-bottom: 50px;
+    }
+    .meal-img {
+      background-image: url('./images/meatballs.jpg');
+      height: 400px;
+      background-size: 400px;
+      background-repeat: no-repeat;
+
+    }
+    .selected-meal-one > p {
+      color: black;
+    }
+    .selected-meal-one {
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .meal-title {
+      font-size: 30px;
+    }
+    .meal-desc {
+      margin-top: 20px;
+    }
+    .ingredients-container {
+      background-color: #ffe599;
+    }
+    .ingredients-container p {
+      color: black;
+    }
+    .top-desc {
+      padding-top: 20px;
+      padding-left: 5px;
+      font-size: 20px;
+    }
+    .separator {
+      width: 90%;
+      height: 2px;
+      background-color: black;
+      margin-bottom: 10px;
+    }
+    .pricen {
+      text-align: center;
+      position: relative;
+      left: 20px;
+    }
+    .a-bit-down {
+      position: relative;
+      top: 10px;
+      left: 130px;
     }
   </style>
 </body>

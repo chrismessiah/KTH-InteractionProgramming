@@ -19,14 +19,14 @@ var guestsColumn = function (container, model) {
 				dish_cost = model.guestNum * model.getTotalDishPrice(dishes[i].id);
 				total_cost = total_cost + dish_cost;
 				toAppend = toAppend + '<div class="row"><div class="col-md-6">';
-				toAppend = toAppend + '<p class="dishes">'+dishes[i].name+'</p>';
+				toAppend = toAppend + '<p class="dishes">' + dishes[i].name + '</p>';
 				toAppend = toAppend + '</div><div class="col-md-6">';
-				toAppend = toAppend + '<p class="prices">'+dish_cost+'</p>';
+				toAppend = toAppend + '<p class="prices">' + dish_cost + '</p>';
 				toAppend = toAppend + '</div></div>';
 			}
 		}
 		toAppend = toAppend + '<div class="row"><div class="col-md-6"><p class="dishes">Total Cost</p></div><div class="col-md-6"><p class="prices total-cost">'+total_cost+'</p></div></div>';
-		toAppend = toAppend + '<div class="center"><input type="submit" value="Confirm"/></div>';
+		toAppend = toAppend + '<div class="center"><input class="guestClassButton" type="submit" value="Confirm"/></div>';
 
 
 		this.meals.html(toAppend);

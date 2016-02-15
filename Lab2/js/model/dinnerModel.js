@@ -3,17 +3,11 @@ var DinnerModel = function() {
 
 	this.guestNum = 1;
 	this.mealsSet = false;
+	this.selectedMeal = 100; // id
 	this.chosenMeal = {
 		"starter" : null,
 		"mainDish" : null,
 		"dessert" : null
-	};
-	this.dinnerOptions = {
-		"veggie" : false,
-		"vegan" : false,
-		"gluten" : false,
-		"laktos" : false,
-		"nuts" : false
 	};
 
 	this.menuIsNull = function() {
@@ -25,6 +19,10 @@ var DinnerModel = function() {
 		}
 	}
 
+	this.getSelectedDishView = function() {
+		var meal = this.getDish(this.selectedMeal);
+		return meal;
+	}
 
 	this.setNumberOfGuests = function(num) {
 		this.guestNum = num;
