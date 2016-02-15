@@ -12,7 +12,10 @@ var guestsColumn = function (container, model) {
 		var toAppend = "";
 		var total_cost = 0;
 		var dish_cost = 0;
+		toAppend = toAppend + '<div class="row top-meal"><div class="col-md-6"><p class="dishes">Dish Name</p></div><div class="col-md-6"><p class="prices">Cost</p></div></div>';
+
 		for (var i in dishes) {
+			if (dishes[i] !== null) {
 				dish_cost = model.guestNum * model.getTotalDishPrice(dishes[i].id);
 				total_cost = total_cost + dish_cost;
 				toAppend = toAppend + '<div class="row"><div class="col-md-6">';
@@ -20,15 +23,21 @@ var guestsColumn = function (container, model) {
 				toAppend = toAppend + '</div><div class="col-md-6">';
 				toAppend = toAppend + '<p class="prices">'+dish_cost+'</p>';
 				toAppend = toAppend + '</div></div>';
+			}
 		}
-		container.find(".total-cost").html(total_cost);
+		toAppend = toAppend + '<div class="row"><div class="col-md-6"><p class="dishes">Total Cost</p></div><div class="col-md-6"><p class="prices total-cost">'+total_cost+'</p></div></div>';
+		toAppend = toAppend + '<div class="center"><input type="submit" value="Confirm"/></div>';
+
+
 		this.meals.html(toAppend);
 	};
 
 	var updateGuests = function () {
 		var num = model.getNumberOfGuests();
 		container.find("#guestCount").html(num);
-		updateMeals();
+    if (model.mealsSet) {
+      updateMeals();
+    }
 	};
 
 	updateGuests();

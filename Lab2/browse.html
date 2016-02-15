@@ -26,7 +26,6 @@
           <h3>My dinner</h3>
 
           <div class="row">
-
             <div class="col-md-6"><p>People: </p><p id="guestCount">0</p></div>
             <div class="col-md-6">
               <button id="plusGuest" class="btn btnGuest">+</button>
@@ -34,15 +33,11 @@
             </div>
 
           </div>
-          <div class="row top-meal">
-            <div class="col-md-6"><p class="dishes">Dish Name</p></div>
-            <div class="col-md-6"><p class="prices">Cost</p></div>
-          </div>
+
+
           <div id="meals"></div>
-          <div class="row">
-            <div class="col-md-6"><p class="dishes">Total Cost</p></div>
-            <div class="col-md-6"><p class="prices total-cost">99999</p></div>
-          </div>
+
+
         </div>
         <div class="col-md-10">
 
@@ -66,35 +61,7 @@
           </div>
 
 
-          <div id="meal-container">
-
-              <!-- <div class="col-md-2 one-meal">
-                  <div class="meal-pic"></div>
-                  <div class="meal-name-box">
-                    <div class="center">
-                      <p class="text-center black">Lasanga</p>
-                    </div>
-                  </div>
-                  <p class="black">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                  </p>
-              </div>
-
-              <div class="col-md-2 one-meal">
-                  <div class="meal-pic"></div>
-                  <div class="meal-name-box">
-                    <div class="center">
-                      <p style="color: black" class="text-center">Lasanga</p>
-                    </div>
-                  </div>
-                  <p style="color: black">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-                  </p>
-              </div> -->
-
-
-
-            </div>
+          <div id="meal-container"></div>
 
 
         </div>
@@ -115,7 +82,7 @@
     }
     .side-column {
       background-color: rgba(46, 46, 46, 0.9);
-      padding-bottom: 540px;
+      padding-bottom: 60%;
     }
     .side-column > p, .meal > p {
       display: inline-block;
@@ -150,16 +117,19 @@
       color: black;
       font-size: 16px;
     }
-    /*input[type="text"], input[type="search"] {
-  		background: #FFFFFF;
-  		border: 1px solid #979797;
-  		border-radius: 40px;
-  		margin: 0;
-      outline: 0;
-	  }
-    input[type="text"]:focus::-webkit-input-placeholder, input[type="search"]:focus::-webkit-input-placeholder {
-    	color:transparent;
-    }*/
+    input[type="submit"] {
+      text-align: center;
+      color: #FFFFFF;
+      background-color: #1dd07e;
+      border-radius: 40px;
+      border: 1px solid #1dd07e;
+      font-size: 15px;
+      padding: 12px;
+      padding-left: 15px;
+      padding-right: 15px;
+      position: relative;
+      top: 40px;
+    }
 
     .center {
       margin: auto;

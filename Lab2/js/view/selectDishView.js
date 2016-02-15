@@ -13,10 +13,9 @@ var selectDishView = function (container, model) {
 
     if (i === 0) {
       toAppend = toAppend + '<div class="row">';
-      
+
     }
-
-
+    
     toAppend = toAppend + '<div class="col-md-2 one-meal">';
     toAppend = toAppend + '<div class="meal-pic ' + extraclass + '"></div>';
     toAppend = toAppend + '<div class="meal-name-box"><div class="center">';

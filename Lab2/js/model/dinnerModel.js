@@ -2,10 +2,11 @@
 var DinnerModel = function() {
 
 	this.guestNum = 1;
+	this.mealsSet = false;
 	this.chosenMeal = {
-		"starter" : 1,
-		"mainDish" : 100,
-		"dessert" : 200
+		"starter" : null,
+		"mainDish" : null,
+		"dessert" : null
 	};
 	this.dinnerOptions = {
 		"veggie" : false,
@@ -14,6 +15,15 @@ var DinnerModel = function() {
 		"laktos" : false,
 		"nuts" : false
 	};
+
+	this.menuIsNull = function() {
+		if (this.chosenMeal['starter'] === null && this.chosenMeal['mainDish'] === null && this.chosenMeal['dessert'] === null) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 
 	this.setNumberOfGuests = function(num) {
@@ -76,12 +86,17 @@ var DinnerModel = function() {
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
 		this.chosenMeal[dish.type] = dish;
+		this.mealsSet = true;
+
 	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		for(var key in this.chosenMeal) {
     		if (this.chosenMeal[key].id === id) {this.chosenMeal[key] = "";};
+		}
+		if (this.menuIsNull()) {
+			this.mealsSet = false;
 		}
 	};
 
@@ -122,7 +137,12 @@ var DinnerModel = function() {
 		var list = [];
 		for(var key in this.chosenMeal){
 			if (this.chosenMeal.hasOwnProperty(key)) {
-				list.push(this.getDish(this.chosenMeal[key]));
+				if (this.chosenMeal[key] !== null) {
+					list.push(this.getDish(this.chosenMeal[key]));
+				} else {
+					list.push(null);
+				}
+
 			}
 		}
 		return list;
