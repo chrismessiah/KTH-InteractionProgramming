@@ -22,6 +22,9 @@ $(function() {
 	if (file == "overview.html") {
 		var viewO = new overview($("#root"), model);
 	}
+	if (file == "final.html") {
+		var viewF = new finalView($("#root"), model);
+	}
 
 
 
