@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Allows for responsive css -->
+  <title>HOMELETTE</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/indexView.js"></script>
+  <!-- <script src="js/view/exampleViewController.js"></script> -->
+</head>
+<body>
+  <div id="root">
+  	<div class="container-fluid bg">
+      <div id="page-head"></div>
+      <div class="row">
+        <div class="col-sm-5 info-box">
+          <h3>A dinner home service</h3>
+          <p>Lorem ipsum dolor sit amet, no quo pericula argumentum, suscipit prodesset vix ex, quodsi scripta maiorum pro eu. Has disputando interpretaris an, vitae similique his ea. Molestie maiestatis qui ne. Sed at antiopam vituperata, id sed nullam latine, pri ridens mollis sadipscing ex.</p>
+          <p>start quickly</p>
+          <button id="minusGuest" class="btn">Create new dinner</button>
+        </div>
+      </div>
+      <div id="page-foot"></div>
+    </div>
+  </div>
+
+
+  <style type="text/css">
+    body {
+      margin: 0px;
+    }
+    .bg {
+      background-image: url("./images/bg.jpg");
+      background-size: cover;
+
+    }
+    .info-box > p, .info-box > h3 {
+      color: white;
+    }
+    .info-box {
+      background-color: rgba(82,89,95,0.7);
+      margin-top: 20em;
+      margin-bottom: 10em;
+      padding-bottom: 1em;
+    }
+    button {
+      color: white;
+      background-color: rgba(29,208,126,1);
+      position: relative;
+      left: 11em;
+    }
+    button:hover {
+      color: white;
+      background-color: rgba(29,208,126,1);
+    }
+
+  </style>
+</body>
+</html>

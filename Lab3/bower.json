@@ -1,0 +1,7 @@
+{
+  "name": "foo",
+  "dependencies": {
+    "jquery": "1.11.3",
+    "sweetalert": "~1.1.3"
+  }
+}
