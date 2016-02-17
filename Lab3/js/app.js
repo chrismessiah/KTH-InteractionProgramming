@@ -5,6 +5,7 @@ $(function() {
 
 	//We instantiate our model
 	var model = new DinnerModel();
+	//window.model = model; // for testing in console
 
 	//And create the needed controllers and views
 
@@ -14,6 +15,7 @@ $(function() {
 	if (file == "browse.html") {
 		var viewB = new selectDishView($("#root"), model);
 		var viewB2 = new guestsColumn($("#root"), model);
+		var controller1 = new pmButtonsPressed(viewB2, model);
 	}
 	if (file == "meal.html") {
 		var viewM = new mealView($("#root"), model);

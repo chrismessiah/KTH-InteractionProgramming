@@ -21,11 +21,8 @@ var DinnerModel = function() {
 	// will call the update method on all the observers in the array
 	// has to be called every time the model changes
 	this.notifyObservers = function(obj) {
-		console.log("RAN!!");
-		console.log(this.observerList);
 		var observer;
 		for (var i = 0; i < this.observerList.length; i++) {
-			console.log(this.observerList[i]);
 			this.observerList[i].update();
 
 		}
@@ -55,6 +52,7 @@ var DinnerModel = function() {
 
 	this.setNumberOfGuests = function(num) {
 		this.guestNum = num;
+		this.notifyObservers();
 	};
 
 	this.getNumberOfGuests = function() {
@@ -114,6 +112,11 @@ var DinnerModel = function() {
 		}
 		return total_price;
 	};
+
+	this.getTotalDishPriceWithRespectToGuestAmount = function(id) {
+		var priceWithRespect = this.getTotalDishPrice(id) * this.guestNum;
+		return priceWithRespect;
+	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
