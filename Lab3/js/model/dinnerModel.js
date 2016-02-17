@@ -10,6 +10,27 @@ var DinnerModel = function() {
 		"dessert" : 200
 	};
 
+
+	this.observerList = [];
+
+	// will add new observer to the array
+	this.addObserver = function(observer) {
+		this.observerList.push(observer);
+	}
+
+	// will call the update method on all the observers in the array
+	// has to be called every time the model changes
+	this.notifyObservers = function(obj) {
+		console.log("RAN!!");
+		console.log(this.observerList);
+		var observer;
+		for (var i = 0; i < this.observerList.length; i++) {
+			console.log(this.observerList[i]);
+			this.observerList[i].update();
+
+		}
+	};
+
 	this.menuIsNull = function() {
 		if (this.chosenMeal['starter'] === null && this.chosenMeal['mainDish'] === null && this.chosenMeal['dessert'] === null) {
 			return true;
@@ -76,6 +97,13 @@ var DinnerModel = function() {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
+		var totalPrice = 0;
+		for (var key in this.chosenMeal) {
+			if (this.chosenMeal.hasOwnProperty(key)) {
+				totalPrice += this.getTotalDishPrice(this.chosenMeal[key]);
+			}
+		}
+		return totalPrice;
 	};
 
 	this.getTotalDishPrice = function(id) {
@@ -91,8 +119,9 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		var dish = this.getDish(id);
-		this.chosenMeal[dish.type] = dish;
+		this.chosenMeal[dish.type] = id;
 		this.mealsSet = true;
+		this.notifyObservers();
 
 	};
 
@@ -104,6 +133,7 @@ var DinnerModel = function() {
 		if (this.menuIsNull()) {
 			this.mealsSet = false;
 		}
+		this.notifyObservers();
 	};
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

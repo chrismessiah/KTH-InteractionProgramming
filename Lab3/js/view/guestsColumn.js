@@ -1,60 +1,70 @@
 var guestsColumn = function (container, model) {
+	console.log("DE COLUMN");
+	console.log(guestsColumn);
+	console.log("DE COLUMN");
   this.container = container;
   this.model = model;
 
+	var dishes = model.getChosenDishes();
+	var toAppend = "";
+	var total_cost = 0;
+	var dish_cost = 0;
+	toAppend = toAppend + '<div class="row top-meal"><div class="col-md-6"><p class="dishes">Dish Name</p></div><div class="col-md-6"><p class="prices">Cost</p></div></div>';
 
-
-
-  // ********* Move to controller later!! ***********
-	var updateMeals = function () {
-		this.meals = container.find("#meals");
-		var dishes = model.getChosenDishes();
-		var toAppend = "";
-		var total_cost = 0;
-		var dish_cost = 0;
-		toAppend = toAppend + '<div class="row top-meal"><div class="col-md-6"><p class="dishes">Dish Name</p></div><div class="col-md-6"><p class="prices">Cost</p></div></div>';
-
-		for (var i in dishes) {
-			if (dishes[i] !== null) {
-				dish_cost = model.guestNum * model.getTotalDishPrice(dishes[i].id);
-				total_cost = total_cost + dish_cost;
-				toAppend = toAppend + '<div class="row"><div class="col-md-6">';
-				toAppend = toAppend + '<p class="dishes">' + dishes[i].name + '</p>';
-				toAppend = toAppend + '</div><div class="col-md-6">';
-				toAppend = toAppend + '<p class="prices">' + dish_cost + '</p>';
-				toAppend = toAppend + '</div></div>';
-			}
+	for (var i in dishes) {
+		if (dishes[i] !== null) {
+			dish_cost = model.guestNum * model.getTotalDishPrice(dishes[i].id);
+			total_cost = total_cost + dish_cost;
+			toAppend = toAppend + '<div class="row"><div class="col-md-6">';
+			toAppend = toAppend + '<p class="dishes actual-dish-names">' + dishes[i].name + '</p>';
+			toAppend = toAppend + '</div><div class="col-md-6">';
+			toAppend = toAppend + '<p class="prices actual-dish-cost">' + dish_cost + '</p>';
+			toAppend = toAppend + '</div></div>';
 		}
-		toAppend = toAppend + '<div class="row"><div class="col-md-6"><p class="dishes">Total Cost</p></div><div class="col-md-6"><p class="prices total-cost">'+total_cost+'</p></div></div>';
-		toAppend = toAppend + '<div class="center"><input class="guestClassButton" type="submit" value="Confirm"/></div>';
+	}
+	toAppend = toAppend + '<div class="row"><div class="col-md-6"><p class="dishes">Total Cost</p></div><div class="col-md-6"><p class="prices total-cost actual-dish-totalCost">'+total_cost+'</p></div></div>';
+	toAppend = toAppend + '<div class="center"><input class="guestClassButton" type="submit" value="Confirm"/></div>';
 
 
-		this.meals.html(toAppend);
-	};
+	container.find("#meals").html(toAppend);
 
-	var updateGuests = function () {
-		var num = model.getNumberOfGuests();
-		container.find("#guestCount").html(num);
-    if (model.mealsSet) {
-      updateMeals();
-    }
-	};
+	var num = model.getNumberOfGuests();
+	container.find("#guestCount").html(num);
 
-	updateGuests();
+	this.update = function() {
+		console.log("ALSO RAN");
+		var dishContainerList1 = container.find(".actual-dish-names");
+		var dishContainerList2 = container.find(".actual-dish-cost");
 
-	container.find("#plusGuest").click(function(){
-		var num = model.getNumberOfGuests();
-		model.setNumberOfGuests(num + 1);
-		updateGuests();
-	});
 
-	container.find("#minusGuest").click(function(){
-		var num = model.getNumberOfGuests();
-		if (num > 1) {
-			model.setNumberOfGuests(num - 1);
-			updateGuests();
+		var currentMeals = model.getSelectedMenu();
+		for (var i = 0; i < dishContainerList1.length; i++) {
+			$(dishContainerList1[i]).html(currentMeals[i].name);
+			$(dishContainerList2[i]).html(model.getTotalDishPrice(currentMeals[i].id));
 		}
-	});
+		container.find(".actual-dish-totalCost").html(model.getTotalMenuPrice());
+
+	}
+
+	model.addObserver(this);
+
+
+
+
+	//  ******** Move to controller later!! *******
+	// container.find("#plusGuest").click(function(){
+	// 	var num = model.getNumberOfGuests();
+	// 	model.setNumberOfGuests(num + 1);
+	// 	updateGuests();
+	// });
+	//
+	// container.find("#minusGuest").click(function(){
+	// 	var num = model.getNumberOfGuests();
+	// 	if (num > 1) {
+	// 		model.setNumberOfGuests(num - 1);
+	// 		updateGuests();
+	// 	}
+	// });
 
 	//  ******** Move to controller later!! *******
 };

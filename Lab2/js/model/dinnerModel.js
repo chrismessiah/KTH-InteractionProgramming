@@ -2,7 +2,7 @@
 var DinnerModel = function() {
 
 	this.guestNum = 1;
-	this.mealsSet = false;
+	this.mealsSet = true;
 	this.selectedMeal = 100; // id
 	this.chosenMeal = {
 		"starter" : 1,
