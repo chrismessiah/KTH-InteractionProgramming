@@ -20,6 +20,7 @@ $(function() {
 	if (file == "meal.html") {
 		var viewM = new mealView($("#root"), model);
 		var viewM2 = new guestsColumn($("#root"), model);
+		var controller1 = new pmButtonsPressed(viewM2, model);
 	}
 	if (file == "overview.html") {
 		var viewO = new overview($("#root"), model);
