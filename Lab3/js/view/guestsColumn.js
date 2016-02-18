@@ -42,7 +42,7 @@ var guestsColumn = function (container, model) {
 			$(dishContainerList1[i]).html(currentMeals[i].name);
 			$(dishContainerList2[i]).html(model.getTotalDishPriceWithRespectToGuestAmount(currentMeals[i].id));
 		}
-		container.find(".actual-dish-totalCost").html(model.getTotalMenuPrice());
+		container.find(".actual-dish-totalCost").html(model.getTotalMenuPriceWithRespectToGuestAmount());
 	}
 
 };

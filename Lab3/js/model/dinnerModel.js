@@ -104,6 +104,11 @@ var DinnerModel = function() {
 		return totalPrice;
 	};
 
+	this.getTotalMenuPriceWithRespectToGuestAmount = function () {
+		var price = this.getTotalMenuPrice() * this.guestNum;
+		return price;
+	}
+
 	this.getTotalDishPrice = function(id) {
 		var total_price = 0;
 		var dish = this.getDish(id);
