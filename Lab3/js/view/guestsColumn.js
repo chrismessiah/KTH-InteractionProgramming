@@ -27,7 +27,7 @@ var guestsColumn = function (container, model) {
 		}
 	}
 	toAppend = toAppend + '<div class="row"><div class="col-md-6"><p class="dishes">Total Cost</p></div><div class="col-md-6"><p class="prices total-cost actual-dish-totalCost">'+total_cost+'</p></div></div>';
-	toAppend = toAppend + '<div class="center"><input class="guestClassButton" type="submit" value="Confirm"/></div>';
+	toAppend = toAppend + '<div class="center2 center"><input class="guestClassButton btnMe" type="submit" value="Confirm"/></div>';
 	container.find("#meals").html(toAppend);
 	container.find("#guestCount").html(model.getNumberOfGuests());
 	// ****** iniit html ********

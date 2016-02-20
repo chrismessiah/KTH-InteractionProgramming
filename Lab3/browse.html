@@ -31,8 +31,8 @@
           <div class="row">
             <div class="col-md-6"><p>People: </p><p id="guestCount">0</p></div>
             <div class="col-md-6">
-              <button id="plusGuest" class="btn btnGuest">+</button>
-              <button id="minusGuest" class="btn btnGuest">-</button>
+              <div id="plusGuest" class="btnMe"><p>+</p></div>
+              <div id="minusGuest" class="btnMe"><p>-</p></div>
             </div>
 
           </div>
@@ -120,6 +120,7 @@
       color: black;
       font-size: 16px;
     }
+    /*
     input[type="submit"] {
       text-align: center;
       color: #FFFFFF;
@@ -133,6 +134,7 @@
       position: relative;
       top: 40px;
     }
+    */
 
     .center {
       margin: auto;
@@ -169,6 +171,70 @@
     }
     .one-meal {
       margin-bottom: 50px;
+    }
+
+
+
+
+    /* Snyggare knappar */
+    .btnMe {
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 1);
+      border-radius: 2px;
+      width: 30px;
+      height: 30px;
+      margin: 5px 0px;
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      letter-spacing: 2px;
+      font-size: 25px;
+    }
+    .guestClassButton {
+      width: 140px;
+      height: 50px;
+    }
+    .center2 {
+      width: 80%;
+      position: relative;
+      top: 40px;
+    }
+    .btnMe > p {
+      color: white;
+      font-family: "Montserrat";
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 25px;
+      position: relative;
+      bottom: 6px;
+    }
+    .btnMe, .btnMe > p {
+      /* Prefix -webkit- for chrome and safari */
+      -webkit-transition-timing-function: linear;
+      -webkit-transition-duration: 0.2s;
+
+      /* Prefix -moz- for firefox */
+      -moz-transition-timing-function: linear;
+      -moz-transition-duration: 0.2s;
+
+      /* NO prefix for opera */
+      transition-timing-function: linear;
+      transition-duration: 0.2s;
+
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+
+      -ms-user-select: none;
+      user-select: none;
+    }
+    .btnMe:hover {
+      background-color: rgba(255, 255, 255, 1);
+      color: #52595f;
+    }
+    .btnMe:hover p {
+      color: #52595f;
     }
   </style>
 </body>
