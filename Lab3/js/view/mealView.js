@@ -12,7 +12,7 @@ var mealView = function (container, model) {
   toAppend = '';
   toAppend = toAppend + '<div id="selected-meal-container"><div class="col-md-6 selected-meal-one">';
   toAppend = toAppend + '<p class="meal-title">' + meal.name + '</p><div class="meal-img"></div>';
-  toAppend = toAppend + '<p class="meal-desc">' + meal.description + '</p><div class="center"><input class="selected-meal-button" type="submit" value="Back"/></div>';
+  toAppend = toAppend + '<p class="meal-desc">' + meal.description + '</p><div class="center"><input class="selected-meal-button btnMe wide-button" type="submit" value="Back"/></div>';
   toAppend = toAppend + '<p class="meal-title">Preparation</p>';
   toAppend = toAppend + '<p class="meal-desc">' + 'No description was given' + '</p></div>';
   toAppend = toAppend + '<div class="col-md-6"><div class="row ingredients-container"><div class="center">';
@@ -35,7 +35,7 @@ var mealView = function (container, model) {
 
 
   toAppend = toAppend + '<div class="center"><div class="separator"></div></div>';
-  toAppend = toAppend + '<div class="row"><div class="col-md-5"><input class="selected-meal-button2" type="submit" value="Confirm"/></div>';
+  toAppend = toAppend + '<div class="row"><div class="col-md-5"><input class="selected-meal-button2 btnMe wide-button" type="submit" value="Confirm"/></div>';
   toAppend = toAppend + '<div class="col-md-1 a-bit-down"><p>SEK</p></div>';
   toAppend = toAppend + '<div class="col-md-1 a-bit-down"><p>' + totalPrice + '</p></div></div></div></div>';
 
