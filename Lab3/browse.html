@@ -16,6 +16,7 @@
   <script src="js/view/selectDishView.js"></script>
   <script src="js/view/guestsColumn.js"></script>
   <script src="js/controller/pm-buttons.js"></script>
+  <script src="js/controller/search-bar.js"></script>
   <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
 </head>
 <body>
@@ -49,12 +50,12 @@
           <div class="navi">
             <div class="col-md-6">
               <div class="center searchbox">
-                <input type="search" name="name" class="center form-control" placeholder="Search..."/>
+                <input type="search" name="name" class="center form-control" placeholder="Search..." id="search-bar-1" value="hello"/>
               </div>
             </div>
             <div class="col-md-1">
               <div class="center optionbox">
-                <select class="form-control">
+                <select class="form-control" id="search-bar-type-1">
                   <option>Starter</option>
                   <option>Main dish</option>
                   <option>Dessert</option>

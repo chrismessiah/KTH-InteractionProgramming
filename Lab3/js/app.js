@@ -16,6 +16,7 @@ $(function() {
 		var viewB = new selectDishView($("#root"), model);
 		var viewB2 = new guestsColumn($("#root"), model);
 		var controller1 = new pmButtonsPressed(viewB2, model);
+		var controller2 = new searchBar(viewB, model);
 	}
 	if (file == "meal.html") {
 		var viewM = new mealView($("#root"), model);
