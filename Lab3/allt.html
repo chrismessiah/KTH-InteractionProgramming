@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Allows for responsive css -->
+  <title>HOMELETTE</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/indexView.js"></script>
+  <script src="js/view/selectDishView.js"></script>
+  <script src="js/view/guestsColumn.js"></script>
+  <script src="js/view/header-and-footer.js"></script>
+  <script src="js/controller/pm-buttons.js"></script>
+  <script src="js/controller/search-bar.js"></script>
+  <script src="js/controller/buttons.js"></script>
+  <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
+</head>
+<body>
+
+
+  <div id="index" class="root">
+    	<div class="container-fluid bg">
+        <div class="page-head"></div>
+        <div class="row">
+          <div class="col-sm-5 info-box">
+            <h3>A dinner home service</h3>
+            <p>Lorem ipsum dolor sit amet, no quo pericula argumentum, suscipit prodesset vix ex, quodsi scripta maiorum pro eu. Has disputando interpretaris an, vitae similique his ea. Molestie maiestatis qui ne. Sed at antiopam vituperata, id sed nullam latine, pri ridens mollis sadipscing ex.</p>
+            <p>start quickly</p>
+            <button id="minusGuest" class="btn indexKnapp">Create new dinner</button>
+          </div>
+        </div>
+        <div class="page-foot"></div>
+      </div>
+
+
+    <style type="text/css">
+      body {
+        margin: 0px;
+      }
+      .bg {
+        background-image: url("./images/bg.jpg");
+        background-size: cover;
+
+      }
+      .info-box > p, .info-box > h3 {
+        color: white;
+      }
+      .info-box {
+        background-color: rgba(82,89,95,0.7);
+        margin-top: 20em;
+        margin-bottom: 10em;
+        padding-bottom: 1em;
+      }
+      button {
+        color: white;
+        background-color: rgba(29,208,126,1);
+        position: relative;
+        left: 11em;
+      }
+      button:hover {
+        color: white;
+        background-color: rgba(29,208,126,1);
+      }
+    </style>
+  </div>
+
+  <div id="browse" class="root">
+
+      <div class="container-fluid bg">
+        <div class="page-head"></div>
+        <div class="row firstrow">
+          <div class="col-md-2 side-column">
+            <h3>My dinner</h3>
+
+
+
+            <div class="row">
+              <div class="col-md-6"><p>People: </p><p id="guestCount">0</p></div>
+              <div class="col-md-6">
+                <div id="plusGuest" class="btnMe"><p>+</p></div>
+                <div id="minusGuest" class="btnMe"><p>-</p></div>
+              </div>
+
+            </div>
+
+
+            <div id="meals"></div>
+
+
+          </div>
+          <div class="col-md-10">
+
+
+          <div class="row">
+            <div class="navi">
+              <div class="col-md-6">
+                <div class="center searchbox">
+                  <input type="search" name="name" class="center form-control" placeholder="Search..." id="search-bar-1"/>
+                </div>
+              </div>
+              <div class="col-md-1">
+                <div class="center optionbox">
+                  <select class="form-control" id="search-bar-type-1">
+                    <option>All</option>
+                    <option>Starter</option>
+                    <option>Main dish</option>
+                    <option>Dessert</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="meal-container"></div>
+
+
+          </div>
+          </div>
+        </div>
+
+        <div class="page-foot"></div>
+      </div>
+      <style>
+        h1, h2, h3, h4, p, button, input[type="text"], input[type="search"], select[class='form-control'] {
+          font-family: "Gill Sans";
+          color: white;
+        }
+        p {
+          font-size: 16px;
+        }
+        .side-column {
+          background-color: rgba(46, 46, 46, 0.9);
+          padding-bottom: 60%;
+        }
+        .side-column > p, .meal > p {
+          display: inline-block;
+          margin-right: 5px;
+        }
+        .meal {
+          margin-top: 10px;
+        }
+        .top-meal {
+          margin-top: 25px;
+        }
+        .meal > p[class="dishes"] {
+          margin-right: 40px;
+        }
+        button {
+          background-color: rgba(29,208,126,1);
+          font-size: 16px;
+        }
+        .navi {
+          background-image: url("./images/chilitime.jpeg");
+          background-position: 0px -500px;
+          background-size: cover;
+          height: 200px;
+        }
+        input[type="text"], input[type="search"] {
+          color: black ;
+          font-size: 20px;
+          width: 250px;
+        }
+        select[class='form-control'] {
+          width: 100px;
+          color: black;
+          font-size: 16px;
+        }
+        /*
+        input[type="submit"] {
+          text-align: center;
+          color: #FFFFFF;
+          background-color: #1dd07e;
+          border-radius: 40px;
+          border: 1px solid #1dd07e;
+          font-size: 15px;
+          padding: 12px;
+          padding-left: 15px;
+          padding-right: 15px;
+          position: relative;
+          top: 40px;
+        }
+        */
+
+        .center {
+          margin: auto;
+          width: 60%;
+        }
+        .searchbox, .optionbox {
+          position: relative;
+          top: 80px;
+        }
+        .meal-pic{
+          background-size: cover;
+          height: 150px;
+          cursor: pointer;
+        }
+        .meal-name-box {
+          height: auto;
+          background-color: #efdd59;
+          cursor: pointer;
+        }
+        .meal-name-box > div {
+          padding-top: 10px;
+        }
+        .text-center {
+          text-align: center;
+        }
+        #meal-container {
+          position: relative;
+          top: 50px;
+          margin: 0px 30px;
+
+        }
+        .black {
+          color: black;
+        }
+        .one-meal {
+          margin-bottom: 50px;
+        }
+
+
+
+
+        /* Snyggare knappar */
+        .btnMe {
+          background-color: transparent;
+          border: 2px solid rgba(255, 255, 255, 1);
+          border-radius: 2px;
+          width: 30px;
+          height: 30px;
+          margin: 5px 0px;
+          cursor: pointer;
+          color: white;
+          text-align: center;
+          letter-spacing: 2px;
+          font-size: 25px;
+        }
+        .guestClassButton {
+          width: 140px;
+          height: 50px;
+        }
+        .center2 {
+          width: 80%;
+          position: relative;
+          top: 40px;
+        }
+        .btnMe > p {
+          color: white;
+          font-family: "Montserrat";
+          text-align: center;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-size: 25px;
+          position: relative;
+          bottom: 6px;
+          left: 1px;
+        }
+        .btnMe, .btnMe > p {
+          /* Prefix -webkit- for chrome and safari */
+          -webkit-transition-timing-function: linear;
+          -webkit-transition-duration: 0.2s;
+
+          /* Prefix -moz- for firefox */
+          -moz-transition-timing-function: linear;
+          -moz-transition-duration: 0.2s;
+
+          /* NO prefix for opera */
+          transition-timing-function: linear;
+          transition-duration: 0.2s;
+
+          -moz-user-select: -moz-none;
+          -khtml-user-select: none;
+          -webkit-user-select: none;
+
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .btnMe:hover {
+          background-color: rgba(255, 255, 255, 1);
+          color: #52595f;
+        }
+        .btnMe:hover p {
+          color: #52595f;
+        }
+      </style>
+
+  </div>
+
+</body>
+</html>

@@ -29,6 +29,18 @@ $(function() {
 	if (file == "final.html") {
 		var viewF = new finalView($("#root"), model);
 	}
+	if (file == "allt.html") {
+
+		$("#browse").hide();
+
+		var headFootView = new headFoot($("body"), model);
+		var viewI = new indexView($(".root"), model);
+		var viewB = new selectDishView($(".root"), model);
+		var viewB2 = new guestsColumn($(".root"), model);
+		var controller1 = new pmButtonsPressed(viewB2, model);
+		var controller2 = new searchBar(viewB, model);
+		var buttonsController = new buttons($("body"), model);
+	}
 
 
 

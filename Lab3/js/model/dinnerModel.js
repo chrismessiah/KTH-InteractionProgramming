@@ -5,9 +5,9 @@ var DinnerModel = function() {
 	this.mealsSet = false;
 	this.selectedMeal = 100; // id
 	this.chosenMeal = {
-		"starter" : 1,
-		"mainDish" : 100,
-		"dessert" : 200
+		"starter" : null,
+		"mainDish" : null,
+		"dessert" : null
 	};
 
 	this.observerList = [];
