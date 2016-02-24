@@ -10,7 +10,6 @@ var DinnerModel = function() {
 		"dessert" : 200
 	};
 
-
 	this.observerList = [];
 
 	// will add new observer to the array
@@ -444,5 +443,22 @@ var DinnerModel = function() {
 		}
 	];
 	this.dishes = dishes;
+	this.showMeals = dishes;
+
+	this.removeDishFromSelection = function(id) {
+		var newList = [];
+		for (var i = 0; i < this.showMeals.length; i++) {
+			if (this.showMeals[i].id !== id) {
+				newList.push(this.showMeals[i]);
+			}
+		}
+		this.showMeals = newList;
+		this.notifyObservers();
+	}
+
+	this.resetSelection = function() {
+		this.showMeals = this.dishes;
+		this.notifyObservers();
+	}
 
 };

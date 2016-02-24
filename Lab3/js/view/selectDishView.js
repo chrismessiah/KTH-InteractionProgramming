@@ -13,8 +13,8 @@ var selectDishView = function (container, model) {
   this.update = function() {
     var dish;
     toAppend = '';
-    for (var i = 0; i < model.dishes.length; i++) {
-      dish = model.dishes[i];
+    for (var i = 0; i < model.showMeals.length; i++) {
+      dish = model.showMeals[i];
       extraclass = 'a' + dish.id;
 
       if (i === 0) {
@@ -35,7 +35,7 @@ var selectDishView = function (container, model) {
       if (i === 5) {
         toAppend = toAppend + '</div><div class="row">';
       }
-      if (i === (model.dishes.length-1)) {
+      if (i === (model.showMeals.length-1)) {
         toAppend = toAppend + '</div>';
       }
     }
@@ -43,7 +43,7 @@ var selectDishView = function (container, model) {
 
     container.find("#meal-container").html(toAppend);
   }
-  
+
   this.update()
 
 };
