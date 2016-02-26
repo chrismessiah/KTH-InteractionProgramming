@@ -38,7 +38,7 @@ var guestsColumn = function (container, model) {
 		var dishContainerList1 = container.find(".actual-dish-names");
 		var dishContainerList2 = container.find(".actual-dish-cost");
 		var currentMeals = model.getSelectedMenu();
-		for (var i = 0; i < dishContainerList1.length; i++) {
+		for (var i = 0; i < 3; i++) {
 			$(dishContainerList1[i]).html(currentMeals[i].name);
 			$(dishContainerList2[i]).html(model.getTotalDishPriceWithRespectToGuestAmount(currentMeals[i].id));
 		}

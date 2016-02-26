@@ -49,6 +49,12 @@ var DinnerModel = function() {
 		return meal;
 	}
 
+	this.setSelectedDishView = function(id) {
+		this.selectedMeal = id;
+		this.notifyObservers();
+
+	}
+
 	this.setNumberOfGuests = function(num) {
 		this.guestNum = num;
 		this.notifyObservers();

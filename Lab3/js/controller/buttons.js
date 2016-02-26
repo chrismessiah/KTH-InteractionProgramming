@@ -12,7 +12,9 @@ var buttons = function(view, model) {
     // view.find("#meal").show();
   })
 
-  foodOption.click(function() {
+  foodOption.click(function(something) {
+    model.setSelectedDishView(something.currentTarget.id);
+
     view.find("#browse").hide();
     view.find("#meal").show();
   })
