@@ -20,9 +20,9 @@ var guestsColumn = function (container, model) {
 			dish_cost = model.guestNum * model.getTotalDishPrice(dishes[i].id);
 			total_cost = total_cost + dish_cost;
 			toAppend = toAppend + '<div class="row"><div class="col-md-6">';
-			toAppend = toAppend + '<p class="dishes actual-dish-names">' + dishes[i].name + '</p>';
+			toAppend = toAppend + '<p class="dishes actual-dish-names' + i + '">' + dishes[i].name + '</p>';
 			toAppend = toAppend + '</div><div class="col-md-6">';
-			toAppend = toAppend + '<p class="prices actual-dish-cost">' + dish_cost + '</p>';
+			toAppend = toAppend + '<p class="prices actual-dish-cost' + i + '">' + dish_cost + '</p>';
 			toAppend = toAppend + '</div></div>';
 		}
 	}
@@ -35,12 +35,11 @@ var guestsColumn = function (container, model) {
 
 	this.update = function() {
 		container.find("#guestCount").html(model.getNumberOfGuests());
-		var dishContainerList1 = container.find(".actual-dish-names");
-		var dishContainerList2 = container.find(".actual-dish-cost");
 		var currentMeals = model.getSelectedMenu();
 		for (var i = 0; i < 3; i++) {
-			$(dishContainerList1[i]).html(currentMeals[i].name);
-			$(dishContainerList2[i]).html(model.getTotalDishPriceWithRespectToGuestAmount(currentMeals[i].id));
+			console.log(currentMeals[i].name);
+			container.find(".actual-dish-names" + i).html(currentMeals[i].name);
+			container.find(".actual-dish-cost" + i).html(model.getTotalDishPriceWithRespectToGuestAmount(currentMeals[i].id));
 		}
 		container.find(".actual-dish-totalCost").html(model.getTotalMenuPriceWithRespectToGuestAmount());
 	}
