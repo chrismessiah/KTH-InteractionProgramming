@@ -3,8 +3,14 @@ var buttons = function(view, model) {
 
   indexKnapp.click(function() {
     view.find(".bg").css({"background-size" : "0 0"});
+
     view.find("#index").hide();
+    view.find("#meal").hide();
     view.find("#browse").show();
+
+    // view.find("#index").hide();
+    // view.find("#meal").show();
+    // view.find("#browse").hide();
   })
 
 };
