@@ -37,7 +37,6 @@ $(function() {
 
 		// index
 		var viewI = new indexView($(".root"), model);
-		var buttonsController = new buttons($("body"), model);
 
 		// browse
 		var viewB = new selectDishView($(".root"), model);
@@ -52,6 +51,7 @@ $(function() {
 
 		// all pages
 		var headFootView = new headFoot($("body"), model);
+		var buttonsController = new buttons($("body"), model);
 
 	}
 
