@@ -31,15 +31,28 @@ $(function() {
 	}
 	if (file == "allt.html") {
 
+		// hide all except index
 		$("#browse").hide();
+		$("#meal").hide();
 
-		var headFootView = new headFoot($("body"), model);
+		// index
 		var viewI = new indexView($(".root"), model);
+		var buttonsController = new buttons($("body"), model);
+
+		// browse
 		var viewB = new selectDishView($(".root"), model);
+
+		// meal
+		var viewM = new mealView($("#meal"), model);
+
+		// browse and meal
 		var viewB2 = new guestsColumn($(".root"), model);
 		var controller1 = new pmButtonsPressed(viewB2, model);
 		var controller2 = new searchBar(viewB, model);
-		var buttonsController = new buttons($("body"), model);
+
+		// all pages
+		var headFootView = new headFoot($("body"), model);
+
 	}
 
 
