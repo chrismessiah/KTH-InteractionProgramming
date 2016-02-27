@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Allows for responsive css -->
+  <title>HOMELETTE</title>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/indexView.js"></script>
+  <script src="js/view/selectDishView.js"></script>
+  <script src="js/view/guestsColumn.js"></script>
+  <script src="js/view/mealView.js"></script>
+  <script src="js/view/header-and-footer.js"></script>
+  <script src="js/controller/pm-buttons.js"></script>
+  <script src="js/controller/search-bar.js"></script>
+  <script src="js/controller/buttons.js"></script>
+  <script src="js/view/overview.js"></script>
+  <script src="js/view/finalView.js"></script>
+  <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
+</head>
+<body>
+
+
+  <div id="index" class="root">
+    	<div class="container-fluid bg bg2">
+        <div class="page-head"></div>
+        <div class="row">
+          <div class="col-sm-5 info-box">
+            <h3>A dinner home service</h3>
+            <p>Lorem ipsum dolor sit amet, no quo pericula argumentum, suscipit prodesset vix ex, quodsi scripta maiorum pro eu. Has disputando interpretaris an, vitae similique his ea. Molestie maiestatis qui ne. Sed at antiopam vituperata, id sed nullam latine, pri ridens mollis sadipscing ex.</p>
+            <p>start quickly</p>
+            <center>
+              <button class="btn btnMe3 indexKnapp" id="indexKnapp2331">Create new dinner</button>
+            </center>
+          </div>
+        </div>
+        <div class="page-foot"></div>
+      </div>
+
+
+    <style type="text/css">
+      /*#indexKnapp2331 {
+        position: relative;
+        left: 5em;
+      }*/
+      body {
+        margin: 0px;
+      }
+      .bg2 {
+        background-image: url("./images/bg.jpg");
+        background-size: cover;
+
+      }
+      .info-box > p, .info-box > h3 {
+        color: white;
+      }
+      .info-box {
+        background-color: rgba(82,89,95,0.7);
+        margin-top: 20em;
+        margin-bottom: 10em;
+        padding-bottom: 1em;
+      }
+      /*button {
+        color: white;
+        background-color: rgba(29,208,126,1);
+        position: relative;
+      }*/
+      .indexKnapp {
+        left: 11em;
+      }
+      /*button:hover {
+        color: white;
+        background-color: rgba(29,208,126,1);
+      }*/
+    </style>
+  </div>
+
+  <div id="browse" class="root">
+
+      <div class="container-fluid bg">
+        <div class="page-head"></div>
+        <div class="row firstrow">
+          <div class="col-xs-2 side-column">
+            <h3>My dinner</h3>
+            <div class="row">
+              <div class="col-xs-6"><p>People: </p><p id="guestCount">0</p></div>
+              <div class="col-xs-6">
+                <div id="plusGuest" class="btnMe"><p>+</p></div>
+                <div id="minusGuest" class="btnMe"><p>-</p></div>
+              </div>
+
+            </div>
+
+
+            <div id="meals">
+              <div id="meals2"></div>
+              <div class="center2 center">
+                <button class="guestClassButton btnMe confirmKnapp">Confirm</button>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col-xs-10">
+
+
+          <div class="row">
+            <div class="navi">
+              <div class="col-xs-6">
+                <div class="center searchbox">
+                  <input type="search" name="name" class="center form-control" placeholder="Search..." id="search-bar-1"/>
+                </div>
+              </div>
+              <div class="col-xs-1">
+                <div class="center optionbox">
+                  <select class="form-control" id="search-bar-type-1">
+                    <option>All</option>
+                    <option>Starter</option>
+                    <option>Main dish</option>
+                    <option>Dessert</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="meal-container">
+              <div class="row">
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+                <div class="col-xs-2 one-meal" id=""></div>
+              </div>
+            </div>
+
+
+          </div>
+          </div>
+        </div>
+
+        <div class="page-foot"></div>
+      </div>
+      <style>
+        h1, h2, h3, h4, p, button, input[type="text"], input[type="search"], select[class='form-control'] {
+          font-family: "Gill Sans";
+          color: white;
+        }
+        p {
+          font-size: 16px;
+        }
+        .side-column {
+          background-color: rgba(46, 46, 46, 0.9);
+          padding-bottom: 60%;
+        }
+        .side-column > p, .meal > p {
+          display: inline-block;
+          margin-right: 5px;
+        }
+        .meal {
+          margin-top: 10px;
+        }
+        .top-meal {
+          margin-top: 25px;
+        }
+        .meal > p[class="dishes"] {
+          margin-right: 40px;
+        }
+        button {
+          background-color: rgba(29,208,126,1);
+          font-size: 16px;
+        }
+        .navi {
+          background-image: url("./images/chilitime.jpeg");
+          background-position: 0px -500px;
+          background-size: cover;
+          height: 200px;
+        }
+        input[type="text"], input[type="search"] {
+          color: black ;
+          font-size: 20px;
+          width: 250px;
+        }
+        select[class='form-control'] {
+          width: 100px;
+          color: black;
+          font-size: 16px;
+        }
+        /*
+        input[type="submit"] {
+          text-align: center;
+          color: #FFFFFF;
+          background-color: #1dd07e;
+          border-radius: 40px;
+          border: 1px solid #1dd07e;
+          font-size: 15px;
+          padding: 12px;
+          padding-left: 15px;
+          padding-right: 15px;
+          position: relative;
+          top: 40px;
+        }
+        */
+
+        .center {
+          margin: auto;
+          width: 60%;
+        }
+        .searchbox, .optionbox {
+          position: relative;
+          top: 80px;
+        }
+        .meal-pic{
+          background-size: cover;
+          height: 150px;
+          cursor: pointer;
+        }
+        .meal-name-box {
+          height: auto;
+          background-color: #efdd59;
+          cursor: pointer;
+        }
+        .meal-name-box > div {
+          padding-top: 10px;
+        }
+        .text-center {
+          text-align: center;
+        }
+        #meal-container {
+          position: relative;
+          top: 50px;
+          margin: 0px 30px;
+
+        }
+        .black {
+          color: black;
+        }
+        .one-meal {
+          margin-bottom: 50px;
+        }
+
+
+
+
+        /* Snyggare knappar */
+        .btnMe, .btnMe3, .btMe5 {
+          background-color: transparent;
+          border: 2px solid rgba(255, 255, 255, 1);
+          border-radius: 2px;
+          width: 30px;
+          height: 30px;
+          margin: 5px 0px;
+          cursor: pointer;
+          color: white;
+          text-align: center;
+          letter-spacing: 2px;
+          font-size: 25px;
+        }
+        .btnMe3 {
+          width: 220px;
+          height: 40px;
+          font-size: 20px;
+        }
+        .btnMe3:hover {
+          background-color: white;
+          color: rgba(82,89,95,0.7);
+        }
+        .guestClassButton {
+          width: 140px;
+          height: 50px;
+        }
+        .center2 {
+          width: 80%;
+          position: relative;
+          top: 40px;
+        }
+        .btnMe > p, .btMe5 {
+          color: white;
+          font-family: "Montserrat";
+          text-align: center;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-size: 25px;
+          position: relative;
+          bottom: 6px;
+          left: 1px;
+        }
+        .btnMe, .btnMe > p, .btnMe3, .btnMe3 > p, .btMe5  {
+          /* Prefix -webkit- for chrome and safari */
+          -webkit-transition-timing-function: linear;
+          -webkit-transition-duration: 0.2s;
+
+          /* Prefix -moz- for firefox */
+          -moz-transition-timing-function: linear;
+          -moz-transition-duration: 0.2s;
+
+          /* NO prefix for opera */
+          transition-timing-function: linear;
+          transition-duration: 0.2s;
+
+          -moz-user-select: -moz-none;
+          -khtml-user-select: none;
+          -webkit-user-select: none;
+
+          -ms-user-select: none;
+          user-select: none;
+        }
+        .btnMe4 {
+          width: 100px;
+          color: black;
+          border: 2px solid black;
+
+        }
+        .btnMe4:hover {
+          color: #ffe599;
+          background-color: black;
+        }
+        .btnMe:hover {
+          background-color: rgba(255, 255, 255, 1);
+          color: #52595f;
+        }
+        .btnMe:hover p {
+          color: #52595f;
+        }
+        .btMe5 {
+          width: 150px;
+          height: 50px;
+          color: black;
+          background-color: white;
+          border: 2px solid black;
+          font-family: "Montserrat";
+
+        }
+        .btMe5:hover {
+          color: white;
+          background-color: black;
+        }
+      </style>
+
+  </div>
+
+
+  <div id="meal" class="root">
+    <div class="container-fluid bg">
+      <div class="page-head"></div>
+       <div class="row firstrow">
+         <div class="col-xs-2 side-column">
+           <h3>My dinner</h3>
+
+           <div class="row">
+             <div class="col-xs-6"><p>People: </p><p id="guestCount">0</p></div>
+             <div class="col-xs-6">
+               <div id="plusGuest" class="btnMe"><p>+</p></div>
+               <div id="minusGuest" class="btnMe"><p>-</p></div>
+             </div>
+
+           </div>
+
+
+           <div id="meals">
+             <div id="meals2"></div>
+             <div class="center2 center">
+               <button class="guestClassButton btnMe confirmKnapp">Confirm</button>
+             </div>
+           </div>
+
+
+
+         </div>
+         <div class="col-xs-10">
+
+
+         <div class="row">
+           <div class="navi">
+             <div class="col-xs-6">
+               <div class="center searchbox">
+                 <input type="search" name="name" class="center form-control" placeholder="Search..."/>
+               </div>
+             </div>
+             <div class="col-xs-1">
+               <div class="center optionbox">
+                 <select class="form-control">
+                   <option>Starter</option>
+                   <option>Main dish</option>
+                   <option>Dessert</option>
+                 </select>
+               </div>
+             </div>
+           </div>
+
+
+           <div id="selected-meal-container">
+              <div id="selected-meal-container">
+                <div class="col-xs-6 selected-meal-one">
+                  <p class="meal-title">Köttbullar</p>
+                  <div class="meal-img"></div>
+                  <p class="meal-desc meal-desc2">Lorem ipsum osv</p>
+                  <div class="center">
+                    <button class="selected-meal-button btnMe wide-button back-button1">Back</button>
+                  </div>
+                  <p class="meal-title">Preparation</p>
+                  <p class="meal-desc cook">No description was given</p>
+                </div>
+                <div class="col-xs-6">
+                  <div class="row ingredients-container">
+                    <div class="center">
+                      <p class="top-desc">allanballan</p>
+                      <div class="separator"></div>
+                    </div>
+
+                  <div id="insert-ingredients-here"></div>
+
+                  <div class="center">
+                    <div class="separator"></div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xs-5">
+                      <button class="selected-meal-button2 btnMe wide-button">Confirm</button>
+                    </div>
+                    <div class="col-xs-1 a-bit-down"><p>SEK</p></div>
+                    <div class="col-xs-1 a-bit-down totalpris123"><p>9999999</p></div> <!-- kanske ska bort? -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+           </div>
+
+
+         </div>
+         </div>
+       </div>
+
+
+       <style>
+         h1, h2, h3, h4, p, button, input[type="text"], input[type="search"], select[class='form-control'] {
+           font-family: "Gill Sans";
+           color: white;
+         }
+         p {
+           font-size: 16px;
+         }
+         .side-column {
+           background-color: rgba(46, 46, 46, 0.9);
+           padding-bottom: 60%;
+         }
+         .side-column > p, .meal > p {
+           display: inline-block;
+           margin-right: 5px;
+         }
+         .meal {
+           margin-top: 10px;
+         }
+         .top-meal {
+           margin-top: 25px;
+         }
+         .meal > p[class="dishes"] {
+           margin-right: 40px;
+         }
+         button {
+           /*background-color: rgba(29,208,126,1);*/
+           font-size: 16px;
+         }
+         .navi {
+           background-image: url("./images/chilitime.jpeg");
+           background-position: 0px -500px;
+           background-size: cover;
+           height: 200px;
+         }
+         input[type="text"], input[type="search"] {
+           color: black ;
+           font-size: 20px;
+           width: 250px;
+         }
+         select[class='form-control'] {
+           width: 100px;
+           color: black;
+           font-size: 16px;
+         }
+         .guestClassButton,  {
+           text-align: center;
+           color: #FFFFFF;
+           background-color: #1dd07e;
+           border-radius: 40px;
+           border: 1px solid #1dd07e;
+           font-size: 15px;
+           padding: 12px;
+           padding-left: 15px;
+           padding-right: 15px;
+
+         }
+         .guestClassButton {
+           position: relative;
+           top: 40px;
+         }
+         /*.selected-meal-button {
+           margin: 20px;
+         }
+         .selected-meal-button2 {
+           margin-left: 40px;
+           margin-bottom: 10px;
+           position: relative;
+         }*/
+         .center {
+           margin: auto;
+           width: 90%;
+         }
+         .searchbox, .optionbox {
+           position: relative;
+           top: 80px;
+         }
+         .meal-pic{
+           background-size: cover;
+           height: 150px;
+           cursor: pointer;
+         }
+         .meal-name-box {
+           height: auto;
+           background-color: #efdd59;
+           cursor: pointer;
+         }
+         .meal-name-box > div {
+           padding-top: 10px;
+         }
+         .text-center {
+           text-align: center;
+         }
+         #meal-container {
+           position: relative;
+           top: 50px;
+           margin: 0px 30px;
+
+         }
+         .black {
+           color: black;
+         }
+         .one-meal {
+           margin-bottom: 50px;
+         }
+         .meal-img {
+           height: 400px;
+           background-size: 400px;
+           background-repeat: no-repeat;
+
+         }
+         .selected-meal-one > p {
+           color: black;
+         }
+         .selected-meal-one {
+           margin-top: 20px;
+           margin-bottom: 10px;
+         }
+         .meal-title {
+           font-size: 30px;
+         }
+         .meal-desc {
+           margin-top: 20px;
+         }
+         .ingredients-container {
+           background-color: #ffe599;
+         }
+         .ingredients-container p {
+           color: black;
+         }
+         .top-desc {
+           padding-top: 20px;
+           padding-left: 5px;
+           font-size: 20px;
+         }
+         .separator {
+           width: 90%;
+           height: 2px;
+           background-color: black;
+           margin-bottom: 10px;
+         }
+         .pricen {
+           text-align: center;
+           position: relative;
+           left: 20px;
+         }
+         .a-bit-down {
+           position: relative;
+           top: 10px;
+           left: 130px;
+         }
+
+
+         /* Snyggare knappar */
+         .btnMe {
+           background-color: transparent;
+           border: 2px solid rgba(255, 255, 255, 1);
+           border-radius: 2px;
+           width: 30px;
+           height: 30px;
+           margin: 5px 0px;
+           cursor: pointer;
+           color: white;
+           text-align: center;
+           letter-spacing: 2px;
+           font-size: 25px;
+         }
+         .guestClassButton, .wide-button {
+           width: 140px;
+           height: 50px;
+           padding: 6px 3px;
+         }
+         .center2 {
+           width: 80%;
+         }
+         .btnMe > p {
+           color: white;
+           font-family: "Montserrat";
+           text-align: center;
+           letter-spacing: 2px;
+           text-transform: uppercase;
+           font-size: 25px;
+           position: relative;
+           bottom: 6px;
+           left: 1px;
+         }
+         .btnMe, .btnMe > p {
+           /* Prefix -webkit- for chrome and safari */
+           -webkit-transition-timing-function: linear;
+           -webkit-transition-duration: 0.2s;
+
+           /* Prefix -moz- for firefox */
+           -moz-transition-timing-function: linear;
+           -moz-transition-duration: 0.2s;
+
+           /* NO prefix for opera */
+           transition-timing-function: linear;
+           transition-duration: 0.2s;
+
+           -moz-user-select: -moz-none;
+           -khtml-user-select: none;
+           -webkit-user-select: none;
+
+           -ms-user-select: none;
+           user-select: none;
+         }
+         .btnMe:hover {
+           background-color: rgba(255, 255, 255, 1);
+           color: #52595f;
+         }
+         .btnMe:hover p {
+           color: #52595f;
+         }
+         .wide-button {
+           color: black;
+           border: 2px solid black;
+           position: relative;
+           left: 20px;
+           margin: 10px 0px;
+         }
+         .wide-button:hover {
+           color: white;
+           background-color: black;
+         }
+       </style>
+       <div class="page-foot"></div>
+     </div>
+   </div>
+
+  <div id="overview" class="root">
+   <div class="container-fluid bg">
+     <div class="page-head"></div>
+
+     <div class="row underhead">
+       <div class="col-xs-2"><p id="line1"></p></div>
+       <div class="col-xs-9"></div>
+       <div class="col-xs-1">
+         <button class="backButton btnMe3 btnMe4" id="backKnapp444">Go back</button>
+       </div>
+     </div>
+
+     <div class="row mealrow">
+       <div id="matkontainer">
+
+         <div id="insert-matkontainer-here"></div>
+
+         <div class="col-xs-1 separator3"></div>
+         <div class="col-xs-1"></div>
+         <div class="col-xs-1"><p class="black getDown" id="pris123432">0000</p></div>
+
+       </div>
+     </div>
+
+     <div class="row center">
+       <div class="separator"></div>
+       <center>
+         <button class="btMe5" id="printKnapp11">Print</button>
+       </center>
+     </div>
+
+     <div class="page-foot"></div>
+   </div>
+
+
+     <style>
+       h1, h2, h3, h4, p, input[type="text"], input[type="search"], select[class='form-control'] {
+         font-family: "Gill Sans";
+         color: white;
+       }
+       p {
+         font-size: 16px;
+       }
+       .side-column {
+         background-color: rgba(46, 46, 46, 0.9);
+         padding-bottom: 60%;
+       }
+       .side-column > p, .meal > p {
+         display: inline-block;
+         margin-right: 5px;
+       }
+       .meal {
+         margin-top: 10px;
+       }
+       .top-meal {
+         margin-top: 25px;
+       }
+       .meal > p[class="dishes"] {
+         margin-right: 40px;
+       }
+       button {
+         font-size: 16px;
+       }
+       .navi {
+         background-image: url("./images/chilitime.jpeg");
+         background-position: 0px -500px;
+         background-size: cover;
+         height: 200px;
+       }
+       input[type="text"], input[type="search"] {
+         color: black ;
+         font-size: 20px;
+         width: 250px;
+       }
+       select[class='form-control'] {
+         width: 100px;
+         color: black;
+         font-size: 16px;
+       }
+       .guestClassButton {
+         position: relative;
+         top: 40px;
+       }
+       .selected-meal-button {
+         margin: 20px;
+       }
+       .selected-meal-button2 {
+         margin-left: 40px;
+         margin-bottom: 10px;
+         position: relative;
+
+       }
+       .center {
+         margin: auto;
+         width: 90%;
+       }
+       .searchbox, .optionbox {
+         position: relative;
+         top: 80px;
+       }
+       .meal-pic{
+         background-size: cover;
+         height: 150px;
+         cursor: pointer;
+       }
+       .meal-name-box {
+         height: auto;
+         background-color: #efdd59;
+         cursor: pointer;
+       }
+       .meal-name-box > div {
+         padding-top: 10px;
+       }
+       .text-center {
+         text-align: center;
+       }
+       #meal-container {
+         position: relative;
+         top: 50px;
+         margin: 0px 30px;
+
+       }
+       .black {
+         color: black;
+       }
+       .one-meal {
+         margin-bottom: 50px;
+       }
+       .meal-img {
+         background-image: url('./images/meatballs.jpg');
+         height: 400px;
+         background-size: 400px;
+         background-repeat: no-repeat;
+
+       }
+       .selected-meal-one > p {
+         color: black;
+       }
+       .selected-meal-one {
+         margin-top: 20px;
+         margin-bottom: 10px;
+       }
+       .meal-title {
+         font-size: 30px;
+       }
+       .meal-desc {
+         margin-top: 20px;
+       }
+       .ingredients-container {
+         background-color: #ffe599;
+       }
+       .ingredients-container p {
+         color: black;
+       }
+       .top-desc {
+         padding-top: 20px;
+         padding-left: 5px;
+         font-size: 20px;
+       }
+       .separator {
+         width: 90%;
+         height: 2px;
+         background-color: black;
+         margin-bottom: 10px;
+       }
+       .pricen {
+         text-align: center;
+         position: relative;
+         left: 20px;
+       }
+       .a-bit-down {
+         position: relative;
+         top: 10px;
+         left: 130px;
+       }
+       .underhead {
+         height: 80px;
+         background-color: #ffe599;
+       }
+       .underhead p {
+         font-size: 20px;
+         color: black;
+         position: relative;
+         top: 25px;
+       }
+       .backButton {
+         margin-top: 20px;
+         position: relative;
+         right: 20px;
+       }
+       .mealrow {
+
+       }
+       .pricetag {
+         color: black;
+         position: relative;
+         left: 140px;
+       }
+       #matkontainer {
+         margin-top: 60px;
+       }
+       .separator3 {
+         height: 200px;
+         width: 1px;
+         padding: 1px;
+         background-color: black;
+         position: relative;
+         left: 10px;
+       }
+       .getDown {
+         position: relative;
+         right: 100px;
+         top: 160px;
+       }
+     </style>
+  </div>
+
+
+  <div id="final" class="root">
+    <div class="container-fluid bg">
+      <div class="page-head"></div>
+
+      <div class="row underhead">
+        <div class="col-xs-2"><p id="line2"></p></div>
+        <div class="col-xs-9"></div>
+        <div class="col-xs-1">
+          <button class="backButton btnMe3 btnMe4" id="backotknaoo234">Go back</button>
+        </div>
+      </div>
+
+      <div id="food-container"></div>
+
+      <div class="page-foot"></div>
+    </div>
+    <style>
+      h1, h2, h3, h4, p, input[type="text"], input[type="search"], select[class='form-control'] {
+        font-family: "Gill Sans";
+        color: white;
+      }
+      p {
+        font-size: 16px;
+      }
+      .side-column {
+        background-color: rgba(46, 46, 46, 0.9);
+        padding-bottom: 60%;
+      }
+      .side-column > p, .meal > p {
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .meal {
+        margin-top: 10px;
+      }
+      .top-meal {
+        margin-top: 25px;
+      }
+      .meal > p[class="dishes"] {
+        margin-right: 40px;
+      }
+      button {
+        background-color: rgba(29,208,126,1);
+        font-size: 16px;
+      }
+      .navi {
+        background-image: url("./images/chilitime.jpeg");
+        background-position: 0px -500px;
+        background-size: cover;
+        height: 200px;
+      }
+      input[type="text"], input[type="search"] {
+        color: black ;
+        font-size: 20px;
+        width: 250px;
+      }
+      select[class='form-control'] {
+        width: 100px;
+        color: black;
+        font-size: 16px;
+      }
+
+      .meal-pic{
+        background-size: cover;
+        height: 150px;
+        cursor: pointer;
+      }
+      .meal-name-box {
+        height: auto;
+        background-color: #efdd59;
+        cursor: pointer;
+      }
+      .meal-name-box > div {
+        padding-top: 10px;
+      }
+      .text-center {
+        text-align: center;
+      }
+
+      .selected-meal-one > p {
+        color: black;
+      }
+      .selected-meal-one {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .meal-title {
+        font-size: 30px;
+      }
+      .meal-desc {
+        margin-top: 20px;
+      }
+      .ingredients-container {
+        background-color: #ffe599;
+      }
+      .ingredients-container p {
+        color: black;
+      }
+      .top-desc {
+        padding-top: 20px;
+        padding-left: 5px;
+        font-size: 20px;
+      }
+      .separator {
+        width: 90%;
+        height: 2px;
+        background-color: black;
+        margin-bottom: 10px;
+      }
+      .pricen {
+        text-align: center;
+        position: relative;
+        left: 20px;
+      }
+      .a-bit-down {
+        position: relative;
+        top: 10px;
+        left: 130px;
+      }
+      .underhead {
+        height: 80px;
+        background-color: #ffe599;
+      }
+      .underhead p {
+        font-size: 20px;
+        color: black;
+        position: relative;
+        top: 25px;
+      }
+      .backButton {
+        margin-top: 20px;
+        position: relative;
+        right: 20px;
+      }
+      .mealrow {
+
+      }
+      .pricetag {
+        color: black;
+        position: relative;
+        left: 140px;
+      }
+      #matkontainer {
+        margin-top: 60px;
+      }
+      .separator3 {
+        height: 200px;
+        width: 1px;
+        padding: 1px;
+        background-color: black;
+        position: relative;
+        left: 10px;
+      }
+      .getDown {
+        position: relative;
+        right: 100px;
+        top: 160px;
+      }
+      .geeeethdown {
+        margin-top: 50px;
+      }
+      .geeeethdown-title {
+        font-size: 25px;
+      }
+      .bild {
+        height: 200px;
+        background-size: 200px;
+        background-repeat: no-repeat;
+      }
+      #page-foot {
+        margin-top: 30px;
+      }
+    </style>
+
+  </div>
+
+
+
+
+</body>
+</html>
