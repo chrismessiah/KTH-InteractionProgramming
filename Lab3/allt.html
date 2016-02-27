@@ -21,6 +21,7 @@
   <script src="js/controller/search-bar.js"></script>
   <script src="js/controller/buttons.js"></script>
   <script src="js/view/overview.js"></script>
+  <script src="js/view/finalView.js"></script>
   <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/dist/sweetalert.css">
 </head>
 <body>
@@ -892,6 +893,184 @@
        }
      </style>
   </div>
+
+
+  <div id="final" class="root">
+    <div class="container-fluid bg">
+      <div class="page-head"></div>
+
+      <div class="row underhead">
+        <div class="col-md-2"><p id="line2"></p></div>
+        <div class="col-md-9"></div>
+        <div class="col-md-1">
+          <button class="backButton btnMe3 btnMe4" id="backotknaoo234">Go back</button>
+        </div>
+      </div>
+
+      <div id="food-container"></div>
+
+      <div class="page-foot"></div>
+    </div>
+    <style>
+      h1, h2, h3, h4, p, input[type="text"], input[type="search"], select[class='form-control'] {
+        font-family: "Gill Sans";
+        color: white;
+      }
+      p {
+        font-size: 16px;
+      }
+      .side-column {
+        background-color: rgba(46, 46, 46, 0.9);
+        padding-bottom: 60%;
+      }
+      .side-column > p, .meal > p {
+        display: inline-block;
+        margin-right: 5px;
+      }
+      .meal {
+        margin-top: 10px;
+      }
+      .top-meal {
+        margin-top: 25px;
+      }
+      .meal > p[class="dishes"] {
+        margin-right: 40px;
+      }
+      button {
+        background-color: rgba(29,208,126,1);
+        font-size: 16px;
+      }
+      .navi {
+        background-image: url("./images/chilitime.jpeg");
+        background-position: 0px -500px;
+        background-size: cover;
+        height: 200px;
+      }
+      input[type="text"], input[type="search"] {
+        color: black ;
+        font-size: 20px;
+        width: 250px;
+      }
+      select[class='form-control'] {
+        width: 100px;
+        color: black;
+        font-size: 16px;
+      }
+
+      .meal-pic{
+        background-size: cover;
+        height: 150px;
+        cursor: pointer;
+      }
+      .meal-name-box {
+        height: auto;
+        background-color: #efdd59;
+        cursor: pointer;
+      }
+      .meal-name-box > div {
+        padding-top: 10px;
+      }
+      .text-center {
+        text-align: center;
+      }
+
+      .selected-meal-one > p {
+        color: black;
+      }
+      .selected-meal-one {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .meal-title {
+        font-size: 30px;
+      }
+      .meal-desc {
+        margin-top: 20px;
+      }
+      .ingredients-container {
+        background-color: #ffe599;
+      }
+      .ingredients-container p {
+        color: black;
+      }
+      .top-desc {
+        padding-top: 20px;
+        padding-left: 5px;
+        font-size: 20px;
+      }
+      .separator {
+        width: 90%;
+        height: 2px;
+        background-color: black;
+        margin-bottom: 10px;
+      }
+      .pricen {
+        text-align: center;
+        position: relative;
+        left: 20px;
+      }
+      .a-bit-down {
+        position: relative;
+        top: 10px;
+        left: 130px;
+      }
+      .underhead {
+        height: 80px;
+        background-color: #ffe599;
+      }
+      .underhead p {
+        font-size: 20px;
+        color: black;
+        position: relative;
+        top: 25px;
+      }
+      .backButton {
+        margin-top: 20px;
+        position: relative;
+        right: 20px;
+      }
+      .mealrow {
+
+      }
+      .pricetag {
+        color: black;
+        position: relative;
+        left: 140px;
+      }
+      #matkontainer {
+        margin-top: 60px;
+      }
+      .separator3 {
+        height: 200px;
+        width: 1px;
+        padding: 1px;
+        background-color: black;
+        position: relative;
+        left: 10px;
+      }
+      .getDown {
+        position: relative;
+        right: 100px;
+        top: 160px;
+      }
+      .geeeethdown {
+        margin-top: 50px;
+      }
+      .geeeethdown-title {
+        font-size: 25px;
+      }
+      .bild {
+        height: 200px;
+        background-size: 200px;
+        background-repeat: no-repeat;
+      }
+      #page-foot {
+        margin-top: 30px;
+      }
+    </style>
+
+  </div>
+
 
 
 

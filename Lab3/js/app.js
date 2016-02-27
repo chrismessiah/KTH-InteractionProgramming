@@ -35,6 +35,7 @@ $(function() {
 		$("#browse").hide();
 		$("#meal").hide();
 		$("#overview").hide();
+		$("#final").hide();
 
 		// index
 		var viewI = new indexView($(".root"), model);
@@ -52,6 +53,9 @@ $(function() {
 
 		// overview.html
 		var viewO = new overview($("body"), model);
+
+		// final.html
+		var viewF = new finalView($("body"), model);
 
 		// all pages
 		var headFootView = new headFoot($("body"), model);

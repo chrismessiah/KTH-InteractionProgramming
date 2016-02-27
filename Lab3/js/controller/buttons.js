@@ -6,6 +6,7 @@ var buttons = function(view, model) {
   var confirmButton = view.find(".confirmKnapp");
   var printButton = view.find("#printKnapp11");
   var backButton2 = view.find("#backKnapp444");
+  var backButton3 = view.find("#backotknaoo234");
 
   indexKnapp.click(function() {
     view.find("#index").hide();
@@ -38,12 +39,17 @@ var buttons = function(view, model) {
 
   printButton.click(function() {
     view.find("#overview").hide();
-    view.find("").show();
+    view.find("#final").show();
   });
 
   backButton2.click(function() {
     view.find("#overview").hide();
     view.find("#browse").show();
+  });
+
+  backButton3.click(function() {
+    view.find("#final").hide();
+    view.find("#overview").show();
   });
 
 
