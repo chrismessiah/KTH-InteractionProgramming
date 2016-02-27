@@ -3,6 +3,7 @@ var buttons = function(view, model) {
   var foodOption = view.find(".one-meal-clickable");
   var addDishToMenuButton = view.find(".selected-meal-button2");
   var backButton1 = view.find(".back-button1");
+  var confirmButton = view.find(".confirmKnapp");
 
   indexKnapp.click(function() {
     view.find("#index").hide();
@@ -27,6 +28,11 @@ var buttons = function(view, model) {
     foodOption = view.find(".one-meal");
   });
 
+  confirmButton.click(function() {
+    view.find("#meal").hide();
+    view.find("#browse").hide();
+    view.find("").show();
+  });
 
 
 };
