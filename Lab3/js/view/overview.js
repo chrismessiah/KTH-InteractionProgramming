@@ -8,14 +8,14 @@ var overview = function (container, model) {
     list = model.getSelectedMenu();
     var toAppend = '';
     var meal;
-    toAppend = toAppend + '<div class="col-md-3"></div>';
+    toAppend = toAppend + '<div class="col-xs-3"></div>';
     var totalPrice = 0;
 
     for (var i = 0; i < list.length; i++) {
       dish = list[i];
       extraclass = 'a' + dish.id;
 
-      toAppend = toAppend + '<div class="col-md-2 one-meal">';
+      toAppend = toAppend + '<div class="col-xs-2 one-meal">';
       toAppend = toAppend + '<div class="meal-pic ' + extraclass + '"></div>';
       toAppend = toAppend + '<div class="meal-name-box"><div class="center">';
       toAppend = toAppend + '<p class="text-center black">' + dish.name + '</p>';

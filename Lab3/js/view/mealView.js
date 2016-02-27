@@ -23,10 +23,10 @@ var mealView = function (container, model) {
     for (var i = 0; i < ingredientList.length; i++) {
       ingredient = ingredientList[i]
       toAppend = toAppend + '<div class="row">';
-        toAppend = toAppend + '<div class="col-md-2 pricen"><p>' + (Math.round(ingredient['quantity']*amountOfGuests*100))/100 + ' ' + ingredient['unit'] + '</p></div>';
-        toAppend = toAppend + '<div class="col-md-6"><p>' + ingredient['name'] + '</p></div>';
-        toAppend = toAppend + '<div class="col-md-1"><p>SEK</p></div>';
-        toAppend = toAppend + '<div class="col-md-1"><p>' + ingredient['price']*amountOfGuests + '</p></div>';
+        toAppend = toAppend + '<div class="col-xs-2 pricen"><p>' + (Math.round(ingredient['quantity']*amountOfGuests*100))/100 + ' ' + ingredient['unit'] + '</p></div>';
+        toAppend = toAppend + '<div class="col-xs-6"><p>' + ingredient['name'] + '</p></div>';
+        toAppend = toAppend + '<div class="col-xs-1"><p>SEK</p></div>';
+        toAppend = toAppend + '<div class="col-xs-1"><p>' + ingredient['price']*amountOfGuests + '</p></div>';
       toAppend = toAppend + '</div>';
       totalPrice += ingredient['price']*amountOfGuests;
     }
