@@ -6,7 +6,7 @@ var DinnerModel = function() {
 	this.selectedMeal = 100; // id
 	this.chosenMeal = {
 		"starter" : 1,
-		"mainDish" : 100,
+		"main dish" : 100,
 		"dessert" : 200
 	};
 
@@ -28,7 +28,7 @@ var DinnerModel = function() {
 	};
 
 	this.menuIsNull = function() {
-		if (this.chosenMeal['starter'] === null && this.chosenMeal['mainDish'] === null && this.chosenMeal['dessert'] === null) {
+		if (this.chosenMeal['starter'] === null && this.chosenMeal['main dish'] === null && this.chosenMeal['dessert'] === null) {
 			return true;
 		}
 		else {
@@ -38,7 +38,7 @@ var DinnerModel = function() {
 
 	this.getSelectedMenu = function() {
 		var starter = this.getDish(this.chosenMeal['starter']);
-		var mainDish = this.getDish(this.chosenMeal['mainDish']);
+		var mainDish = this.getDish(this.chosenMeal['main dish']);
 		var dessert = this.getDish(this.chosenMeal['dessert']);
 		var list = [starter, mainDish, dessert];
 		return list;
