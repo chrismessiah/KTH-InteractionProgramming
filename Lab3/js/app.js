@@ -34,6 +34,7 @@ $(function() {
 		// hide all except index
 		$("#browse").hide();
 		$("#meal").hide();
+		$("#overview").hide();
 
 		// index
 		var viewI = new indexView($(".root"), model);
@@ -48,6 +49,9 @@ $(function() {
 		var viewB2 = new guestsColumn($(".root"), model);
 		var controller1 = new pmButtonsPressed(viewB2, model);
 		var controller2 = new searchBar(viewB, model);
+
+		// overview.html
+		var viewO = new overview($("body"), model);
 
 		// all pages
 		var headFootView = new headFoot($("body"), model);
