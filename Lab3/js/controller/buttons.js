@@ -1,6 +1,6 @@
 var buttons = function(view, model) {
   var indexKnapp = view.find(".indexKnapp");
-  var foodOption = view.find(".one-meal");
+  var foodOption = view.find(".one-meal-clickable");
   var addDishToMenuButton = view.find(".selected-meal-button2");
   var backButton1 = view.find(".back-button1");
 

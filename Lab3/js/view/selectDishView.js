@@ -27,6 +27,7 @@ var selectDishView = function (container, model) {
         toAppend = toAppend + '</style>';
         container.find(this.mealContainers[i]).html(toAppend);
         container.find(this.mealContainers[i]).attr("id",dish.id);
+        container.find(this.mealContainers[i]).addClass("one-meal-clickable");
         toAppend = '';
       }
     }
