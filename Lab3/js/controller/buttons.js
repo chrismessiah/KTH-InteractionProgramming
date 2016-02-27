@@ -5,7 +5,6 @@ var buttons = function(view, model) {
   var backButton1 = view.find(".back-button1");
 
   indexKnapp.click(function() {
-    view.find(".bg").css({"background-size" : "0 0"});
     view.find("#index").hide();
     view.find("#browse").show();
   });
@@ -24,6 +23,8 @@ var buttons = function(view, model) {
   backButton1.click(function() {
     view.find("#meal").hide();
     view.find("#browse").show();
+    model.notifyObservers();
+    foodOption = view.find(".one-meal");
   });
 
 
