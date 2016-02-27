@@ -33,7 +33,9 @@
             <h3>A dinner home service</h3>
             <p>Lorem ipsum dolor sit amet, no quo pericula argumentum, suscipit prodesset vix ex, quodsi scripta maiorum pro eu. Has disputando interpretaris an, vitae similique his ea. Molestie maiestatis qui ne. Sed at antiopam vituperata, id sed nullam latine, pri ridens mollis sadipscing ex.</p>
             <p>start quickly</p>
-            <button class="btn indexKnapp">Create new dinner</button>
+            <center>
+              <button class="btn btnMe3 indexKnapp" id="indexKnapp2331">Create new dinner</button>
+            </center>
           </div>
         </div>
         <div class="page-foot"></div>
@@ -41,6 +43,10 @@
 
 
     <style type="text/css">
+      /*#indexKnapp2331 {
+        position: relative;
+        left: 5em;
+      }*/
       body {
         margin: 0px;
       }
@@ -58,18 +64,18 @@
         margin-bottom: 10em;
         padding-bottom: 1em;
       }
-      button {
+      /*button {
         color: white;
         background-color: rgba(29,208,126,1);
         position: relative;
-      }
+      }*/
       .indexKnapp {
         left: 11em;
       }
-      button:hover {
+      /*button:hover {
         color: white;
         background-color: rgba(29,208,126,1);
-      }
+      }*/
     </style>
   </div>
 
@@ -250,7 +256,7 @@
 
 
         /* Snyggare knappar */
-        .btnMe {
+        .btnMe, .btnMe3 {
           background-color: transparent;
           border: 2px solid rgba(255, 255, 255, 1);
           border-radius: 2px;
@@ -262,6 +268,15 @@
           text-align: center;
           letter-spacing: 2px;
           font-size: 25px;
+        }
+        .btnMe3 {
+          width: 220px;
+          height: 40px;
+          font-size: 20px;
+        }
+        .btnMe3:hover {
+          background-color: white;
+          color: rgba(82,89,95,0.7);
         }
         .guestClassButton {
           width: 140px;
@@ -283,7 +298,7 @@
           bottom: 6px;
           left: 1px;
         }
-        .btnMe, .btnMe > p {
+        .btnMe, .btnMe > p, .btnMe3, .btnMe3 > p  {
           /* Prefix -webkit- for chrome and safari */
           -webkit-transition-timing-function: linear;
           -webkit-transition-duration: 0.2s;
@@ -433,7 +448,7 @@
        margin-right: 40px;
      }
      button {
-       background-color: rgba(29,208,126,1);
+       /*background-color: rgba(29,208,126,1);*/
        font-size: 16px;
      }
      .navi {
