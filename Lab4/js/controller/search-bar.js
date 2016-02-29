@@ -18,19 +18,10 @@ var searchBar = function(view, model) {
         }
       }
     }
-
-
   };
 
-  view.searchBarObj.keyup(function() {
+  view.searchButtonPressed.click(function() {
     updateShit();
   });
-
-  view.searchBarMealTypeObj.change(function() {
-    updateShit();
-  });
-
-
-  // view.searchBarMealType
 
 };
