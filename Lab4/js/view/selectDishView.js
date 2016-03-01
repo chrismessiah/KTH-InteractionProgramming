@@ -14,7 +14,7 @@ var selectDishView = function (container, model) {
       if (i >= model.showMeals.length) {
         currentDishContainer.html("");
         currentDishContainer.attr("id","");
-        currentDishContainer.addClass("one-meal-clickable");
+        currentDishContainer.removeClass("one-meal-clickable");
       } else {
         dish = model.showMeals[i];
         extraclass = 'a' + dish.id;
