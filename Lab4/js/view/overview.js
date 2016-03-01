@@ -3,7 +3,7 @@ var overview = function (container, model) {
   this.container = container;
   this.model = model;
 
-  this.update = function() {
+  this.update = function(data) {
     container.find("#line1").html('My Dinner: ' + model.guestNum + ' people');
     list = model.getSelectedMenu();
     var toAppend = '';

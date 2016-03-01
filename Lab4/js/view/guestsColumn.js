@@ -32,7 +32,7 @@ var guestsColumn = function (container, model) {
 	// ****** iniit html ********
 
 
-	this.update = function() {
+	this.update = function(data) {
 		container.find("#guestCount").html(model.getNumberOfGuests());
 		var currentMeals = model.getSelectedMenu();
 		for (var i = 0; i < 3; i++) {

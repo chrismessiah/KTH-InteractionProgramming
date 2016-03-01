@@ -5,8 +5,7 @@ var mealView = function (container, model) {
   this.model = model;
   var amountOfGuests, meal;
 
-  this.update = function() {
-
+  this.update = function(data) {
     meal = model.getSelectedDishView();
     amountOfGuests = model.guestNum;
     toAppend = '';

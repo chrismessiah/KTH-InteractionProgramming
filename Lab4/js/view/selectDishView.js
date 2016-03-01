@@ -7,7 +7,7 @@ var selectDishView = function (container, model) {
   this.searchBarEnter = container.find('#search-bar-1');
   this.mealContainers = container.find(".one-meal");
 
-  this.update = function() {
+  this.update = function(data) {
     var dish, currentDishContainer;
     var toAppend = '';
      for (var i = 0; i < model.showMeals.length; i++) {

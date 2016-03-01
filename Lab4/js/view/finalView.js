@@ -24,10 +24,5 @@ var finalView = function (container, model) {
     toAppend = toAppend + '</div></div></div></div></div>';
 
   }
-
-
-
-
-
   container.find("#food-container").html(toAppend);
 };

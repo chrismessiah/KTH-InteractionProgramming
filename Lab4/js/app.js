@@ -5,7 +5,7 @@ $(function() {
 
 	//We instantiate our model
 	var model = new DinnerModel();
-	//window.model = model; // for testing in console
+	window.model = model; // for testing in console
 
 	//And create the needed controllers and views
 
