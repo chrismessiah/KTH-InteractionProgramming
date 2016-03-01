@@ -1,11 +1,12 @@
 var buttons = function(view, model) {
   var indexKnapp = view.find(".indexKnapp");
-  var foodOption = view.find(".one-meal-clickable");
+  var foodOption = view.find(".one-meal");
   var addDishToMenuButton = view.find(".selected-meal-button2");
   var backButton1 = view.find(".back-button1");
   var confirmButton = view.find(".confirmKnapp");
   var printButton = view.find("#printKnapp11");
   var backButton2 = view.find("#backKnapp444");
+  var backButton3 = view.find("#backotknaoo234");
   var backButton3 = view.find("#backotknaoo234");
 
   indexKnapp.click(function() {
@@ -13,8 +14,8 @@ var buttons = function(view, model) {
     view.find("#browse").show();
   });
 
-  foodOption.click(function(something) {
-    model.setSelectedDishView(something.currentTarget.id);
+  $("#meal-container").on("click", ".one-meal", function() {
+    model.setSelectedDishView($(this).attr("id"));
     view.find("#browse").hide();
     view.find("#meal").show();
   });
