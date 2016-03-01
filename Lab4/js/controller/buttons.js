@@ -14,6 +14,7 @@ var buttons = function(view, model) {
     view.find("#browse").show();
   });
 
+  // Event handler on mother-div which catches clicks
   $("#meal-container").on("click", ".one-meal", function() {
     model.setSelectedDishView($(this).attr("id"));
     view.find("#browse").hide();

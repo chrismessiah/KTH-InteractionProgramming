@@ -4,6 +4,7 @@ var selectDishView = function (container, model) {
   model.addObserver(this);
 
   this.searchButtonPressed = container.find('.search-button-pressed');
+  this.searchBarEnter = container.find('#search-bar-1');
   this.mealContainers = container.find(".one-meal");
 
   this.update = function() {

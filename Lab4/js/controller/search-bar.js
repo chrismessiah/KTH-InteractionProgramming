@@ -24,4 +24,8 @@ var searchBar = function(view, model) {
     updateShit();
   });
 
+  view.searchBarEnter.keyup(function(){
+      if(e.keyCode == 13) {updateShit();} // When enter key is pressed on search-bar
+  });
+
 };
