@@ -18,19 +18,14 @@ var searchBar = function(view, model) {
         }
       }
     }
-
-
   };
 
-  view.searchBarObj.keyup(function() {
+  view.searchButtonPressed.click(function() {
     updateShit();
   });
 
-  view.searchBarMealTypeObj.change(function() {
-    updateShit();
+  view.searchBarEnter.keyup(function(){
+      if(e.keyCode == 13) {updateShit();} // When enter key is pressed on search-bar
   });
-
-
-  // view.searchBarMealType
 
 };

@@ -127,27 +127,15 @@
                   </select>
                 </div>
               </div>
+              <div class="col-xs-1">
+                <div class="center search-button">
+                  <button class="btn search-button-pressed">Search!</button>
+                </div>
+              </div>
             </div>
 
 
-            <div id="meal-container">
-              <div class="row">
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-              </div>
-              <div class="row">
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-                <div class="col-xs-2 one-meal" id=""></div>
-              </div>
-            </div>
+            <div id="meal-container"></div>
 
 
           </div>
@@ -399,6 +387,11 @@
                    <option>Main dish</option>
                    <option>Dessert</option>
                  </select>
+               </div>
+             </div>
+             <div class="col-xs-1">
+               <div class="center search-button">
+                 <button class="btn search-button-pressed">Search!</button>
                </div>
              </div>
            </div>
@@ -1066,6 +1059,17 @@
       }
       #page-foot {
         margin-top: 30px;
+      }
+      .search-button-pressed {
+        position: relative;
+        top: 80px;
+        left: 20px;
+        background-color: #ebda3c;
+        color: black;
+      }
+      .search-button-pressed:hover {
+        color: black;
+        background-color: #d5c42c;
       }
     </style>
 
