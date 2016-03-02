@@ -3,9 +3,9 @@ var DinnerModel = function() {
 
 	//this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6";
 	//this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
-	//this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
+	this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
 	//this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
-	this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+	//this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
 
 	this.serverSearchResponse = null;
 	this.serverIdResponse = null;
