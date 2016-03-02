@@ -8,11 +8,8 @@ var searchBar = function(view, model) {
     if (currentInputType !== "All") {
       for (var i = 0; i < model.dishes.length; i++) {
         meal = model.dishes[i]
-        console.log(meal["Category"]);
-        console.log(currentInputType);
         if (meal["Category"] !== currentInputType) {
           model.removeDishFromSelection(meal["RecipeID"]);
-          console.log("updateshit ran! 1");
         }
       }
     }

@@ -196,7 +196,6 @@ var DinnerModel = function() {
 
 	this.getRecipeJson = function(recipeID) {
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + this.apiKey;
-		var res = "empty1";
 		$.ajax({
 	    type: "GET",
 	    dataType: 'json',
@@ -214,8 +213,6 @@ var DinnerModel = function() {
 	this.getRecipeJsonSearch = function(titleKeyword) {
 		var model = this;
     var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + this.apiKey;
-		var res = "empty2";
-		console.log(this);
 		$.ajax({
       type: "GET",
       dataType: 'json',
