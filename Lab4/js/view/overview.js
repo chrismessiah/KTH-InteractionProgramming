@@ -1,5 +1,5 @@
 var overview = function (container, model) {
-  model.addObserver(this);
+  model.addObserver(this, "overview");
   this.container = container;
   this.model = model;
 
@@ -31,7 +31,5 @@ var overview = function (container, model) {
     container.find("#pris123432").html("Total:<br>" + totalPrice + " SEK");
     container.find("#insert-matkontainer-here").html(toAppend);
   }
-
-  this.update();
 
 };

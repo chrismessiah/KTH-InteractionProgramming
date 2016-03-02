@@ -1,7 +1,7 @@
 var selectDishView = function (container, model) {
   this.container = container;
   this.model = model;
-  model.addObserver(this);
+  model.addObserver(this, "select");
 
   this.searchButtonPressed = container.find('.search-button-pressed');
   this.searchBarEnter = container.find('#search-bar-1');
@@ -12,18 +12,18 @@ var selectDishView = function (container, model) {
     var toAppend = '';
      for (var i = 0; i < model.showMeals.length; i++) {
        dish = model.showMeals[i];
-       extraclass = 'a' + dish.id;
+       extraclass = 'a' + dish["RecipeID"];
 
        if (i === 0) {toAppend = toAppend + '<div class="row">';}
 
-       toAppend = toAppend + '<div class="col-md-2 one-meal" id="' + dish.id + '">';
+       toAppend = toAppend + '<div class="col-md-2 one-meal" id="' + dish["RecipeID"] + '">';
        toAppend = toAppend + '<div class="meal-pic ' + extraclass + '"></div>';
        toAppend = toAppend + '<div class="meal-name-box"><div class="center">';
-       toAppend = toAppend + '<p class="text-center black">' + dish.name + '</p>';
+       toAppend = toAppend + '<p class="text-center black">' + dish["Title"] + '</p>';
        toAppend = toAppend + '</div></div>';
-       toAppend = toAppend + '<p class="black">'+ dish.description.substring(0,40) +'...</p></div>';
+       toAppend = toAppend + '<p class="black">'+ dish["Description"].substring(0,40) +'...</p></div>';
        toAppend = toAppend + '<style>';
-       toAppend = toAppend + '.' + extraclass + '{background-image: url("./images/'+ dish.image +'");}';
+       toAppend = toAppend + '.' + extraclass + '{background-image: url("./images/'+ dish["WebURL"] +'");}';
        toAppend = toAppend + '</style>';
 
        if (i === 5) {toAppend = toAppend + '</div><div class="row">';}
@@ -31,5 +31,4 @@ var selectDishView = function (container, model) {
      }
      container.find("#meal-container").html(toAppend);
    }
-   this.update();
 };

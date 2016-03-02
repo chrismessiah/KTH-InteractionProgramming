@@ -3,16 +3,20 @@ var DinnerModel = function() {
 
 	//this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6";
 	//this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
-	this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
+	//this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
 	//this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+	this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+
+	this.serverSearchResponse = null;
+	this.serverIdResponse = null;
 
 	this.guestNum = 1;
-	this.mealsSet = true;
-	this.selectedMeal = 100; // id
+	this.mealsSet = false;
+	this.selectedMeal = null; // id
 	this.chosenMeal = {
-		"starter" : 1,
-		"main dish" : 100,
-		"dessert" : 200
+		"starter" : null,
+		"main dish" : null,
+		"dessert" : null
 	};
 
 	this.observerList = [];
@@ -21,17 +25,22 @@ var DinnerModel = function() {
 	var dishes;
 
 	// will add new observer to the array
-	this.addObserver = function(observer) {
-		this.observerList.push(observer);
-	}
+	this.addObserver = function(observer, key) {
+		this.observerList[key] = observer;
+	};
 
 	// will call the update method on all the observers in the array
 	// has to be called every time the model changes
-	this.notifyObservers = function(data) {
-		var observer;
-		for (var i = 0; i < this.observerList.length; i++) {
-			this.observerList[i].update(data);
+	this.notifyAllObservers = function() {
+		for (var key in this.observerList) {
+			if (this.observerList.hasOwnProperty(key)) {
+				this.observerList[key].update();
+			}
 		}
+	};
+
+	this.notifySpecificObserver = function(key) {
+		this.observerList[key].update();
 	};
 
 	this.menuIsNull = function() {
@@ -41,7 +50,7 @@ var DinnerModel = function() {
 		else {
 			return false;
 		}
-	}
+	};
 
 	this.getSelectedMenu = function() {
 		var starter = this.getDish(this.chosenMeal['starter']);
@@ -72,20 +81,7 @@ var DinnerModel = function() {
 	};
 
 	this.getSelectedDish = function(type) {
-		var dishes = this.getAllDishes(type);
-		return dishes;
-	};
-
-	this.getFullMenu = function() {
-		var starters = this.getAllDishes("starter");
-		var mainDishes = this.getAllDishes("main dish");
-		var desserts = this.getAllDishes("dessert");
-		var jsonMenu = {
-			"starters" : starters,
-			"mainDishes" : mainDishes,
-			"desserts" : desserts
-		};
-		return jsonMenu;
+		return this.getAllDishes(type);
 	};
 
 	this.getAllIngredients = function() {
@@ -180,13 +176,7 @@ var DinnerModel = function() {
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {
-	  for(var key in dishes){
-			if (dishes.hasOwnProperty(key)) {
-				if(dishes[key].id == id) {
-					return dishes[key];
-				}
-			}
-		}
+		return this.getRecipeJson(id);
 	}
 
 	this.getChosenDishes = function () {
@@ -212,19 +202,34 @@ var DinnerModel = function() {
 	    dataType: 'json',
 	    cache: false,
 	    url: url,
-	    success: function (data) {res = data;}
+	    success: function (data) {
+				if (data.StatusCode) {if (data.StatusCode === 400) {alert("CHANGE API KEY");}}
+				else {
+					// code
+				}
+			}
 	    });
 	}
 
 	this.getRecipeJsonSearch = function(titleKeyword) {
+		var model = this;
     var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + this.apiKey;
 		var res = "empty2";
+		console.log(this);
 		$.ajax({
       type: "GET",
       dataType: 'json',
       cache: false,
       url: url,
-      success: function (data) {console.log(data); dishes = data; this.showMeals = data; this.dishes = data; this.notifyObservers(data)}
+      success: function (data) {
+				if (data.StatusCode) {if (data.StatusCode === 400) {alert("CHANGE API KEY");}}
+				else {
+					model.serverSearchResponse = data["Results"];
+					model.dishes = data["Results"];
+					model.showMeals = data["Results"];
+					model.notifySpecificObserver("select");
+				}
+			}
     });
   }
 

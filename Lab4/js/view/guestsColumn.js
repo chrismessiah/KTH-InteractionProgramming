@@ -1,5 +1,5 @@
 var guestsColumn = function (container, model) {
-	model.addObserver(this);
+	model.addObserver(this, "column");
   this.container = container;
   this.model = model;
 
