@@ -3,12 +3,16 @@ var DinnerModel = function() {
 
 	//this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6";
 	//this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
-	this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
+	//this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
 	//this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
 	//this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
+	//this.apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN";
+	this.apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4";
 
 	this.serverSearchResponse = null;
 	this.serverIdResponse = null;
+	this.currentInput = null;
+	this.currentInputType = null;
 
 	this.guestNum = 1;
 	this.mealsSet = false;
@@ -22,7 +26,6 @@ var DinnerModel = function() {
 	this.observerList = [];
 	this.showMeals = [];
 	this.dishes = [];
-	var dishes;
 
 	// will add new observer to the array
 	this.addObserver = function(observer, key) {
@@ -210,9 +213,11 @@ var DinnerModel = function() {
 	    });
 	}
 
-	this.getRecipeJsonSearch = function(titleKeyword) {
+	this.getRecipeJsonSearch = function(titleKeyword, categoryKeyword) {
 		var model = this;
-    var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + this.apiKey;
+		var url;
+		if (categoryKeyword === "All") {var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + this.apiKey;}
+    else {var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + this.apiKey + "&include_primarycat=" + encodeURIComponent(categoryKeyword);}
 		$.ajax({
       type: "GET",
       dataType: 'json',
@@ -233,12 +238,12 @@ var DinnerModel = function() {
 	this.removeDishFromSelection = function(id) {
 		var newList = [];
 		for (var i = 0; i < this.showMeals.length; i++) {
-			if (this.showMeals[i].id !== id) {
+			if (this.showMeals[i]["RecipeID"] !== id) {
 				newList.push(this.showMeals[i]);
 			}
 		}
 		this.showMeals = newList;
-		this.notifyObservers();
+		this.notifySpecificObserver("select");
 	}
 
 	this.resetSelection = function() {
