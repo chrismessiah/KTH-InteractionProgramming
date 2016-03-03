@@ -2,12 +2,12 @@
 var DinnerModel = function() {
 
 	//this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6";
-	//this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
+	this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
 	//this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
 	//this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
 	//this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
 	//this.apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN";
-	this.apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4";
+	//this.apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4";
 
 	this.serverSearchResponse = null;
 	this.serverIdResponse = null;
@@ -64,19 +64,23 @@ var DinnerModel = function() {
 	}
 
 	this.getSelectedDishView = function() {
-		var meal = this.getDish(this.selectedMeal);
-		return meal;
+		console.log("get");
+		return this.serverIdResponse;
 	}
 
 	this.setSelectedDishView = function(id) {
 		this.selectedMeal = id;
-		this.notifyObservers();
+
+		// this.notifySpecificObserver("select");
+		// this.notifySpecificObserver("meal");
+		console.log("set");
+		this.getRecipeJson(id);
 
 	}
 
 	this.setNumberOfGuests = function(num) {
 		this.guestNum = num;
-		this.notifyObservers();
+		this.notifySpecificObserver("column");
 	};
 
 	this.getNumberOfGuests = function() {
@@ -198,7 +202,9 @@ var DinnerModel = function() {
 	}
 
 	this.getRecipeJson = function(recipeID) {
+		console.log("RAN");
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + this.apiKey;
+		var model = this;
 		$.ajax({
 	    type: "GET",
 	    dataType: 'json',
@@ -207,7 +213,13 @@ var DinnerModel = function() {
 	    success: function (data) {
 				if (data.StatusCode) {if (data.StatusCode === 400) {alert("CHANGE API KEY");}}
 				else {
-					// code
+					model.serverIdResponse = data;
+					console.log("hello");
+					model.notifySpecificObserver("select");
+					console.log("select ran fine");
+					console.log(model.serverIdResponse);
+					model.notifySpecificObserver("meal");
+					console.log("hello again");
 				}
 			}
 	    });

@@ -6,13 +6,16 @@ var mealView = function (container, model) {
   var amountOfGuests, meal;
 
   this.update = function(data) {
-    meal = model.getSelectedDishView();
+    meal = model.serverIdResponse;
     amountOfGuests = model.guestNum;
     toAppend = '';
 
     container.find('.meal-title').html(meal["Title"]);
-    container.find('.meal-img').css("background-image","url('./images/" + meal["WebURL"] + "')");
-    container.find('.meal-desc').html(meal["Description"]);
+    container.find('.meal-img').css("background-image","url('" + meal["HeroPhotoUrl"] + "')");
+    if (meal["Description"] != "") {
+      container.find('.meal-desc2').html(meal["Description"]);
+    }
+    container.find('.cook').html(meal["Instructions"]);
     container.find('.top-desc').html("Ingredient for " + amountOfGuests + " people");
 
 
@@ -23,7 +26,7 @@ var mealView = function (container, model) {
       ingredient = ingredientList[i]
       toAppend = toAppend + '<div class="row">';
         toAppend = toAppend + '<div class="col-xs-2 pricen"><p>' + (Math.round(ingredient['MetricQuantity']*amountOfGuests*100))/100 + ' ' + ingredient['MetricUnit'] + '</p></div>';
-        toAppend = toAppend + '<div class="col-xs-6"><p>' + ingredient['IngredientInfo']['Name'] + '</p></div>';
+        toAppend = toAppend + '<div class="col-xs-6"><p>' + ingredient['Name'] + '</p></div>';
         toAppend = toAppend + '<div class="col-xs-1"><p>SEK</p></div>';
 
         // NO PRICE WAS GIVEN
