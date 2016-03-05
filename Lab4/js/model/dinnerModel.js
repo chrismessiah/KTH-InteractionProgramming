@@ -74,6 +74,9 @@ var DinnerModel = function() {
 		if (this.serverIdResponse != null) {
 			this.notifySpecificObserver("meal");
 		}
+		if (this.chosenMeal.length != 0) {
+			this.notifySpecificObserver("overview");
+		}
 	};
 
 	this.getNumberOfGuests = function() {
@@ -133,6 +136,7 @@ var DinnerModel = function() {
 		this.chosenMeal.push(this.serverIdResponse);
 		this.mealsSet = true;
 		this.notifySpecificObserver("column");
+		this.notifySpecificObserver("overview");
 	};
 
 	//Removes dish from menu
