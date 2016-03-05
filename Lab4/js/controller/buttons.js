@@ -23,19 +23,13 @@ var buttons = function(view, model) {
 
 
   addDishToMenuButton.click(function() {
-    console.log("ran");
     var foundMeal = false;
     var foundCategory = false;
     for (var i = 0; i < model.chosenMeal.length; i++) {
-      console.log("entered for loop");
       if (model.serverIdResponse["RecipeID"] === model.chosenMeal[i]["RecipeID"]) {
         foundMeal = true;
         break;
       }
-      console.log(model.serverIdResponse["Category"]);
-      console.log(model.serverIdResponse);
-      console.log(model.chosenMeal[i]["Category"]);
-      console.log(model.chosenMeal[i]);
       if (model.serverIdResponse["Category"] === model.chosenMeal[i]["Category"] && model.chosenMeal[i]["Category"] !== null) {
         foundCategory = true;
         var dishToRemove = model.chosenMeal[i];
