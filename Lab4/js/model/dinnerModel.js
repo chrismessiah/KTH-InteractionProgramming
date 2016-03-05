@@ -76,6 +76,7 @@ var DinnerModel = function() {
 		}
 		if (this.chosenMeal.length != 0) {
 			this.notifySpecificObserver("overview");
+			this.notifySpecificObserver("final");
 		}
 	};
 
@@ -132,20 +133,23 @@ var DinnerModel = function() {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
+	this.addDishToMenu = function() {
 		this.chosenMeal.push(this.serverIdResponse);
 		this.mealsSet = true;
 		this.notifySpecificObserver("column");
 		this.notifySpecificObserver("overview");
+		this.notifySpecificObserver("final");
 	};
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		this.chosenMeal.splice(this.chosenMeal.indexOf(id),1)
-		if (this.menuIsNull()) {
-			this.mealsSet = false;
+	this.removeDishFromMenu = function(mealObj) {
+		this.chosenMeal.splice(this.chosenMeal.indexOf(mealObj),1)
+
+		this.notifySpecificObserver("column");
+		if (this.chosenMeal.length != 0) {
+			this.notifySpecificObserver("overview");
+			this.notifySpecificObserver("final");
 		}
-		this.notifyObservers();
 	};
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
