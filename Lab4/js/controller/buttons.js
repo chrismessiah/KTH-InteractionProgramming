@@ -29,7 +29,6 @@ var buttons = function(view, model) {
   backButton1.click(function() {
     view.find("#meal").hide();
     view.find("#browse").show();
-    model.notifyObservers();
     foodOption = view.find(".one-meal");
   });
 

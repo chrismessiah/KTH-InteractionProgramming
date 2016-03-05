@@ -1,13 +1,14 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
-	//this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6";
-	this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096";
-	//this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL";
-	//this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
-	//this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3";
-	//this.apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN";
-	//this.apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4";
+	this.apiKey = "66J8l00npnHHZcCNLRhxkfW1OHxbojy4"
+	//this.apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN"
+	//this.apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4"
+	//this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096"
+	//this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6"
+	//this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
+	//this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
+	//this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
 
 	this.serverSearchResponse = null;
 	this.serverIdResponse = null;
@@ -17,11 +18,7 @@ var DinnerModel = function() {
 	this.guestNum = 1;
 	this.mealsSet = false;
 	this.selectedMeal = null; // id
-	this.chosenMeal = {
-		"starter" : null,
-		"main dish" : null,
-		"dessert" : null
-	};
+	this.chosenMeal = [];
 
 	this.observerList = [];
 	this.showMeals = [];
@@ -47,7 +44,7 @@ var DinnerModel = function() {
 	};
 
 	this.menuIsNull = function() {
-		if (this.chosenMeal['starter'] === null && this.chosenMeal['main dish'] === null && this.chosenMeal['dessert'] === null) {
+		if (this.chosenMeal.length === 0) {
 			return true;
 		}
 		else {
@@ -56,24 +53,17 @@ var DinnerModel = function() {
 	};
 
 	this.getSelectedMenu = function() {
-		var starter = this.getDish(this.chosenMeal['starter']);
-		var mainDish = this.getDish(this.chosenMeal['main dish']);
-		var dessert = this.getDish(this.chosenMeal['dessert']);
-		var list = [starter, mainDish, dessert];
-		return list;
+		return this.chosenMeal;
 	}
 
 	this.getSelectedDishView = function() {
-		console.log("get");
 		return this.serverIdResponse;
 	}
 
 	this.setSelectedDishView = function(id) {
 		this.selectedMeal = id;
-
 		// this.notifySpecificObserver("select");
 		// this.notifySpecificObserver("meal");
-		console.log("set");
 		this.getRecipeJson(id);
 
 	}
@@ -81,6 +71,9 @@ var DinnerModel = function() {
 	this.setNumberOfGuests = function(num) {
 		this.guestNum = num;
 		this.notifySpecificObserver("column");
+		if (this.serverIdResponse != null) {
+			this.notifySpecificObserver("meal");
+		}
 	};
 
 	this.getNumberOfGuests = function() {
@@ -111,10 +104,8 @@ var DinnerModel = function() {
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
-		for (var key in this.chosenMeal) {
-			if (this.chosenMeal.hasOwnProperty(key)) {
-				totalPrice += this.getTotalDishPrice(this.chosenMeal[key]);
-			}
+		for (var i = 0; i < this.chosenMeal.length; i++) {
+			totalPrice += this.getTotalDishPrice(this.chosenMeal[i]);
 		}
 		return totalPrice;
 	};
@@ -124,35 +115,29 @@ var DinnerModel = function() {
 		return price;
 	}
 
-	this.getTotalDishPrice = function(id) {
+	this.getTotalDishPrice = function(mealObject) {
 		var total_price = 0;
-		var dish = this.getDish(id);
-		for (var i in dish.ingredients) {
-		 	total_price += dish.ingredients[i].price;
-		}
+		var ingredients = mealObject["Ingredients"];
+		for (var i = 0; i < ingredients.length; i++) {total_price += 1;}
 		return total_price;
 	};
 
-	this.getTotalDishPriceWithRespectToGuestAmount = function(id) {
-		var priceWithRespect = this.getTotalDishPrice(id) * this.guestNum;
+	this.getTotalDishPriceWithRespectToGuestAmount = function(mealObject) {
+		var priceWithRespect = this.getTotalDishPrice(mealObject) * this.guestNum;
 		return priceWithRespect;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		var dish = this.getDish(id);
-		this.chosenMeal[dish.type] = id;
+		this.chosenMeal.push(this.serverIdResponse);
 		this.mealsSet = true;
-		this.notifyObservers();
-
+		this.notifySpecificObserver("column");
 	};
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		for(var key in this.chosenMeal) {
-    		if (this.chosenMeal[key].id === id) {this.chosenMeal[key] = "";};
-		}
+		this.chosenMeal.splice(this.chosenMeal.indexOf(id),1)
 		if (this.menuIsNull()) {
 			this.mealsSet = false;
 		}
@@ -182,27 +167,15 @@ var DinnerModel = function() {
 	}
 
 	//function that returns a dish of specific ID
-	this.getDish = function (id) {
-		return this.getRecipeJson(id);
+	this.getDish = function (id, callback) {
+		return this.getRecipeJson(id, callback);
 	}
 
 	this.getChosenDishes = function () {
-		var list = [];
-		for(var key in this.chosenMeal){
-			if (this.chosenMeal.hasOwnProperty(key)) {
-				if (this.chosenMeal[key] !== null) {
-					list.push(this.getDish(this.chosenMeal[key]));
-				} else {
-					list.push(null);
-				}
-
-			}
-		}
-		return list;
+		return this.chosenMeal;
 	}
 
-	this.getRecipeJson = function(recipeID) {
-		console.log("RAN");
+	this.getRecipeJson = function(recipeID, callback) {
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + this.apiKey;
 		var model = this;
 		$.ajax({
@@ -214,12 +187,9 @@ var DinnerModel = function() {
 				if (data.StatusCode) {if (data.StatusCode === 400) {alert("CHANGE API KEY");}}
 				else {
 					model.serverIdResponse = data;
-					console.log("hello");
+					if (callback) {callback();}
 					model.notifySpecificObserver("select");
-					console.log("select ran fine");
-					console.log(model.serverIdResponse);
 					model.notifySpecificObserver("meal");
-					console.log("hello again");
 				}
 			}
 	    });
