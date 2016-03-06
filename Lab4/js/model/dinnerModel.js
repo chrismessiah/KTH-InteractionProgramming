@@ -152,6 +152,15 @@ var DinnerModel = function() {
 		}
 	};
 
+	this.removeDishFromMenuById = function(idNum) {
+		for (var i = 0; i < this.chosenMeal.length; i++) {
+			if (this.chosenMeal[i]["RecipeID"] == idNum) {
+				this.removeDishFromMenu(this.chosenMeal[i]);
+				break;
+			}
+		}
+	}
+
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned

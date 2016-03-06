@@ -21,6 +21,20 @@ var buttons = function(view, model) {
     view.find("#meal").show();
   });
 
+  $("#insert-matkontainer-here").on("click", ".one-meal", function(foo) {
+    model.removeDishFromMenuById($(this).attr("id"));
+    if (model.chosenMeal.length === 0) {
+      view.find("#overview").hide();
+      view.find("#browse").show()
+      swal({
+        title: "No meals left!",
+        text: "Returning to meal selection.",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  });
+
 
   addDishToMenuButton.click(function() {
     var foundMeal = false;

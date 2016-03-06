@@ -342,13 +342,13 @@
           width: 150px;
           height: 50px;
           color: black;
-          background-color: white;
+          background-color: #ffe599;
           border: 2px solid black;
           font-family: "Montserrat";
 
         }
         .btMe5:hover {
-          color: white;
+          color: #ffe599;
           background-color: black;
         }
       </style>
@@ -708,20 +708,57 @@
        </div>
      </div>
 
-     <div class="row mealrow">
        <div id="matkontainer">
          <div id="insert-matkontainer-here"></div>
+         <style>
+           .one-meal-overview > .remove-icon {
+            background-image: url("./images/icons/delete-button.png");
+            background-size: 35px 35px;
+            width: 35px;
+            height: 35px;
+            position: relative;
+            top: 100px;
+            left: 55px;
+            z-index: 2;
+            opacity: 0;
+           }
+           .one-meal-overview:hover {
+             cursor: pointer;
+           }
+           .one-meal-overview:hover > .remove-icon {
+            opacity: 1;
+           }
+           .one-meal-overview:hover > .blur-this {
+            -webkit-filter: blur(5px);
+           }
+           .one-meal-overview:hover > .blur-this, .one-meal-overview:hover > .remove-icon {
+             -webkit-transition-timing-function: linear;
+             -webkit-transition-duration: 0.2s;
 
-         <div class="col-xs-1 separator3"></div>
-         <div class="col-xs-1"></div>
-         <div class="col-xs-1"><p class="black getDown" id="pris123432">0000</p></div>
+             /* Prefix -moz- for firefox */
+             -moz-transition-timing-function: linear;
+             -moz-transition-duration: 0.2s;
 
+             /* NO prefix for opera */
+             transition-timing-function: linear;
+             transition-duration: 0.2s;
+           }
+         </style>
        </div>
-     </div>
 
-     <div class="row center">
-       <div class="separator"></div>
+     <style>
+     .addColorToMe {
+       background-color: #ffe599;
+     }
+     .superman {
+       font-size: 25px;
+       margin 10px;
+     }
+     </style>
+
+     <div class="row addColorToMe">
        <center>
+         <p class="black superman" id="pris123432">0000</p>
          <button class="btMe5" id="printKnapp11">Print</button>
        </center>
      </div>
@@ -885,9 +922,6 @@
          position: relative;
          right: 20px;
        }
-       .mealrow {
-
-       }
        .pricetag {
          color: black;
        }
@@ -1044,9 +1078,6 @@
         margin-top: 20px;
         position: relative;
         right: 20px;
-      }
-      .mealrow {
-
       }
       .pricetag {
         color: black;
