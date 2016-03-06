@@ -24,7 +24,7 @@ var buttons = function(view, model) {
       setTimeout(function(){
         ani.hide();
         meal.show();
-      }, 1000);
+      }, 100);
     });
     view.find("#browse").hide();
     view.find("#meal").show();
