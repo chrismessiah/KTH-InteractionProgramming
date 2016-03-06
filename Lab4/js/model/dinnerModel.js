@@ -60,11 +60,11 @@ var DinnerModel = function() {
 		return this.serverIdResponse;
 	}
 
-	this.setSelectedDishView = function(id) {
+	this.setSelectedDishView = function(id, callback, callbackData) {
 		this.selectedMeal = id;
 		// this.notifySpecificObserver("select");
 		// this.notifySpecificObserver("meal");
-		this.getRecipeJson(id);
+		this.getRecipeJson(id, callback, callbackData);
 
 	}
 
@@ -192,7 +192,7 @@ var DinnerModel = function() {
 		return this.chosenMeal;
 	}
 
-	this.getRecipeJson = function(recipeID, callback) {
+	this.getRecipeJson = function(recipeID, callback, callbackData) {
 		var url = "http://api.bigoven.com/recipe/" + recipeID + "?api_key=" + this.apiKey;
 		var model = this;
 		$.ajax({
@@ -212,7 +212,7 @@ var DinnerModel = function() {
 	    });
 	}
 
-	this.getRecipeJsonSearch = function(titleKeyword, categoryKeyword) {
+	this.getRecipeJsonSearch = function(titleKeyword, categoryKeyword, callbackData, callback) {
 		var model = this;
 		var url;
 		if (categoryKeyword === "All") {var url = "http://api.bigoven.com/recipes?pg=1&rpp=25&title_kw=" + titleKeyword + "&api_key=" + this.apiKey;}
@@ -229,6 +229,7 @@ var DinnerModel = function() {
 					model.dishes = data["Results"];
 					model.showMeals = data["Results"];
 					model.notifySpecificObserver("select");
+					if (callback) {callback();}
 				}
 			}
     });

@@ -6,6 +6,7 @@ var selectDishView = function (container, model) {
   this.searchButtonPressed = container.find('.search-button-pressed');
   this.searchBarEnter = container.find('#search-bar-1');
   this.mealContainers = container.find(".one-meal");
+  this.animations = container.find(".anim-load");
 
   this.update = function(data) {
     var dish, currentDishContainer;

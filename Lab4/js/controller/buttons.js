@@ -8,6 +8,8 @@ var buttons = function(view, model) {
   var backButton2 = view.find("#backKnapp444");
   var backButton3 = view.find("#backotknaoo234");
   var backButton3 = view.find("#backotknaoo234");
+  var ani = view.find(".anim-load2");
+  var meal = view.find("#selected-meal-container");
 
   indexKnapp.click(function() {
     view.find("#index").hide();
@@ -16,7 +18,14 @@ var buttons = function(view, model) {
 
   // Event handler on mother-div which catches clicks
   $("#meal-container").on("click", ".one-meal", function() {
-    model.setSelectedDishView($(this).attr("id"));
+    meal.hide()
+    ani.show();
+    model.setSelectedDishView($(this).attr("id"), function() {
+      setTimeout(function(){
+        ani.hide();
+        meal.show();
+      }, 1000);
+    });
     view.find("#browse").hide();
     view.find("#meal").show();
   });

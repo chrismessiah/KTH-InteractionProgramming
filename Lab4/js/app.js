@@ -36,6 +36,8 @@ $(function() {
 		$("#meal").hide();
 		$("#overview").hide();
 		$("#final").hide();
+		$(".anim-load").hide();
+		$(".anim-load2").hide();
 
 		// index
 		var viewI = new indexView($(".root"), model);

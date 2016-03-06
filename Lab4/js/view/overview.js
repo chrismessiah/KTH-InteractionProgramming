@@ -2,6 +2,7 @@ var overview = function (container, model) {
   model.addObserver(this, "overview");
   this.container = container;
   this.model = model;
+  this.ani = container.find("anim-load2");
 
   this.update = function(data) {
     container.find("#line1").html('My Dinner: ' + model.guestNum + ' people');
