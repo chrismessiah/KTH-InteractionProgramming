@@ -1,7 +1,7 @@
 # Angular html specifics
 
   # Tags
-    <ng-include>
+    <ng-include> OR <div ng-include="'partials/header.html'"></div>
       loads templates
 
   # Attributes
