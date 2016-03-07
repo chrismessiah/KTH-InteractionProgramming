@@ -5,6 +5,17 @@ h1, h2, h3, h4, p, button, input[type="text"], input[type="search"], select[clas
 p {
   font-size: 16px;
 }
+.search-button-pressed {
+  position: relative;
+  top: 80px;
+  left: 20px;
+  background-color: #ebda3c;
+  color: black;
+}
+.search-button-pressed:hover {
+  color: black;
+  background-color: #d5c42c;
+}
 .side-column {
   background-color: rgba(46, 46, 46, 0.9);
   padding-bottom: 60%;
