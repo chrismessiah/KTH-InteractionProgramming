@@ -39,11 +39,12 @@ dinnerPlannerApp.config(['$routeProvider',
     $routeProvider.
       when('/home', {
         templateUrl: 'partials/home.html',
-        css: 'css/home.css'
+        css: ['css/home.css', 'css/header-footer.css']
       }).
       when('/search', {
         templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl'
+        controller: 'SearchCtrl',
+        css: ['css/search.css', 'css/header-footer.css']
       }).
       when('/dish/:dishId', {
         templateUrl: 'partials/dish.html',
