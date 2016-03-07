@@ -1,0 +1,21 @@
+# Angular html specifics
+
+  # Tags
+    <ng-include>
+      loads templates
+
+  # Attributes
+    ng-controller=""
+      associates the controller with the view
+    ng-model=""
+      bind the value of an input field to a variable
+    ng-change=""
+      Evaluate the given expression when the user changes the input
+    ng-view
+      tells Angular where to load each view
+    ng-app="dinnerPlanner"
+      tells Angular at which module the application starts, in this case dinnerPlanner  (available in app.js)
+
+  $scope
+    used instead of jquery.  Any object or method that defined on the $scope object we can then use in our view
+    the variables are declared in their resp. controller
