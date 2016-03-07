@@ -9,13 +9,15 @@ not support it in free version) and list all the dishes that match the search. -
     <div class="container-fluid bg">
       <div class="row firstrow">
         <div class="col-xs-2 anti-padding">
-            <div ng-include="'partials/dinner-sidebar.html'"></div>
+            <div ng-include="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></div>
         </div>
 
         <div class="col-xs-10">
         <div class="row">
             <div ng-include="'partials/search-bar.html'"></div>
-            <div id="meal-container"></div>
+            <div id="meal-container">
+                <!-- insert meals here -->
+            </div>
         </div>
 
 

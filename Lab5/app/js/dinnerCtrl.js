@@ -1,6 +1,9 @@
-// Dinner controller that we use whenever we have view that needs to 
+// Dinner controller that we use whenever we have view that needs to
 // display or modify the dinner menu
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
+  if (!$scope.numberOfGuests) {
+    $scope.numberOfGuests = 0;
+  }
 
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
 
