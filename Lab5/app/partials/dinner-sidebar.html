@@ -14,8 +14,8 @@ this with Total price of the menu -->
     <div class="row">
       <div class="col-xs-6"><p>People: </p><p id="guestCount">{{getNumberOfGuests()}}</p></div>
       <div class="col-xs-6">
-        <div id="plusGuest" class="btnMe" ng-click="setNumberOfGuest(getNumberOfGuests() + 1 )"><p>+</p></div>
-        <div id="minusGuest" class="btnMe" ng-click="setNumberOfGuest(getNumberOfGuests() - 1 )"><p>-</p></div>
+        <div id="plusGuest" class="btnMe" ng-click="setNumberOfGuest( getNumberOfGuests() + 1 )"><p>+</p></div>
+        <div id="minusGuest" class="btnMe" ng-click="setNumberOfGuest( getNumberOfGuests() - 1 )"><p>-</p></div>
       </div>
     </div>
 
@@ -30,7 +30,9 @@ this with Total price of the menu -->
           </div>
         </div>
 
-        <div id="actual-meals123"></div>
+        <div id="actual-meals123">
+          <!-- append all meals here -->
+        </div>
       </div>
     </div>
   </div>

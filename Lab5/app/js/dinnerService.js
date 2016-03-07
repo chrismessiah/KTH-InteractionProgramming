@@ -4,14 +4,47 @@
 // service is created first time it is needed and then just reuse it
 // the next time.
 dinnerPlannerApp.factory('Dinner',function ($resource) {
+  this.apiKey = "66J8l00npnHHZcCNLRhxkfW1OHxbojy4"
+  //this.apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN"
+  //this.apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4"
+  //this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096"
+  //this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6"
+  //this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
+  //this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
+  //this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
 
   var numberOfGuest = 2;
 
+  this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1, rpp:25, api_key:this.apiKey});
+  this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:this.apiKey});
+
+  this.searchResult = null;
+  this.idResult = null;
+
+  this.searchField = null;
+  this.categoryField = null;
 
   this.setNumberOfGuests = function(num) {
     if (num >= 0) {
       numberOfGuest = num;
     }
+  }
+
+  this.makeSearch = function (keyword, category) {
+    var res;
+    if (category) {
+      res = this.DishSearch.get({title_kw:keyword, include_primarycat:category});
+    } else {
+      res = this.DishSearch.get({title_kw:keyword});
+    }
+    console.log(res);
+    // Check for errors!
+    this.searchResult = res["Results"];
+    console.log(this.searchResult);
+  }
+
+  this.makeIdFetch = function (id) {
+    this.idResult = this.Dish.get({id:id});
   }
 
   this.getNumberOfGuests = function() {

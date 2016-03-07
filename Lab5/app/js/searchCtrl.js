@@ -2,6 +2,10 @@
 // and search results
 dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner) {
 
+  $scope.DishSearch = Dinner.DishSearch;
+  $scope.makeSearch = Dinner.makeSearch;
+
+
   // TODO in Lab 5: you will need to implement a method that searchers for dishes
   // including the case while the search is still running.
 
