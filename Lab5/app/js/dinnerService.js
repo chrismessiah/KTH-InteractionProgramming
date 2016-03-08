@@ -21,30 +21,10 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.searchResult = null;
   this.idResult = null;
 
-  this.searchField = null;
-  this.categoryField = null;
-
   this.setNumberOfGuests = function(num) {
     if (num >= 0) {
       numberOfGuest = num;
     }
-  }
-
-  this.makeSearch = function (keyword, category) {
-    var res;
-    if (category) {
-      res = this.DishSearch.get({title_kw:keyword, include_primarycat:category});
-    } else {
-      res = this.DishSearch.get({title_kw:keyword});
-    }
-    console.log(res);
-    // Check for errors!
-    this.searchResult = res["Results"];
-    console.log(this.searchResult);
-  }
-
-  this.makeIdFetch = function (id) {
-    this.idResult = this.Dish.get({id:id});
   }
 
   this.getNumberOfGuests = function() {

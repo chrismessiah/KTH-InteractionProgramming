@@ -2,37 +2,9 @@ h1, h2, h3, h4, p, button, input[type="text"], input[type="search"], select[clas
   font-family: "Gill Sans";
   color: white;
 }
-.anti-margin {
-  margin-top: 0px;
-}
-.innner-side {
-  padding: 10px;
-}
-.anti-padding{
-    padding-left: 0px;
-    padding-right: 0px;
-}
+
 p {
   font-size: 16px;
-}
-.search-button-pressed {
-  position: relative;
-  top: 80px;
-  left: 20px;
-  background-color: #ebda3c;
-  color: black;
-}
-.search-button-pressed:hover {
-  color: black;
-  background-color: #d5c42c;
-}
-.side-column {
-  background-color: rgba(46, 46, 46, 0.9);
-  padding-bottom: 60%;
-}
-.side-column > p, .meal > p {
-  display: inline-block;
-  margin-right: 5px;
 }
 .meal {
   margin-top: 10px;
@@ -43,49 +15,9 @@ p {
 .meal > p[class="dishes"] {
   margin-right: 40px;
 }
-button {
-  background-color: rgba(29,208,126,1);
-  font-size: 16px;
-}
-.navi {
-  background-image: url("../public/images/chilitime.jpeg");
-  background-position: 0px -500px;
-  background-size: cover;
-  height: 200px;
-}
-input[type="text"], input[type="search"] {
-  color: black ;
-  font-size: 20px;
-  width: 250px;
-}
-select[class='form-control'] {
-  width: 100px;
-  color: black;
-  font-size: 16px;
-}
-/*
-input[type="submit"] {
-  text-align: center;
-  color: #FFFFFF;
-  background-color: #1dd07e;
-  border-radius: 40px;
-  border: 1px solid #1dd07e;
-  font-size: 15px;
-  padding: 12px;
-  padding-left: 15px;
-  padding-right: 15px;
-  position: relative;
-  top: 40px;
-}
-*/
-
 .center {
   margin: auto;
   width: 60%;
-}
-.searchbox, .optionbox {
-  position: relative;
-  top: 80px;
 }
 .meal-pic{
   background-size: cover;
@@ -107,7 +39,6 @@ input[type="submit"] {
   position: relative;
   top: 50px;
   margin: 0px 30px;
-
 }
 .black {
   color: black;
@@ -115,142 +46,3 @@ input[type="submit"] {
 .one-meal {
   margin-bottom: 50px;
 }
-
-
-
-
-/* Snyggare knappar */
-.btnMe, .btnMe3, .btMe5 {
-  background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 1);
-  border-radius: 2px;
-  width: 30px;
-  height: 30px;
-  margin: 5px 0px;
-  cursor: pointer;
-  color: white;
-  text-align: center;
-  letter-spacing: 2px;
-  font-size: 25px;
-}
-.btnMe3 {
-  width: 220px;
-  height: 40px;
-  font-size: 20px;
-}
-.btnMe3:hover {
-  background-color: white;
-  color: rgba(82,89,95,0.7);
-}
-.guestClassButton {
-  width: 140px;
-  height: 50px;
-}
-.center2 {
-  width: 80%;
-  position: relative;
-  top: 40px;
-}
-.btnMe > p, .btMe5 {
-  color: white;
-  font-family: "Montserrat";
-  text-align: center;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 25px;
-  position: relative;
-  bottom: 6px;
-  left: 1px;
-}
-.btnMe, .btnMe > p, .btnMe3, .btnMe3 > p, .btMe5  {
-  /* Prefix -webkit- for chrome and safari */
-  -webkit-transition-timing-function: linear;
-  -webkit-transition-duration: 0.2s;
-
-  /* Prefix -moz- for firefox */
-  -moz-transition-timing-function: linear;
-  -moz-transition-duration: 0.2s;
-
-  /* NO prefix for opera */
-  transition-timing-function: linear;
-  transition-duration: 0.2s;
-
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-
-  -ms-user-select: none;
-  user-select: none;
-}
-.btnMe4 {
-  width: 100px;
-  color: black;
-  border: 2px solid black;
-
-}
-.btnMe4:hover {
-  color: #ffe599;
-  background-color: black;
-}
-.btnMe:hover {
-  background-color: rgba(255, 255, 255, 1);
-  color: #52595f;
-}
-.btnMe:hover p {
-  color: #52595f;
-}
-.btMe5 {
-  width: 150px;
-  height: 50px;
-  color: black;
-  background-color: #ffe599;
-  border: 2px solid black;
-  font-family: "Montserrat";
-
-}
-.btMe5:hover {
-  color: #ffe599;
-  background-color: black;
-}
-.anim-load {
-  position: relative;
-  left: 100px;
-}
-.sk-double-bounce {
-  width: 40px;
-  height: 40px;
-  position: relative;
-  margin: 40px auto;
-}
-.sk-double-bounce .sk-child {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: white;
-    opacity: 0.6;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-animation: sk-doubleBounce 2s infinite ease-in-out;
-            animation: sk-doubleBounce 2s infinite ease-in-out;
-}
-.sk-double-bounce .sk-double-bounce2 {
-    -webkit-animation-delay: -1.0s;
-            animation-delay: -1.0s;
-}
-
-@-webkit-keyframes sk-doubleBounce {
-  0%, 100% {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  50% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }
-
-@keyframes sk-doubleBounce {
-  0%, 100% {
-    -webkit-transform: scale(0);
-            transform: scale(0); }
-  50% {
-    -webkit-transform: scale(1);
-            transform: scale(1); } }

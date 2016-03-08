@@ -8,7 +8,7 @@
 // also see that we included separate JavaScript files for these modules. Angular
 // has other core modules that you might want to use and explore when you go deeper
 // into developing Angular applications. For this lab, these two will suffice.
-var dinnerPlannerApp = angular.module('dinnerPlanner', ['ngRoute','ngResource', 'door3.css']);
+var dinnerPlannerApp = angular.module('dinnerPlanner', ['ngRoute','ngResource', 'door3.css', 'ngSanitize']);
 
 
 // Here we configure our application module and more specifically our $routeProvider.
@@ -44,7 +44,7 @@ dinnerPlannerApp.config(['$routeProvider',
       when('/search', {
         templateUrl: 'partials/search.html',
         controller: 'SearchCtrl',
-        css: ['css/search.css', 'css/header-footer.css']
+        css: ['css/search.css', 'css/side-bar.css', 'css/search-bar.css', 'css/header-footer.css']
       }).
       when('/dish/:dishId', {
         templateUrl: 'partials/dish.html',
