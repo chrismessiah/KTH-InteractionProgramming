@@ -48,13 +48,16 @@ var buttons = function(view, model) {
   addDishToMenuButton.click(function() {
     var foundMeal = false;
     var foundCategory = false;
+    var collisionCategory = "";
     for (var i = 0; i < model.chosenMeal.length; i++) {
+
       if (model.serverIdResponse["RecipeID"] === model.chosenMeal[i]["RecipeID"]) {
         foundMeal = true;
         break;
       }
       if (model.serverIdResponse["Category"] === model.chosenMeal[i]["Category"] && model.chosenMeal[i]["Category"] !== null) {
         foundCategory = true;
+        collisionCategory = model.chosenMeal[i]["Category"];
         var dishToRemove = model.chosenMeal[i];
       }
     }
@@ -72,7 +75,7 @@ var buttons = function(view, model) {
     else if (foundCategory) {
       swal({
         title: "Wait a minute...",
-        text: `You have already selected a/an ${model.selectedMeal['Category']}! Would you like to change it to this one instead?`,
+        text: `You have already selected a/an ${collisionCategory}! Would you like to change it to this one instead?`,
         type: "warning",
         showCancelButton: true,
         confirmButtonText: "Yes please!",
