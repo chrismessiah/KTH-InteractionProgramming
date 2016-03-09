@@ -233,20 +233,26 @@ var DinnerModel = function() {
 					if (callback) {callback();}
 				}
 			},
-			error: function() {
-				if (titleKeyword.length > 1970) {
-					swal({
-		        title: "Character length exceeded!",
-		        text: "Please use shorter search phrases.",
-						type: "error",
-		      });
-				} else {
-					swal({
+			error: function(foo) {
+				console.log(foo);
+				// if (titleKeyword.length > 1970) {
+				// 	swal({
+		    //     title: "Character length exceeded!",
+		    //     text: "Please use shorter search phrases.",
+				// 		type: "error",
+		    //   });
+				// } else {
+				// 	swal({
+		    //     title: "An error occured!",
+		    //     text: "Are you connected to the internet?",
+				// 		type: "error",
+		    //   });
+				// }
+				swal({
 		        title: "An error occured!",
-		        text: "Are you connected to the internet?",
+		        text: `${foo.responseText}\n\nError Code: ${foo.status}`,
 						type: "error",
 		      });
-				}
 				if (callback) {callback();}
 			}
     });
