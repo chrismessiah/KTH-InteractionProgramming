@@ -223,7 +223,8 @@ var DinnerModel = function() {
       cache: false,
       url: url,
       success: function (data) {
-				if (data.StatusCode) {if (data.StatusCode === 400) {alert("CHANGE API KEY");}}
+				console.log(data);
+				if (data.StatusCode) {if (data.StatusCode === 400) {swal("CHANGE API KEY");}}
 				else {
 					model.serverSearchResponse = data["Results"];
 					model.dishes = data["Results"];
@@ -231,6 +232,22 @@ var DinnerModel = function() {
 					model.notifySpecificObserver("select");
 					if (callback) {callback();}
 				}
+			},
+			error: function() {
+				if (titleKeyword.length > 1970) {
+					swal({
+		        title: "Character length exceeded!",
+		        text: "Please use shorter search phrases.",
+						type: "error",
+		      });
+				} else {
+					swal({
+		        title: "An error occured!",
+		        text: "Are you connected to the internet?",
+						type: "error",
+		      });
+				}
+				if (callback) {callback();}
 			}
     });
   }
