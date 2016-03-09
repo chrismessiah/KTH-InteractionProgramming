@@ -5,9 +5,9 @@ var DinnerModel = function() {
 	this.mealsSet = true;
 	this.selectedMeal = 100; // id
 	this.chosenMeal = {
-		"starter" : 1,
-		"main dish" : 100,
-		"dessert" : 200
+		"starter" : null,
+		"main dish" : null,
+		"dessert" : null
 	};
 
 	this.observerList = [];
@@ -117,9 +117,13 @@ var DinnerModel = function() {
 	this.getTotalDishPrice = function(id) {
 		var total_price = 0;
 		var dish = this.getDish(id);
-		for (var i in dish.ingredients) {
-		 	total_price += dish.ingredients[i].price;
+
+		if (dish) {
+			for (var i in dish.ingredients) {
+			 	total_price += dish.ingredients[i].price;
+			}
 		}
+
 		return total_price;
 	};
 
