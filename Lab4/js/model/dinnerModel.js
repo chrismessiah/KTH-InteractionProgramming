@@ -234,7 +234,6 @@ var DinnerModel = function() {
 				}
 			},
 			error: function(foo) {
-				console.log(foo);
 				// if (titleKeyword.length > 1970) {
 				// 	swal({
 		    //     title: "Character length exceeded!",
