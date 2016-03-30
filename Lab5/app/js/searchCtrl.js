@@ -12,14 +12,19 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
       // Ran after .get()
       // Check for errors!
 
-      console.log(res);
+      if (res["ResultCount"] === 0) {
+        swal("No matching results found!")
+      }
+
       console.log(res["Results"]);
+      console.log(res);
 
       results = res["Results"];
 
-      makeHTMLForMeals(results);
+      makeHTMLForMeals(results, $scope);
+      console.log($scope.mealSearchResponse);
     };
-    
+
     var callbackOnError = function() {
       swal("Some error occured!")
     };
@@ -31,7 +36,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
     }
   }
 
-  var makeHTMLForMeals = function(searchResult) {
+  var makeHTMLForMeals = function(searchResult, $scope) {
     var dish;
     var toAppend = '';
     var counter = 0;
@@ -53,8 +58,9 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
       counter += 1;
       if (counter === 6) {counter = 0; toAppend = toAppend + '</div>';}
     }
-    $scope.mealSearchResponse = toAppend;
     //$scope.mealSearchResponse = $sce.trustAsHtml(toAppend);
+    $scope.mealSearchResponse = toAppend;
+    $scope.$apply();
   }
 
   $scope.makeIdFetch = function (id) {

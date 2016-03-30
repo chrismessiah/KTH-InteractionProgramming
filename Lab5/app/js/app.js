@@ -46,10 +46,21 @@ dinnerPlannerApp.config(['$routeProvider',
         controller: 'SearchCtrl',
         css: ['css/search.css', 'css/side-bar.css', 'css/search-bar.css', 'css/header-footer.css']
       }).
+      when('/overview', {
+        templateUrl: 'partials/overview.html',
+        controller: 'DinnerCtrl',
+        css: ['css/overview.css', 'css/header-footer.css']
+      }).
+      when('/final', {
+        templateUrl: 'partials/final.html',
+        controller: 'DinnerCtrl',
+        css: ['css/final.css', 'css/header-footer.css']
+      }).
       when('/dish/:dishId', {
         templateUrl: 'partials/dish.html',
         controller: 'DishCtrl'
       }).
+
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
       otherwise({
         redirectTo: '/home'

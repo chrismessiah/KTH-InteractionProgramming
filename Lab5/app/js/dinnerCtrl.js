@@ -3,6 +3,7 @@
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
 
   $scope.numberOfGuests = Dinner.getNumberOfGuests();
+  $scope.getTotalCost = Dinner.getTotalCost;
 
   $scope.setNumberOfGuest = function(number){
     Dinner.setNumberOfGuests(number);

@@ -13,7 +13,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   //this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
   //this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
 
-  var numberOfGuest = 2;
+  var numberOfGuest = 2
+  var totalCost = 0;
 
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1, rpp:25, api_key:this.apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:this.apiKey});
@@ -29,6 +30,10 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
 
   this.getNumberOfGuests = function() {
     return numberOfGuest;
+  }
+
+  this.getTotalCost = function() {
+    return totalCost;
   }
 
 
