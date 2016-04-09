@@ -3,26 +3,25 @@
 
 // $sce for escaping html
 dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
+  $scope.mealSearchResponse = "<p>HELLLOOOO</p>";
 
   $scope.makeSearch = function(keyword, category) {
     var res;
     var results;
 
     var callback = function() {
-      // Ran after .get()
-      // Check for errors!
-
-      if (res["ResultCount"] === 0) {
-        swal("No matching results found!")
-      }
-
-      console.log(res["Results"]);
       console.log(res);
+      if (res["ResultCount"] === 0) {
+        swal("No matching results found!");
+      } else if (res["StatusCode"] === 400) {
+        swal("CHANGE API KEY", "Go to dinnerService.js. \n\n" + res["Message"]);
+      } else {
+        console.log(res["Results"]);
+        results = res["Results"];
 
-      results = res["Results"];
-
-      makeHTMLForMeals(results, $scope);
-      console.log($scope.mealSearchResponse);
+        makeHTMLForMeals(results, $scope);
+        console.log($scope.mealSearchResponse);
+      }
     };
 
     var callbackOnError = function() {
@@ -58,9 +57,10 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
       counter += 1;
       if (counter === 6) {counter = 0; toAppend = toAppend + '</div>';}
     }
+    console.log(toAppend);
     //$scope.mealSearchResponse = $sce.trustAsHtml(toAppend);
     $scope.mealSearchResponse = toAppend;
-    $scope.$apply();
+    // $scope.$apply();
   }
 
   $scope.makeIdFetch = function (id) {

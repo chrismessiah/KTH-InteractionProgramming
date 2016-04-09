@@ -13,9 +13,11 @@ not support it in free version) and list all the dishes that match the search. -
     <div class="col-xs-10">
     <div class="row">
         <div ng-include="'partials/search-bar.html'" ng-controller="SearchCtrl"></div>
-        <div id="meal-container">
-          {{mealSearchResponse}}
+
+        <div id="meal-container" ng-controller="SearchCtrl">
+          <div ng-bind-html="mealSearchResponse"></div>
         </div>
+
     </div>
 
 

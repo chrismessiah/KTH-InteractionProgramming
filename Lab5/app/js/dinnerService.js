@@ -4,14 +4,9 @@
 // service is created first time it is needed and then just reuse it
 // the next time.
 dinnerPlannerApp.factory('Dinner',function ($resource) {
-  this.apiKey = "66J8l00npnHHZcCNLRhxkfW1OHxbojy4"
-  //this.apiKey = "XKEdN82lQn8x6Y5jm3K1ZX8L895WUoXN"
-  //this.apiKey = "3stL5NVP4s6ZkmK5gt4dci8a4zOQRpD4"
-  //this.apiKey = "8vtk7KykflO5IzB96kb0mpot0sU40096"
-  //this.apiKey = "1hg3g4Dkwr6pSt22n00EfS01rz568IR6"
-  //this.apiKey = "r02x0R09O76JMCMc4nuM0PJXawUHpBUL"
-  //this.apiKey = "H9n1zb6es492fj87OxDtZM9s5sb29rW3"
-  //this.apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu"
+  this.apiKey = "F088t4s6QGI5T92W3Nwiju8jFU52J8SP"
+  //this.apiKey = "0OV23011kU7B3VVVgxTTTIfdNXeTI3us"
+  //this.apiKey = "66J8l00npnHHZcCNLRhxkfW1OHxbojy4"
 
   var numberOfGuest = 2
   var totalCost = 0;
