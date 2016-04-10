@@ -50,6 +50,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
       extraclass = 'a' + dish["RecipeID"];
 
       if (counter === 0) {toAppend = toAppend + '<div class="row">';}
+      toAppend = toAppend + '<a href="#/dish/' + dish["RecipeID"] + '">';
       toAppend = toAppend + '<div class="col-md-2 one-meal" id="' + dish["RecipeID"] + '">';
       toAppend = toAppend + '<div class="meal-pic ' + extraclass + '"></div>';
       toAppend = toAppend + '<div class="meal-name-box"><div class="center">';
@@ -58,6 +59,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
       toAppend = toAppend + '<style>';
       toAppend = toAppend + '.' + extraclass + '{background-image: url("'+ dish["HeroPhotoUrl"] +'");}';
       toAppend = toAppend + '</style></div>';
+      toAppend = toAppend + '</a>';
 
       counter += 1;
       if (counter === 6) {counter = 0; toAppend = toAppend + '</div>';}

@@ -58,7 +58,8 @@ dinnerPlannerApp.config(['$routeProvider',
       }).
       when('/dish/:dishId', {
         templateUrl: 'partials/dish.html',
-        controller: 'DishCtrl'
+        controller: 'DishCtrl',
+        css: ['css/dish.css', 'css/header-footer.css']
       }).
 
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
