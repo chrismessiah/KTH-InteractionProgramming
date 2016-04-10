@@ -12,10 +12,35 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   var totalCost = 0;
 
   var chosenDishes = [];
+  this.menuPrice = [];
+  this.totalMenuPrice = 0;
+
+  this.updatePrices = function() {
+    this.menuPrice = [];
+    this.totalMenuPrice = 0;
+    var mealPrice;
+    for (var i = 0; i < chosenDishes.length; i++) {
+      mealPrice = this.getTotalDishPrice(chosenDishes[i]);
+      mealPrice = mealPrice*numberOfGuest
+      this.menuPrice.push(mealPrice);
+      this.totalMenuPrice += mealPrice;
+    }
+  }
+
+  this.getTotalDishPrice = function(mealObject) {
+    var total_price = 0;
+    var ingredients = mealObject["Ingredients"];
+    for (var i = 0; i < ingredients.length; i++) {total_price += 1;}
+    return total_price;
+  };
 
   this.addDish = function(mealObj) {
     chosenDishes.push(mealObj);
-    console.log("Added dish to menu");
+    this.updatePrices();
+  }
+
+  this.getDishes = function() {
+    return chosenDishes;
   }
 
   this.removeDish = function(mealId) {
@@ -36,9 +61,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.idResult = null;
 
   this.setNumberOfGuests = function(num) {
-    if (num >= 0) {
-      numberOfGuest = num;
-    }
+    if (num >= 0) {numberOfGuest = num;}
+    this.updatePrices();
   }
 
   this.getNumberOfGuests = function() {
