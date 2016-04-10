@@ -9,7 +9,8 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
   var listener = $scope.$watch(
     function($scope) {return $scope.mealSearchResponse;},
     function(newValue, oldValue) {
-      document.getElementById("meal-container").innerHTML = newValue;
+      var elem = document.getElementById("meal-container");
+      if (elem) {elem.innerHTML = newValue;}
     }
   );
   // window.MY_SCOPE = $scope; // For debugging
@@ -27,7 +28,8 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
       if (res["ResultCount"] === 0) {
         swal("No matching results found!");
       } else if (res["StatusCode"] === 400) {
-        swal("CHANGE API KEY", "Go to dinnerService.js. \n\n" + res["Message"]);
+        swal("Error", "Go to dinnerService.js. \n\n" + res["Message"]);
+        console.log(res);
       } else {
         results = res["Results"];
         var htmlStr = makeHTMLForMeals(results);
@@ -38,6 +40,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
 
     var callbackOnError = function() {
       swal("Some error occured!")
+      console.log(res);
     };
 
     if (category) {
