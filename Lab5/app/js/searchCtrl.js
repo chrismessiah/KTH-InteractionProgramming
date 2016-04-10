@@ -30,7 +30,6 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
         var htmlStr = makeHTMLForMeals(results);
         htmlStr = $sce.trustAsHtml(htmlStr);
         headScope.mealSearchResponse = htmlStr;
-        headScope.$digest();
       }
     };
 
