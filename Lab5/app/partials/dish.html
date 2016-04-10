@@ -1,5 +1,64 @@
 <!-- We include the sidebar as it is shared across two screens. -->
 <!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include> -->
-<h1>HEllo World! Dish</h1>
+
 <!-- TODO in Lab 5: Display the dish information including image, Description,
 Instructions, Ingredients and total cost. -->
+
+
+<div class="container-fluid bg">
+  <div class="row firstrow">
+    <div class="col-xs-2 anti-padding">
+      <div ng-include="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></div>
+    </div>
+
+    <div class="col-xs-10">
+      <div class="row">
+        <div ng-include="'partials/search-bar.html'" ng-controller="SearchCtrl"></div>
+
+        <!-- meal goes here -->
+        <div id="selected-meal-container" ng-controller="DishCtrl">
+          <div id="selected-meal-container">
+            <div class="col-xs-6 selected-meal-one">
+              <p class="meal-title">{{mealTitle}}</p>
+              <div class="meal-img" style="background-image: url('{{photoURL}}')"></div>
+              <p class="meal-desc meal-desc2">{{mealDescription}}</p>
+              <div class="center">
+                <a href="#/search">
+                  <button class="selected-meal-button btnMe wide-button back-button1">Back</button>
+                </a>
+              </div>
+              <p class="meal-title2">Preparation</p>
+              <p class="meal-desc cook">{{mealInstructions}}</p>
+            </div>
+            <div class="col-xs-6">
+              <div class="row ingredients-container">
+                <div class="center">
+                  <p class="top-desc">Ingredient for {{amountOfGuests}} people</p>
+                  <div class="separator"></div>
+                </div>
+
+                <div id="insert-ingredients-here"></div>
+
+                <div class="center">
+                  <div class="separator"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-5">
+                    <button class="selected-meal-button2 btnMe wide-button">Confirm</button>
+                  </div>
+                  <div class="col-xs-1 a-bit-down"><p>SEK</p></div>
+                  <div class="col-xs-1 a-bit-down totalpris123"><p>{{totalPrice}}</p></div> <!-- kanske ska bort? -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>
