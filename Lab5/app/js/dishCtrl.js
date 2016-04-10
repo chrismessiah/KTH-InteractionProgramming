@@ -5,6 +5,10 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   var dishId = $routeParams.dishId;
   var res, meal, generatedHTML;
 
+  $scope.addDishToMenu = function() {
+    Dinner.addDish(meal);
+  }
+
   $scope.$watch(
     function($scope) {return $scope.ingredientHTML;},
     function(newValue, oldValue) {

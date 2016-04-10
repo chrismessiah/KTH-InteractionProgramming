@@ -11,6 +11,24 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   var numberOfGuest = 2
   var totalCost = 0;
 
+  var chosenDishes = [];
+
+  this.addDish = function(mealObj) {
+    chosenDishes.push(mealObj);
+    console.log("Added dish to menu");
+  }
+
+  this.removeDish = function(mealId) {
+    var newList = [];
+    chosenDishes.push(mealObj);
+    for (var i = 0; i < chosenDishes.length; i++) {
+      if (chosenDishes[i]["RecipeID"] !== mealId) {
+        newList.push(chosenDishes[i]);
+      }
+    }
+    chosenDishes = newList;
+  }
+
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1, rpp:25, api_key:this.apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:this.apiKey});
 

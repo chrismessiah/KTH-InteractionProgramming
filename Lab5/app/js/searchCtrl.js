@@ -13,13 +13,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
       if (elem) {elem.innerHTML = newValue;}
     }
   );
-  // window.MY_SCOPE = $scope; // For debugging
   var headScope = $scope;
-
-  $scope.clearWatchers = function() {
-    console.log("ran");
-    listener();
-  }
 
   $scope.makeSearch = function(keyword, category) {
     var res, results;
