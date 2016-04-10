@@ -1,0 +1,222 @@
+.one-meal-overview > .remove-icon {
+ background-image: url("./images/icons/delete-button.png");
+ background-size: 35px 35px;
+ width: 35px;
+ height: 35px;
+ position: relative;
+ top: 100px;
+ left: 55px;
+ z-index: 2;
+ opacity: 0;
+}
+.one-meal-overview:hover {
+  cursor: pointer;
+}
+.one-meal-overview:hover > .remove-icon {
+ opacity: 1;
+}
+.one-meal-overview:hover > .blur-this {
+ -webkit-filter: blur(5px);
+}
+.one-meal-overview:hover > .blur-this, .one-meal-overview:hover > .remove-icon {
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-duration: 0.2s;
+
+  /* Prefix -moz- for firefox */
+  -moz-transition-timing-function: linear;
+  -moz-transition-duration: 0.2s;
+
+  /* NO prefix for opera */
+  transition-timing-function: linear;
+  transition-duration: 0.2s;
+}
+.addColorToMe {
+  background-color: #ffe599;
+}
+.superman {
+  font-size: 25px;
+  margin 10px;
+}
+
+
+
+
+.btnMe {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 2px;
+  width: 150px;
+  height: 50px;
+  margin: 5px 0px;
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+.guestClassButton {
+  width: 140px;
+  height: 50px;
+}
+.center2 {
+  width: 80%;
+  position: relative;
+  top: 40px;
+}
+.btnMe > p {
+  color: black;
+  font-family: "Montserrat";
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 25px;
+  position: relative;
+  bottom: 6px;
+  left: 1px;
+}
+.btnMe, .btnMe > p {
+  /* Prefix -webkit- for chrome and safari */
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-duration: 0.2s;
+
+  /* Prefix -moz- for firefox */
+  -moz-transition-timing-function: linear;
+  -moz-transition-duration: 0.2s;
+
+  /* NO prefix for opera */
+  transition-timing-function: linear;
+  transition-duration: 0.2s;
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  -ms-user-select: none;
+  user-select: none;
+}
+.btnMe:hover {
+  background-color: black;
+  color: #ffe599;
+}
+.btnMe:hover p {
+  color: #ffe599;
+}
+
+
+
+
+
+
+.searchbox, .optionbox {
+  position: relative;
+  top: 80px;
+}
+.meal-pic{
+  background-size: cover;
+  height: 150px;
+  cursor: pointer;
+}
+.meal-name-box {
+  height: auto;
+  background-color: #efdd59;
+  cursor: pointer;
+}
+.meal-name-box > div {
+  padding-top: 10px;
+}
+.text-center {
+  text-align: center;
+}
+#meal-container {
+  position: relative;
+  top: 50px;
+  margin: 0px 30px;
+
+}
+.black {
+  color: black;
+}
+.one-meal {
+  margin-bottom: 50px;
+}
+.meal-img {
+  background-image: url('./images/meatballs.jpg');
+  height: 400px;
+  background-size: 400px;
+  background-repeat: no-repeat;
+
+}
+.selected-meal-one > p {
+  color: black;
+}
+.selected-meal-one {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.meal-title, .meal-title2 {
+  font-size: 30px;
+}
+.meal-desc {
+  margin-top: 20px;
+}
+.ingredients-container {
+  background-color: #ffe599;
+}
+.ingredients-container p {
+  color: black;
+}
+.top-desc {
+  padding-top: 20px;
+  padding-left: 5px;
+  font-size: 20px;
+}
+.separator {
+  width: 90%;
+  height: 2px;
+  background-color: black;
+  margin-bottom: 10px;
+}
+.pricen {
+  text-align: center;
+  position: relative;
+  left: 20px;
+}
+.a-bit-down {
+  position: relative;
+  top: 10px;
+  left: 130px;
+}
+.underhead {
+  height: 80px;
+  background-color: #ffe599;
+}
+.underhead p {
+  font-size: 20px;
+  color: black;
+  position: relative;
+  top: 25px;
+}
+.backButton {
+  margin-top: 20px;
+  position: relative;
+  right: 100px;
+}
+.pricetag {
+  color: black;
+}
+#matkontainer {
+  margin-top: 60px;
+}
+.separator3 {
+  height: 200px;
+  width: 1px;
+  padding: 1px;
+  background-color: black;
+  position: relative;
+  left: 10px;
+}
+.getDown {
+  position: relative;
+  right: 100px;
+  top: 160px;
+}

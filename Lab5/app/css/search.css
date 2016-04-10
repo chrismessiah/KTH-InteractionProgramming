@@ -1,0 +1,48 @@
+h1, h2, h3, h4, p, button, input[type="text"], input[type="search"], select[class='form-control'] {
+  font-family: "Gill Sans";
+  color: white;
+}
+
+p {
+  font-size: 16px;
+}
+.meal {
+  margin-top: 10px;
+}
+.top-meal {
+  margin-top: 25px;
+}
+.meal > p[class="dishes"] {
+  margin-right: 40px;
+}
+.center {
+  margin: auto;
+  width: 60%;
+}
+.meal-pic{
+  background-size: cover;
+  height: 150px;
+  cursor: pointer;
+}
+.meal-name-box {
+  height: auto;
+  background-color: #efdd59;
+  cursor: pointer;
+}
+.meal-name-box > div {
+  padding-top: 10px;
+}
+.text-center {
+  text-align: center;
+}
+#meal-container {
+  position: relative;
+  top: 50px;
+  margin: 0px 30px;
+}
+.black {
+  color: black;
+}
+.one-meal {
+  margin-bottom: 50px;
+}

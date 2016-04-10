@@ -1,0 +1,202 @@
+h1, h2, h3, h4, p, input[type="text"], input[type="search"], select[class='form-control'] {
+  font-family: "Gill Sans";
+  color: white;
+}
+p {
+  font-size: 16px;
+}
+.side-column {
+  background-color: rgba(46, 46, 46, 0.9);
+  padding-bottom: 60%;
+}
+.side-column > p, .meal > p {
+  display: inline-block;
+  margin-right: 5px;
+}
+.meal {
+  margin-top: 10px;
+}
+.top-meal {
+  margin-top: 25px;
+}
+.meal > p[class="dishes"] {
+  margin-right: 40px;
+}
+.meal-pic{
+  background-size: cover;
+  height: 150px;
+  cursor: pointer;
+}
+.meal-name-box {
+  height: auto;
+  background-color: #efdd59;
+  cursor: pointer;
+}
+.meal-name-box > div {
+  padding-top: 10px;
+}
+.text-center {
+  text-align: center;
+}
+
+.selected-meal-one > p {
+  color: black;
+}
+.selected-meal-one {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.meal-title, .meal-title2 {
+  font-size: 30px;
+}
+.meal-desc {
+  margin-top: 20px;
+}
+.ingredients-container {
+  background-color: #ffe599;
+}
+.ingredients-container p {
+  color: black;
+}
+.top-desc {
+  padding-top: 20px;
+  padding-left: 5px;
+  font-size: 20px;
+}
+.separator {
+  width: 90%;
+  height: 2px;
+  background-color: black;
+  margin-bottom: 10px;
+}
+.pricen {
+  text-align: center;
+  position: relative;
+  left: 20px;
+}
+.a-bit-down {
+  position: relative;
+  top: 10px;
+  left: 130px;
+}
+.underhead {
+  height: 80px;
+  background-color: #ffe599;
+}
+.underhead p {
+  font-size: 20px;
+  color: black;
+  position: relative;
+  top: 25px;
+}
+.backButton {
+  margin-top: 20px;
+  position: relative;
+  right: 20px;
+}
+.pricetag {
+  color: black;
+}
+#matkontainer {
+  margin-top: 60px;
+}
+.separator3 {
+  height: 200px;
+  width: 1px;
+  padding: 1px;
+  background-color: black;
+  position: relative;
+  left: 10px;
+}
+.getDown {
+  position: relative;
+  right: 100px;
+  top: 160px;
+}
+.geeeethdown {
+  margin-top: 50px;
+}
+.geeeethdown-title {
+  font-size: 25px;
+}
+.bild {
+  height: 200px;
+  background-size: 200px;
+  background-repeat: no-repeat;
+}
+#page-foot {
+  margin-top: 30px;
+}
+.search-button-pressed {
+  position: relative;
+  top: 80px;
+  left: 20px;
+  background-color: #ebda3c;
+  color: black;
+}
+.search-button-pressed:hover {
+  color: black;
+  background-color: #d5c42c;
+}
+
+
+.btnMe {
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 2px;
+  width: 150px;
+  height: 50px;
+  margin: 5px 0px;
+  cursor: pointer;
+  color: black;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 25px;
+}
+.guestClassButton {
+  width: 140px;
+  height: 50px;
+}
+.center2 {
+  width: 80%;
+  position: relative;
+  top: 40px;
+}
+.btnMe > p {
+  color: black;
+  font-family: "Montserrat";
+  text-align: center;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 25px;
+  position: relative;
+  bottom: 6px;
+  left: 1px;
+}
+.btnMe, .btnMe > p {
+  /* Prefix -webkit- for chrome and safari */
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-duration: 0.2s;
+
+  /* Prefix -moz- for firefox */
+  -moz-transition-timing-function: linear;
+  -moz-transition-duration: 0.2s;
+
+  /* NO prefix for opera */
+  transition-timing-function: linear;
+  transition-duration: 0.2s;
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  -ms-user-select: none;
+  user-select: none;
+}
+.btnMe:hover {
+  background-color: black;
+  color: #ffe599;
+}
+.btnMe:hover p {
+  color: #ffe599;
+}

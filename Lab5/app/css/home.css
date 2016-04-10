@@ -1,0 +1,58 @@
+body {
+  margin: 0px;
+}
+.bg2 {
+  background-image: url("../public/images/bg.jpg");
+  background-size: cover;
+
+}
+.info-box > p, .info-box > h3 {
+  color: white;
+}
+.info-box {
+  background-color: rgba(82,89,95,0.7);
+  margin-top: 20em;
+  margin-bottom: 10em;
+  padding-bottom: 1em;
+}
+.indexKnapp {
+  left: 11em;
+}
+
+.btnMe {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 2px;
+  width: 220px;
+  height: 40px;
+  margin: 5px 0px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+.btnMe:hover {
+  background-color: white;
+  color: rgba(82,89,95,0.7);
+}
+.btnMe {
+  /* Prefix -webkit- for chrome and safari */
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-duration: 0.2s;
+
+  /* Prefix -moz- for firefox */
+  -moz-transition-timing-function: linear;
+  -moz-transition-duration: 0.2s;
+
+  /* NO prefix for opera */
+  transition-timing-function: linear;
+  transition-duration: 0.2s;
+
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+
+  -ms-user-select: none;
+  user-select: none;
+}

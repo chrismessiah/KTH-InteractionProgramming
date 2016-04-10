@@ -1,0 +1,28 @@
+<div class="navi">
+  <div class="col-xs-6">
+    <div class="center searchbox">
+      <input ng-model="keyword" type="search" name="name" class="center form-control" placeholder="Search..." id="search-bar-1"/>
+    </div>
+  </div>
+  <div class="col-xs-1">
+    <div class="center optionbox">
+      <select ng-model="category" class="form-control select-opt-bar" id="search-bar-type-1">
+        <option value="">All</option>
+        <option>Appetizers</option>
+        <option>Main Dish</option>
+        <option>Desserts</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-xs-1">
+    <div class="center search-button">
+      <div class="btn search-button-pressed" ng-click="makeSearch(keyword, category)">Search!</div>
+    </div>
+
+    <div class="sk-double-bounce anim-load">
+      <div class="sk-child sk-double-bounce1"></div>
+      <div class="sk-child sk-double-bounce2"></div>
+    </div>
+
+  </div>
+</div>

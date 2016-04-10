@@ -1,0 +1,15 @@
+body {
+  margin: 0px;
+}
+.header, .footer {
+  background-color: #191919;
+}
+.header > h2, .header > h4, .footer > h4 {
+  position: relative;display: inline-block;left: 20px;font-family: "Gill Sans";color: white;
+}
+.header > h2 {
+  margin-top: 10px;
+}
+.header > h4 {
+  left: 40px;
+}
