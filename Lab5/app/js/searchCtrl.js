@@ -3,8 +3,9 @@
 
 // $sce for escaping html
 dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
-  $scope.mealSearchResponse = "hello";
+  $scope.mealSearchResponse = "";
 
+  // watch-function to sync data between diffrent partials
   $scope.$watch(
     function($scope) {return $scope.mealSearchResponse;},
     function(newValue, oldValue) {document.getElementById("meal-container").innerHTML = newValue;}
@@ -13,20 +14,15 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
   var headScope = $scope;
 
   $scope.makeSearch = function(keyword, category) {
-    var res;
-    var results;
-
+    var res, results;
 
     var callback = function() {
-      console.log(res);
       if (res["ResultCount"] === 0) {
         swal("No matching results found!");
       } else if (res["StatusCode"] === 400) {
         swal("CHANGE API KEY", "Go to dinnerService.js. \n\n" + res["Message"]);
       } else {
-        console.log(res["Results"]);
         results = res["Results"];
-
         var htmlStr = makeHTMLForMeals(results);
         htmlStr = $sce.trustAsHtml(htmlStr);
         headScope.mealSearchResponse = htmlStr;
