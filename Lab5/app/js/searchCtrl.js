@@ -2,12 +2,20 @@
 // and search results
 
 // $sce for escaping html
-dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
-  $scope.mealSearchResponse = "<p>HELLLOOOO</p>";
+dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
+  $scope.mealSearchResponse = "hello";
+
+  $scope.$watch(
+    function($scope) {return $scope.mealSearchResponse;},
+    function(newValue, oldValue) {document.getElementById("meal-container").innerHTML = newValue;}
+  );
+  // window.MY_SCOPE = $scope; // For debugging
+  var headScope = $scope;
 
   $scope.makeSearch = function(keyword, category) {
     var res;
     var results;
+
 
     var callback = function() {
       console.log(res);
@@ -19,8 +27,10 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
         console.log(res["Results"]);
         results = res["Results"];
 
-        makeHTMLForMeals(results, $scope);
-        console.log($scope.mealSearchResponse);
+        var htmlStr = makeHTMLForMeals(results);
+        htmlStr = $sce.trustAsHtml(htmlStr);
+        headScope.mealSearchResponse = htmlStr;
+        headScope.$digest();
       }
     };
 
@@ -35,7 +45,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
     }
   }
 
-  var makeHTMLForMeals = function(searchResult, $scope) {
+  var makeHTMLForMeals = function(searchResult) {
     var dish;
     var toAppend = '';
     var counter = 0;
@@ -57,10 +67,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope,Dinner, $sce) {
       counter += 1;
       if (counter === 6) {counter = 0; toAppend = toAppend + '</div>';}
     }
-    console.log(toAppend);
-    //$scope.mealSearchResponse = $sce.trustAsHtml(toAppend);
-    $scope.mealSearchResponse = toAppend;
-    // $scope.$apply();
+    return toAppend;
   }
 
   $scope.makeIdFetch = function (id) {
