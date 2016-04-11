@@ -26,8 +26,6 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
         swal("Error", "Go to dinnerService.js. \n\n" + res["Message"]);
         console.log(res);
       } else {
-        console.log(res);
-        console.log(res["Results"].length);
         results = res["Results"];
         $scope.search.results = results;
         //var htmlStr = makeHTMLForMeals(results);

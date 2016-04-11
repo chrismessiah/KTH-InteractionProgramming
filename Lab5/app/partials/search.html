@@ -16,10 +16,10 @@ not support it in free version) and list all the dishes that match the search. -
 
         <!-- <div id="meal-container"></div> -->
         <div ng-repeat="index in search.loopArray" class="row">
-          <div ng-repeat="dish in search.fixedMealArray[index]">
+          <div ng-repeat="dish in search.fixedMealArray[index]" class="col-md-2 one-meal">
             <!-- another ng-repeat here with 6 tops meals -->
             <a ng-href="#/dish/{{dish['RecipeID']}}">
-            <div class="col-md-2 one-meal" id="{{dish['RecipeID']}}">
+            <div id="{{dish['RecipeID']}}">
             <div class="meal-pic {{'a' + dish['RecipeID']}}"></div>
             <div class="meal-name-box"><div class="center">
             <p class="text-center black">{{dish["Title"]}}</p>
