@@ -3,17 +3,18 @@
 
 // $sce for escaping html
 dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
-  $scope.mealSearchResponse = "";
+  // creating objects for scope-reference
+  $scope.search = {};
 
   // watch-function to sync data between diffrent partials
   var listener = $scope.$watch(
-    function($scope) {return $scope.mealSearchResponse;},
+    function($scope) {return $scope.search.mealSearchResponse;},
     function(newValue, oldValue) {
       var elem = document.getElementById("meal-container");
       if (elem) {elem.innerHTML = newValue;}
     }
   );
-  var headScope = $scope;
+  //var headScope = $scope;
 
   $scope.makeSearch = function(keyword, category) {
     var res, results;
@@ -25,10 +26,40 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
         swal("Error", "Go to dinnerService.js. \n\n" + res["Message"]);
         console.log(res);
       } else {
+        console.log(res);
+        console.log(res["Results"].length);
         results = res["Results"];
+        $scope.search.results = results;
         var htmlStr = makeHTMLForMeals(results);
+
+
+        var temp = results.length;
+        while (temp % 6 !== 0) {temp += 1}
+        var rows = temp / 6;
+        var loopArray = [];
+        for (var i = 0; i < rows; i++) {loopArray.push(i);}
+        $scope.search.loopArray = loopArray;
+
+        var fixedMealArray = [];
+
+        var tempResults = results.slice();
+        var tempMeal;
+        var tempArray = [];
+        var counter = 0;
+        for (var i = 0; i < results.length; i++) {
+          if (counter === 0) {tempArray = [];}
+          tempMeal = tempResults.shift();
+          tempArray.push(tempMeal);
+          counter += 1;
+          if (counter === 6) {counter = 0; fixedMealArray.push(tempArray);}
+        }
+        if (counter !== 0) {counter = 0; fixedMealArray.push(tempArray);}
+        $scope.search.fixedMealArray = fixedMealArray;
+
+
+
         htmlStr = $sce.trustAsHtml(htmlStr);
-        headScope.mealSearchResponse = htmlStr;
+        $scope.search.mealSearchResponse = htmlStr;
       }
     };
 
@@ -53,20 +84,6 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
       dish = searchResult[i];
       extraclass = 'a' + dish["RecipeID"];
 
-      if (counter === 0) {toAppend = toAppend + '<div class="row">';}
-      toAppend = toAppend + '<a href="#/dish/' + dish["RecipeID"] + '">';
-      toAppend = toAppend + '<div class="col-md-2 one-meal" id="' + dish["RecipeID"] + '">';
-      toAppend = toAppend + '<div class="meal-pic ' + extraclass + '"></div>';
-      toAppend = toAppend + '<div class="meal-name-box"><div class="center">';
-      toAppend = toAppend + '<p class="text-center black">' + dish["Title"] + '</p>';
-      toAppend = toAppend + '</div></div>';
-      toAppend = toAppend + '<style>';
-      toAppend = toAppend + '.' + extraclass + '{background-image: url("'+ dish["HeroPhotoUrl"] +'");}';
-      toAppend = toAppend + '</style></div>';
-      toAppend = toAppend + '</a>';
-
-      counter += 1;
-      if (counter === 6) {counter = 0; toAppend = toAppend + '</div>';}
     }
     return toAppend;
   }
