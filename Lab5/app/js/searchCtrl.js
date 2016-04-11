@@ -7,13 +7,13 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
   $scope.search = {};
 
   // watch-function to sync data between diffrent partials
-  var listener = $scope.$watch(
-    function($scope) {return $scope.search.mealSearchResponse;},
-    function(newValue, oldValue) {
-      var elem = document.getElementById("meal-container");
-      if (elem) {elem.innerHTML = newValue;}
-    }
-  );
+  // var listener = $scope.$watch(
+  //   function($scope) {return $scope.search.mealSearchResponse;},
+  //   function(newValue, oldValue) {
+  //     var elem = document.getElementById("meal-container");
+  //     if (elem) {elem.innerHTML = newValue;}
+  //   }
+  // );
   //var headScope = $scope;
 
   $scope.makeSearch = function(keyword, category) {
