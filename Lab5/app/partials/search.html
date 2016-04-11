@@ -20,12 +20,12 @@ not support it in free version) and list all the dishes that match the search. -
             <!-- another ng-repeat here with 6 tops meals -->
             <a ng-href="#/dish/{{dish['RecipeID']}}">
             <div class="col-md-2 one-meal" id="{{dish['RecipeID']}}">
-            <div class="meal-pic {{a + dish['RecipeID']}}"></div>
+            <div class="meal-pic {{'a' + dish['RecipeID']}}"></div>
             <div class="meal-name-box"><div class="center">
             <p class="text-center black">{{dish["Title"]}}</p>
             </div></div>
             <style>
-            .' + {{extraclass}} + '{background-image: url("'+ {{dish["HeroPhotoUrl"]}} +'");}
+            .{{'a' + dish['RecipeID']}} {background-image: url("{{dish['HeroPhotoUrl']}}");}
             </style></div>
             </a>
           </div>

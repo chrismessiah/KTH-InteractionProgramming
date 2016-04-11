@@ -30,7 +30,7 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
         console.log(res["Results"].length);
         results = res["Results"];
         $scope.search.results = results;
-        var htmlStr = makeHTMLForMeals(results);
+        //var htmlStr = makeHTMLForMeals(results);
 
 
         var temp = results.length;
@@ -58,8 +58,8 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
 
 
 
-        htmlStr = $sce.trustAsHtml(htmlStr);
-        $scope.search.mealSearchResponse = htmlStr;
+        //htmlStr = $sce.trustAsHtml(htmlStr);
+        //$scope.search.mealSearchResponse = htmlStr;
       }
     };
 
@@ -75,18 +75,18 @@ dinnerPlannerApp.controller('SearchCtrl', function ($scope, Dinner, $sce) {
     }
   }
 
-  var makeHTMLForMeals = function(searchResult) {
-    var dish;
-    var toAppend = '';
-    var counter = 0;
-
-    for (var i = 0; i < searchResult.length; i++) {
-      dish = searchResult[i];
-      extraclass = 'a' + dish["RecipeID"];
-
-    }
-    return toAppend;
-  }
+  // var makeHTMLForMeals = function(searchResult) {
+  //   var dish;
+  //   var toAppend = '';
+  //   var counter = 0;
+  //
+  //   for (var i = 0; i < searchResult.length; i++) {
+  //     dish = searchResult[i];
+  //     extraclass = 'a' + dish["RecipeID"];
+  //
+  //   }
+  //   return toAppend;
+  // }
 
   $scope.makeIdFetch = function (id) {
     Dinner.idResult = Dinner.Dish.get({id:id});
