@@ -6,6 +6,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   $scope.object.sidebar.noMealSelected = Dinner.noMealSelected;
   $scope.object.numberOfGuests = Dinner.getNumberOfGuests();
   $scope.object.getTotalCost = Dinner.getTotalCost;
+  $scope.object.navbar = {};
 
   var meal;
 
@@ -43,6 +44,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   };
 
   $scope.getDishFromAPI = function() {
+    this.object.navbar.loading = true;
     meal = Dinner.Dish.get({id: getDishId()}, updateSelectedDishData, function() {swal("Some error occured!");});
   };
 
