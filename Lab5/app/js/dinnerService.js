@@ -11,6 +11,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   var numberOfGuest = 2
   var totalCost = 0;
 
+  this.noMealSelected = true;
+
   var chosenDishes = [];
   this.menuPrice = [];
   this.totalMenuPrice = 0;

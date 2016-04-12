@@ -3,7 +3,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   $scope.object = {};
   $scope.object.dish = {};
   $scope.object.sidebar = {};
-  $scope.object.sidebar.noMealSelected = true;
+  $scope.object.sidebar.noMealSelected = Dinner.noMealSelected;
   $scope.object.numberOfGuests = Dinner.getNumberOfGuests();
   $scope.object.getTotalCost = Dinner.getTotalCost;
 
@@ -48,12 +48,14 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
 
   $scope.addDishToMenu = function() {
     Dinner.addDish(meal);
-    updateMenuData(Dinner.getDishes());
+    updateMenuData();
   };
 
-  var updateMenuData = function(newDishes) {
+  var updateMenuData = function() {
+    var newDishes = Dinner.getDishes();
     if (newDishes.length === 0) {
       $scope.object.sidebar.noMealSelected = true;
+      Dinner.noMealSelected = true;
     } else {
       var mealLoopList = [];
       var mealNames = [];
@@ -66,13 +68,14 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
       $scope.object.sidebar.menuPrice = Dinner.menuPrice;
       $scope.object.sidebar.totalMenuPrice = Dinner.totalMenuPrice;
       $scope.object.sidebar.noMealSelected = false;
+      Dinner.noMealSelected = false;
     }
   };
 
   var updateNumberOfGuest = function(num){
     Dinner.setNumberOfGuests($scope.object.numberOfGuests + num);
     $scope.object.numberOfGuests = Dinner.getNumberOfGuests();
-    updateMenuData(Dinner.getDishes());
+    updateMenuData();
     if (window.location.href.indexOf("#/dish/") > -1) {
       updateSelectedDishData();
     }
@@ -88,6 +91,10 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
 
   $scope.getNumberOfGuests = function() {
     return Dinner.getNumberOfGuests();
+  }
+
+  if (Dinner.noMealSelected === false) {
+    updateMenuData();
   }
 
 });
