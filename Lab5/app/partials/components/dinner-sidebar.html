@@ -14,8 +14,8 @@ this with Total price of the menu -->
     <div class="row">
       <div class="col-xs-6"><p>People: </p><p id="guestCount">{{getNumberOfGuests()}}</p></div>
       <div class="col-xs-6">
-        <div id="plusGuest" class="btnMe" ng-click="setNumberOfGuest( getNumberOfGuests() + 1 )"><p>+</p></div>
-        <div id="minusGuest" class="btnMe" ng-click="setNumberOfGuest( getNumberOfGuests() - 1 )"><p>-</p></div>
+        <div id="plusGuest" class="btnMe" ng-click="increaseNumberOfGuest()"><p>+</p></div>
+        <div id="minusGuest" class="btnMe" ng-click="decreaseNumberOfGuest()"><p>-</p></div>
       </div>
     </div>
 
@@ -35,13 +35,13 @@ this with Total price of the menu -->
 
         <div id="actual-meals123">
 
-          <div ng-hide="sidebar.noMealSelected">
-            <div ng-repeat="n in sidebar.mealLoopList" class="row">
+          <div ng-hide="object.sidebar.noMealSelected">
+            <div ng-repeat="n in object.sidebar.mealLoopList" class="row">
               <div class="col-xs-6">
-                <p class="dishes actual-dish-names{{n}}">{{sidebar.mealNames[n]}}...</p>
+                <p class="dishes actual-dish-names{{n}}">{{object.sidebar.mealNames[n]}}...</p>
               </div>
               <div class="col-xs-6">
-                <p class="prices actual-dish-cost{{n}}">{{sidebar.menuPrice[n]}}</p>
+                <p class="prices actual-dish-cost{{n}}">{{object.sidebar.menuPrice[n]}}</p>
               </div>
             </div>
 
@@ -50,7 +50,7 @@ this with Total price of the menu -->
                 <p class="dishes">Total Cost</p>
               </div>
               <div class="col-xs-6">
-                <p class="prices total-cost actual-dish-totalCost">{{sidebar.totalMenuPrice}}</p>
+                <p class="prices total-cost actual-dish-totalCost">{{object.sidebar.totalMenuPrice}}</p>
               </div>
             </div>
           </div>

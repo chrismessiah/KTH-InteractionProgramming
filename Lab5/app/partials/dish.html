@@ -1,48 +1,47 @@
 <!-- We include the sidebar as it is shared across two screens. -->
-<!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include> -->
 
 <!-- TODO in Lab 5: Display the dish information including image, Description,
 Instructions, Ingredients and total cost. -->
 
 
 <div class="container-fluid bg">
-  <div class="row firstrow">
+  <div class="row firstrow" ng-controller="DishCtrl">
     <div class="col-xs-2 anti-padding">
-      <div ng-include="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></div>
+      <div ng-include="'partials/components/dinner-sidebar.html'"></div>
     </div>
 
     <div class="col-xs-10">
       <div class="row">
-        <div ng-include="'partials/search-bar.html'" ng-controller="SearchCtrl"></div>
+        <div ng-include="'partials/components/search-bar.html'" ng-controller="SearchCtrl"></div>
 
         <!-- meal goes here -->
-        <div id="selected-meal-container" ng-controller="DishCtrl">
+        <div id="selected-meal-container" ng-init="getDishFromAPI()">
           <div id="selected-meal-container">
             <div class="col-xs-6 selected-meal-one">
-              <p class="meal-title">{{dish.mealTitle}}</p>
-              <div class="meal-img" style="background-image: url('{{dish.photoURL}}')"></div>
-              <p class="meal-desc meal-desc2">{{dish.mealDescription}}</p>
+              <p class="meal-title">{{object.dish.mealTitle}}</p>
+              <div class="meal-img" style="background-image: url('{{object.dish.photoURL}}')"></div>
+              <p class="meal-desc meal-desc2">{{object.dish.mealDescription}}</p>
               <div class="center">
                 <a href="#/search">
                   <button class="selected-meal-button btnMe wide-button back-button1">Back</button>
                 </a>
               </div>
               <p class="meal-title2">Preparation</p>
-              <p class="meal-desc cook">{{dish.mealInstructions}}</p>
+              <p class="meal-desc cook">{{object.dish.mealInstructions}}</p>
             </div>
             <div class="col-xs-6">
               <div class="row ingredients-container">
                 <div class="center">
-                  <p class="top-desc">Ingredient for {{dish.amountOfGuests}} people</p>
+                  <p class="top-desc">Ingredient for {{getNumberOfGuests()}} people</p>
                   <div class="separator"></div>
                 </div>
 
                 <div id="insert-ingredients-here">
-                  <div ng-repeat="i in dish.ingredientListLooper" class="row">
-                    <div class="col-xs-2 pricen"><p>{{dish.roundedQuantityList[i]}} {{dish.ingredientList[i]['MetricUnit']}}</p></div>
-                    <div class="col-xs-6"><p>{{dish.ingredientList[i]['Name']}}</p></div>
+                  <div ng-repeat="i in object.dish.ingredientListLooper" class="row">
+                    <div class="col-xs-2 pricen"><p>{{object.dish.roundedQuantityList[i]}} {{object.dish.ingredientList[i]['MetricUnit']}}</p></div>
+                    <div class="col-xs-6"><p>{{object.dish.ingredientList[i]['Name']}}</p></div>
                     <div class="col-xs-1"><p>SEK</p></div>
-                    <div class="col-xs-1"><p>{{dish.amountOfGuests}}</p></div>
+                    <div class="col-xs-1"><p>{{getNumberOfGuests()}}</p></div>
                   </div>
                 </div>
 
@@ -55,7 +54,7 @@ Instructions, Ingredients and total cost. -->
                     <button class="selected-meal-button2 btnMe wide-button" ng-click="addDishToMenu()">Confirm</button>
                   </div>
                   <div class="col-xs-1 a-bit-down"><p>SEK</p></div>
-                  <div class="col-xs-1 a-bit-down totalpris123"><p>{{dish.totalPrice}}</p></div> <!-- kanske ska bort? -->
+                  <div class="col-xs-1 a-bit-down totalpris123"><p>{{object.dish.totalPrice}}</p></div> <!-- kanske ska bort? -->
                 </div>
               </div>
             </div>
