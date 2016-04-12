@@ -2,6 +2,8 @@
 // information for one dish
 dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, $sce) {
   // TODO in Lab 5: you need to get the dish according to the routing parameter
+  $scope.dish = {};
+
   var dishId = $routeParams.dishId;
   var res, meal, generatedHTML;
 
@@ -9,20 +11,10 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
     Dinner.addDish(meal);
   }
 
-  $scope.$watch(
-    function($scope) {return $scope.ingredientHTML;},
-    function(newValue, oldValue) {
-      var elem = document.getElementById("insert-ingredients-here");
-      if (elem) {elem.innerHTML = newValue;}
-    }
-  );
-
-  var headScope = $scope;
-
   var callback = function functionName() {
     var htmlStr = makeHTMLForDish();
     var htmlStrObj = $sce.trustAsHtml(htmlStr);
-    headScope.mealObj = htmlStrObj;
+    $scope.dish.mealObj = htmlStrObj;
   };
   var callbackOnError = function() {
     swal("Some error occured!")
@@ -30,37 +22,33 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
 
   var makeHTMLForDish = function() {
     amountOfGuests = Dinner.getNumberOfGuests();
-    toAppend = '';
-    headScope.mealTitle = meal["Title"];
-    headScope.photoURL = meal["HeroPhotoUrl"];
+    $scope.dish.mealTitle = meal["Title"];
+    $scope.dish.photoURL = meal["HeroPhotoUrl"];
 
-    if (meal["Description"] != "") {headScope.mealDescription = meal["Description"];}
+    if (meal["Description"] != "") {$scope.dish.mealDescription = meal["Description"];}
 
     if (meal["Instructions"] === "") {
-      headScope.mealInstructions = "No description was given";
+      $scope.dish.mealInstructions = "No description was given";
     } else {
-      headScope.mealInstructions = meal["Instructions"];
+      $scope.dish.mealInstructions = meal["Instructions"];
     }
 
-    headScope.amountOfGuests = amountOfGuests;
+    $scope.dish.amountOfGuests = amountOfGuests;
 
     var ingredientList = meal['Ingredients'];
-    var ingredient = '';
+    $scope.dish.ingredientList = ingredientList;
+    var loopList = [];
+    for (var i = 0; i < ingredientList.length; i++) {loopList.push(i);}
+    $scope.dish.ingredientListLooper = loopList;
+
     var totalPrice = 0;
+    var roundedQuantityList = []
     for (var i = 0; i < ingredientList.length; i++) {
-      ingredient = ingredientList[i]
-      toAppend = toAppend + '<div class="row">';
-        toAppend = toAppend + '<div class="col-xs-2 pricen"><p>' + (Math.round(ingredient['MetricQuantity']*amountOfGuests*100))/100 + ' ' + ingredient['MetricUnit'] + '</p></div>';
-        toAppend = toAppend + '<div class="col-xs-6"><p>' + ingredient['Name'] + '</p></div>';
-        toAppend = toAppend + '<div class="col-xs-1"><p>SEK</p></div>';
-
-        toAppend = toAppend + '<div class="col-xs-1"><p>' + 1*amountOfGuests + '</p></div>';
-      toAppend = toAppend + '</div>';
-      totalPrice += 1*amountOfGuests;
+      roundedQuantityList.push((Math.round(ingredientList[i]['MetricQuantity']*amountOfGuests*100))/100);
+      totalPrice += amountOfGuests;
     }
-
-    headScope.ingredientHTML = toAppend;
-    headScope.totalPrice = totalPrice;
+    $scope.dish.roundedQuantityList = roundedQuantityList;
+    $scope.dish.totalPrice = totalPrice;
   };
   meal = Dinner.Dish.get({id: dishId}, callback, callbackOnError);
 
