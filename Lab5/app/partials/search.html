@@ -1,5 +1,4 @@
 <!-- We include the sidebar as it is shared across two screens. -->
-<!-- <ng-include src="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></ng-include> -->
 
 <!-- TODO in Lab 5: Display the input box for search (you can ignore the type dropdown since BigOven does
 not support it in free version) and list all the dishes that match the search. -->
@@ -7,15 +6,30 @@ not support it in free version) and list all the dishes that match the search. -
 <div class="container-fluid bg">
   <div class="row firstrow">
     <div class="col-xs-2 anti-padding">
-        <div ng-include="'partials/dinner-sidebar.html'" ng-controller="DinnerCtrl"></div>
+      <div ng-include="'partials/components/dinner-sidebar.html'" ng-controller="DishCtrl"></div>
     </div>
 
     <div class="col-xs-10">
-    <div class="row">
-        <div ng-include="'partials/search-bar.html'" ng-controller="SearchCtrl"></div>
+    <div class="row" ng-controller="SearchCtrl">
+        <div ng-include="'partials/components/search-bar.html'"></div>
 
-        <div id="meal-container" ng-controller="SearchCtrl"></div>
-
+        <div id="meal-container">
+          <div ng-repeat="index in search.loopArray" class="row">
+            <div ng-repeat="dish in search.fixedMealArray[index]" class="col-md-2 one-meal">
+              <!-- another ng-repeat here with 6 tops meals -->
+              <a ng-href="#/dish/{{dish['RecipeID']}}">
+              <div id="{{dish['RecipeID']}}">
+              <div class="meal-pic {{'a' + dish['RecipeID']}}"></div>
+              <div class="meal-name-box"><div class="center">
+              <p class="text-center black">{{dish["Title"]}}</p>
+              </div></div>
+              <style>
+              .{{'a' + dish['RecipeID']}} {background-image: url("{{dish['HeroPhotoUrl']}}");}
+              </style></div>
+              </a>
+            </div>
+          </div>
+        </div>
     </div>
 
 

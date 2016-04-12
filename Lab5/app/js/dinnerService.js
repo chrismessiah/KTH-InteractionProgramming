@@ -11,6 +11,51 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   var numberOfGuest = 2
   var totalCost = 0;
 
+  this.noMealSelected = true;
+
+  var chosenDishes = [];
+  this.menuPrice = [];
+  this.totalMenuPrice = 0;
+
+  this.updatePrices = function() {
+    this.menuPrice = [];
+    this.totalMenuPrice = 0;
+    var mealPrice;
+    for (var i = 0; i < chosenDishes.length; i++) {
+      mealPrice = this.getTotalDishPrice(chosenDishes[i]);
+      mealPrice = mealPrice*numberOfGuest
+      this.menuPrice.push(mealPrice);
+      this.totalMenuPrice += mealPrice;
+    }
+  }
+
+  this.getTotalDishPrice = function(mealObject) {
+    var total_price = 0;
+    var ingredients = mealObject["Ingredients"];
+    for (var i = 0; i < ingredients.length; i++) {total_price += 1;}
+    return total_price;
+  };
+
+  this.addDish = function(mealObj) {
+    chosenDishes.push(mealObj);
+    this.updatePrices();
+  }
+
+  this.getDishes = function() {
+    return chosenDishes;
+  }
+
+  this.removeDish = function(mealId) {
+    var newList = [];
+    chosenDishes.push(mealObj);
+    for (var i = 0; i < chosenDishes.length; i++) {
+      if (chosenDishes[i]["RecipeID"] !== mealId) {
+        newList.push(chosenDishes[i]);
+      }
+    }
+    chosenDishes = newList;
+  }
+
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1, rpp:25, api_key:this.apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:this.apiKey});
 
@@ -18,9 +63,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   this.idResult = null;
 
   this.setNumberOfGuests = function(num) {
-    if (num >= 0) {
-      numberOfGuest = num;
-    }
+    if (num >= 0) {numberOfGuest = num;}
+    this.updatePrices();
   }
 
   this.getNumberOfGuests = function() {

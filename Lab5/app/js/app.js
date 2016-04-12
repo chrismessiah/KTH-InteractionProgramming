@@ -43,22 +43,23 @@ dinnerPlannerApp.config(['$routeProvider',
       }).
       when('/search', {
         templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl',
+        //controller: 'SearchCtrl',
         css: ['css/search.css', 'css/side-bar.css', 'css/search-bar.css', 'css/header-footer.css']
       }).
       when('/overview', {
         templateUrl: 'partials/overview.html',
-        controller: 'DinnerCtrl',
+        //controller: 'DinnerCtrl',
         css: ['css/overview.css', 'css/header-footer.css']
       }).
       when('/final', {
         templateUrl: 'partials/final.html',
-        controller: 'DinnerCtrl',
+        //controller: 'DinnerCtrl',
         css: ['css/final.css', 'css/header-footer.css']
       }).
       when('/dish/:dishId', {
         templateUrl: 'partials/dish.html',
-        controller: 'DishCtrl'
+        //controller: 'DishCtrl',
+        css: ['css/header-footer.css', 'css/side-bar.css', 'css/search-bar.css', 'css/dish.css']
       }).
 
       // TODO in Lab 5: add more conditions for the last two screens (overview and preparation)
