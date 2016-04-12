@@ -30,9 +30,36 @@ this with Total price of the menu -->
           </div>
         </div>
 
+
+
+
         <div id="actual-meals123">
-          <!-- append all meals here -->
+
+          <div ng-hide="sidebar.noMealSelected">
+            <div ng-repeat="n in sidebar.mealLoopList" class="row">
+              <div class="col-xs-6">
+                <p class="dishes actual-dish-names{{n}}">{{sidebar.mealNames[n]}}...</p>
+              </div>
+              <div class="col-xs-6">
+                <p class="prices actual-dish-cost{{n}}">{{sidebar.menuPrice[n]}}</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                <p class="dishes">Total Cost</p>
+              </div>
+              <div class="col-xs-6">
+                <p class="prices total-cost actual-dish-totalCost">{{sidebar.totalMenuPrice}}</p>
+              </div>
+            </div>
+          </div>
+
+
         </div>
+
+
+
       </div>
     </div>
   </div>

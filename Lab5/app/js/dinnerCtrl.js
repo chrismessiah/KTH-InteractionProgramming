@@ -2,17 +2,26 @@
 // display or modify the dinner menu
 dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
 
+  $scope.sidebar = {}
+  $scope.sidebar.noMealSelected = true;
 
   var generateHTML = function(newValue) {
-    toAppend = "";
+    var mealLoopList = [];
+    var mealNames = [];
     for (var i = 0; i < newValue.length; i++) {
-      toAppend = toAppend + '<div class="row"><div class="col-xs-6"><p class="dishes actual-dish-names' + i + '">' + newValue[i]["Title"].substring(0,30) + '...</p>';
-      toAppend = toAppend + '</div><div class="col-xs-6"><p class="prices actual-dish-cost' + i + '">' + Dinner.menuPrice[i] + '</p></div></div>';
+      mealLoopList.push(i)
+      mealNames.push(newValue[i]["Title"].substring(0,30));
     }
-    if (toAppend != "") {
-      toAppend = toAppend + '<div class="row"><div class="col-xs-6"><p class="dishes">Total Cost</p></div><div class="col-xs-6"><p class="prices total-cost actual-dish-totalCost">' + Dinner.totalMenuPrice + '</p></div></div>';
+    if (mealLoopList.length === 0) {
+      $scope.sidebar.noMealSelected = true;
+    } else {
+      $scope.sidebar.mealLoopList = mealLoopList;
+      $scope.sidebar.mealNames = mealNames;
+      $scope.sidebar.menuPrice = Dinner.menuPrice;
+      $scope.sidebar.totalMenuPrice = Dinner.totalMenuPrice;
+      $scope.sidebar.noMealSelected = false;
     }
-    return toAppend;
+    return "";
   }
 
   $scope.$watch(
@@ -24,14 +33,14 @@ dinnerPlannerApp.controller('DinnerCtrl', function ($scope,Dinner) {
           div.innerHTML = "<!-- No meals yet! -->";
         } else {
           var html = generateHTML(newValue)
-          div.innerHTML = html;
+          // div.innerHTML = html;
         }
       }
     }
   , true);
 
   // NEWVALUE IS A DIGIT NOW!
-  
+
   // $scope.$watch(
   //   function() {return Dinner.getNumberOfGuests()},
   //   function(newValue, oldValue) {
