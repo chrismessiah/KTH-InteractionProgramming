@@ -1,24 +1,49 @@
-<div class="container-fluid bg">
- <div class="row underhead">
-   <div class="col-xs-2"><p id="line1">My Dinner: {{getNumberOfGuests()}} people</p></div>
-   <div class="col-xs-9"></div>
-   <div class="col-xs-1">
-      <a href="#/search">
-        <button class="backButton btnMe" id="backKnapp444">Go back</button>
-      </a>
+<div class="container-fluid bg" ng-controller="DishCtrl">
+   <div class="row underhead" ng-init="generateOverviewStructures()">
+      <div class="col-xs-2"><p id="line1">My Dinner: {{getNumberOfGuests()}} people</p></div>
+      <div class="col-xs-9"></div>
+      <div class="col-xs-1">
+         <a href="#/search">
+            <button class="backButton btnMe" id="backKnapp444">Go back</button>
+         </a>
+      </div>
    </div>
- </div>
 
    <div id="matkontainer">
-     <div id="insert-matkontainer-here"></div>
+      <div id="insert-matkontainer-here">
+         <!-- put ng-repeat here -->
+
+
+         <div class="row" ng-repeat="index in object.overview.loopArray">
+            <div ng-repeat="dish in object.overview.fixedMealArray[index]">
+
+               <div id="a{{dish[0]['RecipeID']}}" class="col-xs-2 one-meal one-meal-overview" ng-click="deleteMealFromOverview($event)">
+                  <div class="remove-icon a{{dish[0]['RecipeID']}}"></div>
+                  <div class="meal-pic b{{dish[0]['RecipeID']}} blur-this"></div>
+                  <div class="meal-name-box blur-this">
+                     <div class="center a{{dish[0]['RecipeID']}}">
+                        <p class="text-center black">{{dish[0]["Title"]}}</p>
+                     </div>
+                  </div>
+                  <p class="pricetag">Price: {{dish[1]}} SEK</p>
+               </div>
+
+               <style>
+               .b{{dish[0]["RecipeID"]}} {background-image: url("{{dish[0]['HeroPhotoUrl']}}");}
+               </style>
+            </div>
+
+         </div>
+
+      </div>
    </div>
 
- <div class="row addColorToMe">
-   <center>
-     <p class="black superman" id="pris123432">Total Cost: {{getTotalCost()}}</p>
-     <a href="#/final">
-        <button class="btnMe btnMe2" id="printKnapp11">Print</button>
-     </a>
-   </center>
- </div>
+   <div class="row addColorToMe">
+      <center>
+         <p class="black superman" id="pris123432">Total Cost: {{object.sidebar.totalMenuPrice}}</p>
+         <a href="#/final">
+            <button class="btnMe btnMe2" id="printKnapp11">Print</button>
+         </a>
+      </center>
+   </div>
 </div>

@@ -1,5 +1,5 @@
 .one-meal-overview > .remove-icon {
- background-image: url("./images/icons/delete-button.png");
+ background-image: url("./../images/delete-button.png");
  background-size: 35px 35px;
  width: 35px;
  height: 35px;

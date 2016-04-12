@@ -1,5 +1,5 @@
 
-dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, $sce) {
+dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, $sce, $window) {
   $scope.object = {};
   $scope.object.dish = {};
   $scope.object.sidebar = {};
@@ -7,6 +7,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   $scope.object.numberOfGuests = Dinner.getNumberOfGuests();
   $scope.object.getTotalCost = Dinner.getTotalCost;
   $scope.object.navbar = {};
+  $scope.object.overview = {};
 
   var meal;
 
@@ -49,8 +50,12 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   };
 
   $scope.addDishToMenu = function() {
-    Dinner.addDish(meal);
-    updateMenuData();
+    if (Dinner.dishSelected(meal["RecipeID"])) {
+      swal("Meal already selected!")
+    } else {
+      Dinner.addDish(meal);
+      updateMenuData();
+    }
   };
 
   var updateMenuData = function() {
@@ -93,6 +98,48 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
 
   $scope.getNumberOfGuests = function() {
     return Dinner.getNumberOfGuests();
+  }
+
+  $scope.generateOverviewStructures = function() {
+    var results = Dinner.getDishes();
+
+    if (results.length === 0) {
+      swal("No meals left, returning to meal selection.")
+      $window.location.href = '#/search';
+    }
+
+    var temp = results.length;
+    while (temp % 6 !== 0) {temp += 1}
+    var rows = temp / 6;
+    var loopArray = [];
+    for (var i = 0; i < rows; i++) {loopArray.push(i);}
+    $scope.object.overview.loopArray = loopArray;
+
+    var priceList = Dinner.menuPrice;
+    var tempResults = results.slice();
+    var tempMeal;
+    var tempArray = [];
+    var counter = 0;
+    var fixedMealArray = [];
+    for (var i = 0; i < results.length; i++) {
+      if (counter === 0) {tempArray = [];}
+      tempMeal = tempResults.shift();
+      tempArray.push([tempMeal, priceList[i]]);
+      counter += 1;
+      if (counter === 6) {counter = 0; fixedMealArray.push(tempArray);}
+    }
+    if (counter !== 0) {counter = 0; fixedMealArray.push(tempArray);}
+    $scope.object.overview.fixedMealArray = fixedMealArray;
+  }
+
+  var deleteMeal = function(id) {
+    Dinner.removeDish(id);
+    $scope.generateOverviewStructures();
+  }
+
+  $scope.deleteMealFromOverview = function($event){
+    var mealId = $event.target.className.split(" ")[1].substring(1);
+    deleteMeal(mealId);
   }
 
   if (Dinner.noMealSelected === false) {
