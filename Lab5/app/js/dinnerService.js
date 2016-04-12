@@ -8,6 +8,8 @@ dinnerPlannerApp.factory('Dinner',function ($resource) {
   //this.apiKey = "0OV23011kU7B3VVVgxTTTIfdNXeTI3us"
   //this.apiKey = "66J8l00npnHHZcCNLRhxkfW1OHxbojy4"
 
+  this.searchResponse = null;
+
   var numberOfGuest = 2
   var totalCost = 0;
 
