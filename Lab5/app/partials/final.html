@@ -1,15 +1,43 @@
-<div class="container-fluid bg">
-  <div class="page-head"></div>
-
+<div class="container-fluid bg" ng-controller="DishCtrl" ng-init="generateFinalViewStructures()">
   <div class="row underhead">
-    <div class="col-xs-2"><p id="line2"></p></div>
+    <div class="col-xs-2"><p id="line2">My Dinner: {{getNumberOfGuests()}} people</p></div>
     <div class="col-xs-9"></div>
     <div class="col-xs-1">
-      <button class="backButton btnMe" id="backotknaoo234">Go back</button>
+      <a href="#/overview">
+        <button class="backButton btnMe" id="backotknaoo234">Go back</button>
+      </a>
     </div>
   </div>
 
-  <div id="food-container"></div>
+  <div id="food-container">
 
-  <div class="page-foot"></div>
+    <div class="row matrad" ng-repeat="container in object.final.looperList">
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="geeeethdown">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-3 bild a{{container[0]['RecipeID']}}"></div>
+            <div class="col-xs-1"></div>
+            <style>.a{{container[0]['RecipeID']}} {background-image: url("{{container[0]['HeroPhotoUrl']}}");}</style>
+            <div class="col-xs-7 text">
+              <p class="black geeeethdown-title">{{container[0]["Title"]}}</p>
+              <p class="black">{{container[1]}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="geeeethdown">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10">
+              <p class="geeeethdown-title black">Preparation</p>
+              <p class="black">{{container[2]}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

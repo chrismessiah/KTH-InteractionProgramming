@@ -8,6 +8,7 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   $scope.object.getTotalCost = Dinner.getTotalCost;
   $scope.object.navbar = {};
   $scope.object.overview = {};
+  $scope.object.final = {};
 
   var meal;
 
@@ -140,6 +141,24 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   $scope.deleteMealFromOverview = function($event){
     var mealId = $event.target.className.split(" ")[1].substring(1);
     deleteMeal(mealId);
+  }
+
+  $scope.generateFinalViewStructures = function() {
+    var mealList = Dinner.getDishes();
+    var meal, mealInstruc, mealDesc;
+    var looperList = [];
+
+    for (var i = 0; i < mealList.length; i++) {
+      meal = mealList[i];
+      mealDesc = "No description was given.";
+      if (meal["Description"] != "") {mealDesc = meal["Description"];}
+
+      mealInstruc = "No instruction was given.";
+      if (meal["Instructions"] != "") {mealInstruc = meal["Instructions"];}
+
+      looperList.push([meal, mealDesc, mealInstruc]);
+    }
+    $scope.object.final.looperList = looperList;
   }
 
   if (Dinner.noMealSelected === false) {
