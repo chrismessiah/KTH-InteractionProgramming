@@ -4,11 +4,17 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   $scope.object.dish = {};
   $scope.object.sidebar = {};
   $scope.object.sidebar.noMealSelected = Dinner.noMealSelected;
+  $scope.object.sidebar.updateNoMealSelected = Dinner.updateNoMealSelected;
   $scope.object.numberOfGuests = Dinner.getNumberOfGuests();
   $scope.object.getTotalCost = Dinner.getTotalCost;
   $scope.object.navbar = {};
   $scope.object.overview = {};
   $scope.object.final = {};
+
+  $scope.$watch(
+    function() {return Dinner.getDishes();},
+    function() {updateMenuData();},
+    true)
 
   var meal;
 
@@ -62,8 +68,8 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   var updateMenuData = function() {
     var newDishes = Dinner.getDishes();
     if (newDishes.length === 0) {
-      $scope.object.sidebar.noMealSelected = true;
-      Dinner.noMealSelected = true;
+      $scope.object.sidebar.updateNoMealSelected(true);
+      Dinner.updateNoMealSelected(true);
     } else {
       var mealLoopList = [];
       var mealNames = [];
@@ -75,8 +81,8 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
       $scope.object.sidebar.mealNames = mealNames;
       $scope.object.sidebar.menuPrice = Dinner.menuPrice;
       $scope.object.sidebar.totalMenuPrice = Dinner.totalMenuPrice;
-      $scope.object.sidebar.noMealSelected = false;
-      Dinner.noMealSelected = false;
+      $scope.object.sidebar.updateNoMealSelected(false);
+      Dinner.updateNoMealSelected(false);
     }
   };
 
