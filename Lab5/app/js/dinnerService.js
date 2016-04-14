@@ -11,13 +11,12 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
   this.DishSearch = $resource('http://api.bigoven.com/recipes',{pg:1, rpp:25, api_key:this.apiKey});
   this.Dish = $resource('http://api.bigoven.com/recipe/:id',{api_key:this.apiKey});
 
-
   this.searchResponse = null;
   var cookieArray = [
-    ["numberOfGuest", 2], // model-update
-    ["noMealSelected", true], // model-update
-    ["menuPrice", []], // model-update
-    ["totalMenuPrice", 0], // model-update
+    ["numberOfGuest", 2],
+    ["noMealSelected", true],
+    ["menuPrice", []],
+    ["totalMenuPrice", 0],
   ];
   var valueArray = [];
   for (var i = 0; i < cookieArray.length; i++) {
@@ -44,7 +43,7 @@ dinnerPlannerApp.factory('Dinner',function ($resource, $cookieStore) {
         function() {
           if (apiIndex === idArray.length - 1) {chosenDishes = resArray}
           apiIndex += 1;
-        }, function() {swal("Some error occured!");}));
+        }, function() {swal("Some error occured during cookie import!!");}));
     }
   }
 

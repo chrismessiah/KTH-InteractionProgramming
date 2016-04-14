@@ -107,13 +107,16 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
     return Dinner.getNumberOfGuests();
   }
 
-  $scope.generateOverviewStructures = function() {
-    var results = Dinner.getDishes();
-
+  $scope.checkIfMenuIsEmpty = function(results, redirect) {
     if (results.length === 0) {
       swal("No meals left, returning to meal selection.")
-      $window.location.href = '#/search';
+      $window.location.href = redirect;
     }
+  }
+
+  $scope.generateOverviewStructures = function() {
+    var results = Dinner.getDishes();
+    this.checkIfMenuIsEmpty(results,'#/search')
 
     var temp = results.length;
     while (temp % 6 !== 0) {temp += 1}
@@ -150,6 +153,8 @@ dinnerPlannerApp.controller('DishCtrl', function ($scope, $routeParams, Dinner, 
   }
 
   $scope.generateFinalViewStructures = function() {
+    var results = Dinner.getDishes();
+    this.checkIfMenuIsEmpty(results, '#/search');
     var mealList = Dinner.getDishes();
     var meal, mealInstruc, mealDesc;
     var looperList = [];
